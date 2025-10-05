@@ -1187,37 +1187,6 @@ h3 {
 
 
 
-.dialogue-block {
-  max-width: 650px;
-  margin: 1.5rem auto;
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: left;
-
-}
-
-.dialogue-block h4 {
-  margin-top: 0;
-  border-bottom: 2px solid;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  font-family: var(--font-family-headings);
-  font-weight: 300;
-}
-
-
-.dialogue-block.approach {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-left: 5px solid var(--color-foreground);
-}
-
-
-.dialogue-block.feedback {
-  background-color: rgba(255, 247, 92, 0.2);
-  border-left: 5px solid var(--color-highlight);
-}
-
-
 .simple-carousel {
   position: relative;
   width: 100%;
@@ -2396,11 +2365,35 @@ h3 {
  * === Sponsor me pls ==================================
  * ============================================================ */
 
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+.sponsor-ticker-wrap {
+    max-width: 70vw;  
+    margin: 0 auto;   
+    overflow: hidden;
+    padding: 2rem 0;
+    background-color: var(--color-background);
+    border-top: 1px solid #dee2e6;
+    margin-bottom: 2rem;
+}
+
 
 .sponsor-ticker {
     display: flex;
-    width: 100%
+    width: fit-content;
+    animation: ticker-scroll 40s linear infinite;
+}
 
+.sponsor-ticker-wrap:hover .sponsor-ticker {
+    animation-play-state: paused;
 }
 
 .sponsor-item {
@@ -2408,12 +2401,44 @@ h3 {
     width: 200px;
     margin: 0 2rem;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
 
 .sponsor-item img {
     max-width: 100%;
     height: auto;
-    max-height: 150px;
+    max-height: 100px;
+}
+
+/* ===============================================================
+ * === Footer Socials ============================================
+ * =============================================================== */
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 0.5rem 1.5rem; 
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6; 
+    font-family: var(--font-family-body);
+}
+
+.footer-socials a {
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--color-foreground);
+    text-decoration: underline;
+}
+
+.footer-socials strong {
+    color: var(--color-foreground);
+    margin-right: -0.5rem; 
 }
