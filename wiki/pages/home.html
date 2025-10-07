@@ -274,14 +274,13 @@
 
           <div class="chart-row is-hero" data-value="55">
             <div class="chart-label">
-              <span class="retailer">Cultivated Meat</span>
+              <span class="retailer">Cultivated Meat [1]</span>
               <span class="cut">Current Best Estimate</span>
             </div>
             <div class="chart-bar-container">
               <div class="chart-bar">
                 <span class="price">~£55</span>
               </div>
-            </div>
           </div>
 
         </div>
@@ -339,36 +338,45 @@
 
 
   <div class="feature-grid stagger-children animate-on-scroll" style="margin-top: -6vw;">
-    <div class="feature-card">
-      <div>
-        <img src="https://static.igem.wiki/teams/5916/assets/icons/sustainability-icons.webp" alt="Sustainable Icon"
-          class="feature-icon">
-        <h3 class="feature-title" style="color: #8AFF7B;">SUSTAINABLE & OPEN</h3>
-        <p style="text-align: left; color: white;">Enabling open-source, UK-based bio-manufacturing, & supporting Net Zero targets across the food and health sector.</p>
-      </div>
-      <a href="{{ url_for('pages', page='sustainability') }}" class="feature-link">Learn More →</a>
+  <div class="feature-card">
+    <div>
+      <img src="https://static.igem.wiki/teams/5916/assets/icons/sustainability-icons.webp" alt="Sustainable Icon"
+        class="feature-icon">
+      <h3 class="feature-title" style="color: #8AFF7B;">SUSTAINABLE & OPEN</h3>
+      <p style="text-align: left; color: white;">Enabling open-source, UK-based bio-manufacturing, & supporting Net Zero targets across the food and health sector.</p>
     </div>
+    <a href="{{ url_for('pages', page='sustainability') }}" class="feature-link">Learn More →</a>
+  </div>
 
-    <div class="feature-card stagger-down">
-      <div>
-        <img src="https://static.igem.wiki/teams/5916/assets/icons/low-costs-icons.webp" alt="Low Cost Icon"
-          class="feature-icon">
-        <h3 class="feature-title" style="color: #8AFF7B;">LOW COST & SCALABLE</h3>
-        <p style="text-align: left; color: white;">Slashing the main contributor to cultivated meat production costs by 80% through
-          our improved engineered
-          strain.</p>
-      </div>
-      <a href="{{ url_for('pages', page='engineering') }}" class="feature-link">Learn More →</a>
+  <div class="feature-card stagger-down">
+    <div>
+      <img src="https://static.igem.wiki/teams/5916/assets/icons/low-costs-icons.webp" alt="Low Cost Icon"
+        class="feature-icon">
+      <h3 class="feature-title" style="color: #8AFF7B;">LOW COST & SCALABLE</h3>
+      <p style="text-align: left; color: white;">Slashing the main contributor to cultivated meat production costs by 80% through
+        our improved engineered
+        strain.</p>
     </div>
+    <a href="{{ url_for('pages', page='engineering') }}" class="feature-link">Learn More →</a>
+  </div>
 
-    <div class="feature-card">
-      <div>
-        <img src="https://static.igem.wiki/teams/5916/assets/icons/modular-icons.webp" alt="Modular Icon"
-          class="feature-icon">
-        <h3 class="feature-title" style="color: #8AFF7B;">MODULAR <br> SYSTEMS</h3>
-        <p style="text-align: left; color: white;">Perfected pattern, performance & adaptability engineered using synthetic biology.
-        </p>
-      </div>
+  <div class="feature-card">
+    <div>
+      <img src="https://static.igem.wiki/teams/5916/assets/icons/modular-icons.webp" alt="Modular Icon"
+        class="feature-icon">
+      <h3 class="feature-title" style="color: #8AFF7B;">MODULAR <br> SYSTEMS</h3>
+      <p style="text-align: left; color: white;">Perfected pattern, performance & adaptability engineered using synthetic biology.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Citation at the bottom of the page -->
+<div id="references" style="text-align: center; font-size: 0.8rem; color: #3c3b3b; margin-top: 2rem;">
+  <p id="ref1">
+    [1] Garrison, G. L., Biermacher, J. T. & Brorsen, B. W. (2022) ‘How much will large-scale production of cell-cultured meat cost?’, Journal of Agriculture and Food Research, 10, p. 100358. doi:10.1016/j.jafr.2022.100358.
+  </p>
+</div>
       <a href="{{ url_for('pages', page='engineering') }}" class="feature-link">Learn More →</a>
     </div>
   </div>
