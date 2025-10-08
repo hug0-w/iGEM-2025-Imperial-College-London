@@ -1,34 +1,757 @@
 {% extends "layout.html" %}
-  
+
 {% block title %}Contribution{% endblock %}
-{% block lead %}Make a useful contribution for future iGEM teams and document it on this page.{% endblock %}
+{% block lead %}{% endblock %}
+
+{% block scroll_nav %}
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px; top: 22vh;">
+  <span class="side-scroll-nav-label">On This Page</span>
+  <a class="span-lime-green" href="#scientific-contribution"><span>Scientific Contribution</span></a>
+  <a class="span-orange" href="#software-contributions"><span>Software Contributions (BioKernel)</span></a>
+  <a class="span-yellow" href="#educational-contributions"><span>Educational Contributions</span></a>
+  <a class="span-sky-blue" href="#hp-contributions"><span>Human Practices Contributions</span></a>
+</nav>
+{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Bronze Medal Criterion #3</h4>
-      <p>Make a useful contribution for future iGEM teams and document it on this page.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/medals">Medals page</a> for more information.</p>
+<!-- HERO BANNER -->
+<div class="education-hero dsp-banner"
+     style="background-image: url('https://static.igem.wiki/teams/5916/hp/ethics/handstog.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;">
+    <div class="education-hero-content-container">
+        <h1 class="text-glitch">Contribution</h1>
     </div>
-  </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <p>Teams must document their contribution and explain why their effort is a contribution to fellow iGEMers. There is no single definition of what a contribution should be. We invite teams to be creative and generous in the knowledge, data or tools they may provide to the community.</p>
-    <p>A few examples of contributions are:</p>
-    <ul>
-      <li>Creating a new BioBrick part or significantly improving an existing one in the iGEM Registry.</li>
-      <li>Developing software, tools, or resources that can considerably assist future iGEM teams.</li>
-      <li>Sharing optimized protocols, experimental techniques, or methodologies.</li>
-      <li>Any other contributions that provide a clear benefit to future iGEM teams.</li>
-    </ul>
-  </div>
+<!-- GENERAL PAGE STYLES -->
+<style>
+  .animate-text-scramble {
+    color: black !important; /* Base text black */
+  }
+
+  .span-orange span {
+    color: #171716 !important; /* Orange for the software link and section */
+  }
+
+  .page-section {
+    margin-left: 220px;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .side-scroll-nav {
+    font-size: 0.7rem;
+    width: 180px;
+    top: 22vh !important;
+  }
+  a[href*="notebooks"].link-underline strong {
+    color: var(--highlight-green-color, #000000) !important;
+    transition: color 0.25s ease-in-out;
+  }
+
+  a[href*="notebooks"].link-underline strong:hover {
+  text-shadow: 0 0 6px #8AFF7B;
+  }
+</style>
+
+<div class="spacer5"></div>
+<!-- ===================================== -->
+<!-- 1. SCIENTIFIC CONTRIBUTION -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="scientific-contribution">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">Scientific Contribution</span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Our work advances the iGEM community through
+    <strong>novel characterisation, data generation, and tool development</strong>
+    in <em>K. phaffii</em>, a chassis essential for both academic discovery and
+    industrial-scale protein production. Our contributions strengthen the open-source
+    foundation for yeast synthetic biology by connecting molecular characterisation,
+    data transparency, and computational optimisation in a unified framework.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We have characterised <strong>two previously unstudied genes</strong> central to
+    <em>K. phaffii</em>’s sugar metabolism and secretion pathway, developed reproducible
+    strain-provenance standards in collaboration with ChangeBio, registered multiple
+    <strong>new growth-factor expression constructs</strong> to the iGEM Registry,
+    produced validated laboratory protocols for yeast handling and transformation,
+    and released <strong>BioKernel</strong> — a no-code Bayesian optimisation tool
+    for synthetic biologists.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Together, these contributions empower future iGEM teams to engineer
+    <em>K. phaffii</em> more effectively, accelerate discovery cycles,
+    and increase the reproducibility and transparency of yeast-based projects.
+    Every construct, dataset, and workflow is documented in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+  </p>
 </div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 2. CHARACTERISATION OF HOC1 -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="hoc1-characterisation">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      1. Characterisation of Hoc1: fixing a blind spot in <em>K. phaffii</em> engineering
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We are the first iGEM team to <strong>attempt to characterise the <em>Hoc1</em> gene in <em>K. phaffii</em></strong>,
+    a key factor in recombinant protein secretion. The <em>Hoc1</em> gene encodes an
+    α-1,6-mannosyltransferase, an enzyme responsible for building the outer mannan layer
+    of the yeast cell wall. Despite its essential role in maintaining structural integrity,
+    <em>Hoc1</em> remains largely uncharacterised within industrially relevant protein-expression systems.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Through our work, we examined how <em>Hoc1</em> influences
+    <strong>exopolysaccharide (EPS) accumulation and downstream purification</strong>,
+    revealing a trade-off between secretion yield and cell-wall robustness.
+    Excess EPS increases viscosity and non-specific binding during purification,
+    while overly weakened walls compromise cell viability.
+    Our experimental assays sought to quantify this balance and
+    provide concrete optimisation guidance for future strain designs.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    These findings have practical implications for smoother purification workflows and
+    <strong>higher-yield, lower-cost expression systems</strong>,
+    particularly relevant to the cultivated meat and precision fermentation industries.
+    By opening a previously neglected part of the <em>K. phaffii</em> genome,
+    this work establishes a reference point for how modifying
+    cell-wall biosynthesis can directly impact protein production efficiency.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    All associated experimental data, design notes, and workflow documentation
+    are archived in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>,
+    allowing future iGEM teams to replicate and expand on our results.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 3. PMI CHARACTERISATION -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="pmi-characterisation">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      2. First documented characterisation of Phosphomannose Isomerase (PMI)
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    The enzyme <strong>Phosphomannose Isomerase (PMI)</strong> catalyses the reversible conversion between
+    fructose-6-phosphate and mannose-6-phosphate — a critical step in the GDP-mannose biosynthetic pathway.
+    In <em>K. phaffii</em>, this process governs the flow of carbon into mannose-based glycans, influencing
+    glycoprotein folding, secretion efficiency, and carbon-flux distribution.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Our work represents the first iGEM-level attempt to explore the consequences of
+    <strong>PMI down-regulation</strong> on yeast physiology. We designed and constructed homologous recombination
+    cassettes and guide RNAs to modulate PMI expression, aiming to redirect intracellular mannose pools
+    toward central metabolism. This could enhance energy availability and reduce EPS overproduction,
+    addressing two major bottlenecks in recombinant secretion systems.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    By studying these metabolic effects, we established a framework for linking sugar-pathway regulation
+    to protein-production performance. This contributes a <strong>systems-biology perspective</strong> to chassis design
+    and provides a foundation for future studies into flux balancing, glycosylation co-regulation,
+    and adaptive metabolic control.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Our data and constructs for PMI serve as the first open dataset connecting gene regulation
+    to secretion efficiency in <em>K. phaffii</em>, creating opportunities for future synthetic biologists
+    to refine energy use, improve yields, and streamline strain engineering.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 4. PROVENANCE TRACKING -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="provenance-tracking">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      3. Open provenance tracking of <em>K. phaffii</em> strains
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To promote transparency and reproducibility in yeast synthetic biology, we partnered with
+    <strong>ChangeBio</strong> to contribute practical validation data to their open-source
+    framework, <a href="https://github.com/Change-Bio/PhaffiiNet" target="_blank" class="link-underline">
+    <strong>PhaffiiNet</strong></a>. This platform applies the <strong>Strain Provenance Protocol (SPP)</strong>,
+    a standardised method for documenting and tracing every genetic modification, transfer,
+    and phenotype associated with a strain throughout its lifetime.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    While we did not originate the SPP standard or its underlying scripts, our work offers one of the first
+    practical <strong>validation case studies</strong> demonstrating how iGEM teams can integrate this system
+    into real laboratory workflows. By embedding provenance tracking into routine design–build–test–learn cycles,
+    we demonstrate how open documentation strengthens reproducibility and ethical transparency.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    iGEM repositories already host sequences and parts, but rarely track the <strong>evolution of strains</strong>.
+    With the growing scale of yeast engineering, ensuring version control for modified chassis has become a key
+    ethical and technical priority. Our contribution lays the foundation for making provenance tracking
+    a default part of strain management in academic and industrial projects.
+  </p>
+
+  <ul style="text-align: left; margin-left: 1.3rem; line-height: 1.6;">
+    <li>
+      <strong>Genesis Node with Whole Genome Sequence:</strong>
+      We submitted a reference <em>K. phaffii</em> genome, free from licensing restrictions,
+      as a “genesis node” within PhaffiiNet — the foundation from which future modifications can be traced.
+    </li>
+    <li>
+      <strong>Trusted, Fully Documented Origin:</strong>
+      The node establishes a transparent and open origin for a new strain lineage,
+      reducing duplication and enabling collaboration without IP barriers.
+    </li>
+    <li>
+      <strong>Living Example of Provenance Tracking:</strong>
+      Our characterisation of <em>Hoc1</em> was logged as a “Modification Event,” followed by a
+      “Snapshot Event” with phenotype data, serving as a concrete model of open genetic record-keeping.
+    </li>
+  </ul>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Through these steps, we are turning <em>K. phaffii</em> from an opaque workhorse into a
+    <strong>transparent, community-governed chassis</strong>.
+    This collaboration shows how open-science practices can be implemented at every layer of the
+    synthetic biology process — from construct design to strain validation.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    In the long term, incorporating provenance systems like PhaffiiNet into iGEM’s infrastructure
+    could allow for automated benchmarking of strain performance, transparent lineage tracking,
+    and community-driven improvement across projects.
+    Full records and our metadata entries are linked in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline"><strong>lab notebook</strong></a>.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 5. GROWTH FACTOR EXPRESSION CONSTRUCTS -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="growth-factors">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      4. Growth Factor Expression Constructs (HGF, IGF-1)
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To expand the iGEM Parts Registry with practical, validated tools, we designed and registered
+    <strong>two new expression constructs</strong> for human <strong>Hepatocyte Growth Factor (HGF)</strong> and
+    <strong>Insulin-like Growth Factor 1 (IGF-1)</strong>. These growth factors are central to
+    cellular-differentiation and tissue-development pathways, making them highly relevant to regenerative medicine,
+    tissue-engineering, and cultivated-meat research.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Each construct was assembled in a modular cloning framework that allows users to easily swap promoters,
+    signal peptides, and terminators. Designs were verified <em>in silico</em> for codon optimisation in
+    <em>K. phaffii</em> and annotated for cross-system compatibility. Using secretion tags and yeast-optimised
+    regulatory elements, the constructs provide a <strong>plug-and-play platform</strong> for rapid expression
+    of human growth factors in diverse biomanufacturing contexts.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    By combining engineering efficiency with transparent documentation, these additions deliver
+    <strong>biologically validated growth-factor parts</strong> that future iGEM teams can reuse without repeating
+    the entire design process. Each plasmid is accompanied by promoter strength, secretion pathway, and tag data
+    to ensure reproducibility and integration with other expression systems.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Collectively, these parts strengthen the <strong>open-source toolkit</strong> for recombinant protein production
+    in yeast, an essential step toward animal-free biomanufacturing. Detailed construct maps, sequences, and validation
+    notes are available in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>
+    for direct reference and reuse.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 6. NOVEL RBS & OPTIMISATION ELEMENTS -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="rbs-optimisation">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      5. Novel Ribosome Binding Sites (RBS) and Optimisation Elements
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To complement our yeast-based constructs, we developed and characterised a suite of
+    <strong>novel ribosome binding site (RBS) variants</strong> optimised for astaxanthin
+    biosynthesis in <em>E. coli</em>. These elements were generated through an
+    iterative computational–experimental workflow that balances translation efficiency
+    with pathway flux control, reducing the need for random library screening.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Our RBS variants were designed using thermodynamic folding models and subsequently
+    validated through controlled expression assays. The resulting library spans a wide
+    range of translation-initiation strengths, allowing users to fine-tune expression
+    ratios between pathway enzymes and maximise yield. All sequences and experimental
+    results are documented in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    These data were integrated into our <strong>BioKernel</strong> optimisation software
+    (see <a href="#software-contributions" class="link-underline"><strong>Software Contributions</strong></a>),
+    which uses Bayesian optimisation to recommend the next most informative experiment.
+    This synergy between computation and wet-lab testing provides an accessible model
+    for future iGEM teams aiming to implement machine-learning-guided design in biological contexts.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We encourage future iGEM projects to expand this dataset across organisms such as
+    <em>S. cerevisiae</em> and <em>K. phaffii</em>. Each RBS variant can be easily adapted
+    thanks to our modular design principles, contributing to an open, reusable framework
+    for quantitative expression control in synthetic biology.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 7. PROTOCOLS AND DOCUMENTATION -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="protocols-docs">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      6. Protocols and Documentation
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Throughout our project, we established and refined a complete set of
+    <strong>laboratory protocols for working with <em>K. phaffii</em></strong> — from
+    transformation and culture preparation to protein induction, purification, and analysis.
+    Each protocol was written, tested, and annotated to ensure clear reproducibility for future
+    iGEM teams regardless of resource availability.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To maintain consistency and accessibility, each procedure follows a defined structure:
+    <em>objective</em>, <em>materials</em>, <em>step-by-step protocol</em>,
+    <em>expected results</em>, and <em>validation notes</em>. Troubleshooting
+    advice, reagent concentrations, and equipment substitutions were carefully included
+    to accommodate teams with limited access to advanced facilities.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    All experimental records are linked to the corresponding part entries in the iGEM Registry,
+    ensuring that <strong>every construct can be traced from sequence to result</strong>.
+    This structure bridges the gap between wet-lab data and registry documentation, making
+    replication and verification seamless for future contributors.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    For transparency and open-science continuity, every validated protocol, dataset,
+    and experimental log is available in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+    There, readers can access downloadable versions, notes from optimisation rounds,
+    and direct cross-references to specific constructs or genes described in this page.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    These resources form a growing foundation for <strong>open-standard documentation</strong>
+    in yeast synthetic biology — helping future iGEM teams work faster, more efficiently,
+    and more reproducibly across global labs.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 8. PARTS TABLE -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="parts-table">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      7. Parts Table
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Below is a list of some of the genetic parts we designed, constructed, and registered.
+    Each part includes a description, context of use, and its novelty within iGEM.
+    All sequences are linked to experimental validation and are documented in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+  </p>
+
+  <div class="responsive-table-wrapper" style="overflow-x: auto; border: 1px solid #333; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+      <thead style="background-color: #222; color: white;">
+        <tr>
+          <th style="padding: 0.9rem; text-align: left;">Part Number</th>
+          <th style="padding: 0.9rem; text-align: left;">Description</th>
+          <th style="padding: 0.9rem; text-align: left;">Novelty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>BBa_2568346A</strong></td><td>Human Hepatocyte Growth Factor (HGF)</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25SSUL5P</strong></td><td>Human Insulin-like Growth Factor 1 (IGF-1)</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25ZW4AM1</strong></td><td>Rho1 (cell wall integrity protein)</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_252K9J5M</strong></td><td>Hoc1_WT – repaired α-1,6-mannosyltransferase</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25U23DSU</strong></td><td>PMI – Phosphomannose isomerase</td><td>Novel target across literature</td></tr>
+        <tr><td><strong>BBa_25JZ5VBE</strong></td><td>Human Epidermal Growth Factor (EGF)</td><td>Sequence and characterisation novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25NWR1C6</strong></td><td>Human Basic Fibroblast Growth Factor (bFGF)</td><td>Sequence and characterisation novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25T2YVX5</strong></td><td>HH-sgRNA-HDV – Hoc1_1</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_258F9S6S</strong></td><td>HH-sgRNA-HDV – Hoc1_2</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_259W70PH</strong></td><td>HH-sgRNA-HDV – Hoc1_3</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_251UBBD2</strong></td><td>HH-sgRNA-HDV – Hoc1_4</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25OC2EB6</strong></td><td>HH-sgRNA-HDV – Hoc1_5</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25CM6WPF</strong></td><td>HH-sgRNA-HDV – PMI_1</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25ED2DVL</strong></td><td>HH-sgRNA-HDV – PMI_2</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25Z492I3</strong></td><td>HH-sgRNA-HDV – PMI_3</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25HJH95K</strong></td><td>HH-sgRNA-HDV – PMI_4</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25RG7LQD</strong></td><td>HH-sgRNA-HDV – PMI_5</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25NOIYHP</strong></td><td>Homologous recombination cassette for Hoc1 repair/down-regulation (Nat selection)</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25UAJ5Z2</strong></td><td>Homologous recombination cassette for Hoc1 repair (Nat selection)</td><td>Novel to iGEM</td></tr>
+        <tr><td><strong>BBa_25OG75BV</strong></td><td>Homologous recombination cassette for PMI down-regulation (Nat selection)</td><td>Novel to iGEM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Together, these parts represent a toolkit designed to improve protein secretion, enhance metabolic balance,
+    and strengthen open-source collaboration in yeast synthetic biology.
+    Each construct’s validation data and full procedural notes can be found in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 9. SOFTWARE CONTRIBUTIONS – BIOKERNEL -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="software-contributions">
+  <h2 style="text-align: left;">
+    <span class="span-orange animate-text-scramble">
+      Software Contributions – BioKernel
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Addressing the challenge of optimising biological systems under limited experimental capacity,
+    we created <strong>BioKernel</strong> — a <strong>no-code software platform</strong> that uses
+    <em>Bayesian optimisation</em> to intelligently suggest the next most informative experiment.
+    It enables teams to navigate complex design spaces while saving time, reagents, and effort.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Unlike conventional optimisation tools, BioKernel models <strong>non-constant measurement uncertainty</strong>,
+    allowing it to handle the high variability typical of biological experiments. It translates advanced
+    statistical concepts into a <strong>visual, intuitive interface</strong> designed specifically for
+    synthetic biologists with little or no coding experience.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    The platform follows the <strong>Design–Build–Test–Learn (DBTL)</strong> workflow:
+  </p>
+
+  <ul style="text-align: left; margin-left: 1.3rem; margin-bottom: 1.5rem; line-height: 1.6;">
+    <li><strong>Design:</strong> Users input experimental parameters, objectives, and constraints (e.g., promoter strength, enzyme ratio, media composition).</li>
+    <li><strong>Build & Test:</strong> BioKernel recommends experiments that maximise information gain based on its probabilistic model.</li>
+    <li><strong>Learn:</strong> New results update the model in real time, refining predictions and improving accuracy for subsequent runs.</li>
+  </ul>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    This adaptive loop <strong>maximises learning per experiment</strong>, allowing teams to extract maximum insight
+    from limited data. Interactive visualisations display convergence and uncertainty maps,
+    helping researchers balance exploration and exploitation in decision-making.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    BioKernel was used in our project to optimise <strong>RBS variants for astaxanthin production</strong>,
+    reducing experimental overhead while maintaining predictive robustness
+    (see <a href="#rbs-optimisation" class="link-underline"><strong>RBS & Optimisation</strong></a>).
+    Future iGEM teams can use it to optimise growth media, promoter combinations,
+    or bioproduction conditions across chassis.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Built with accessibility and collaboration in mind, BioKernel is <strong>open-source, modular, and fully documented</strong>.
+    Users can extend it with their own features — from batch experiment modules to pathway-specific optimisation schemes.
+    The codebase, usage guide, and step-by-step examples are hosted on GitHub and accessible via our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline"><strong>lab notebook</strong></a>.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Ultimately, BioKernel represents a step toward <strong>AI-assisted laboratory workflows</strong> that merge
+    computational learning with biological experimentation. It empowers small teams to achieve data-driven insight
+    normally reserved for large-scale industrial labs, accelerating discovery across the iGEM community.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!-- 10. EDUCATIONAL CONTRIBUTIONS -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="educational-contributions">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      Educational Contributions
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Education was at the heart of our outreach mission. We aimed to make synthetic biology more approachable,
+    inclusive, and inspiring for learners of all ages — from children discovering science for the first time
+    to university students shaping the field’s future. Our educational efforts combined hands-on learning,
+    creativity, and accessibility across formats.
+  </p>
+
+  <!-- TEAM, CAREER & COMMUNITY TOOLKIT -->
+  <h3 style="text-align: left; margin-top: 2rem;">
+    <span class="span-lime-green animate-text-scramble">
+      Team, Career & Community Toolkit
+    </span>
+  </h3>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We developed a <strong>comprehensive toolkit</strong> to help student teams start, manage, and grow their synthetic biology initiatives.
+    This includes our <em>“Getting Started with iGEM”</em> handbook, outlining how to form a team, plan a project, and navigate the competition.
+    We also created <strong>Careers in Synthetic Biology</strong> guides, adaptable to different countries, that highlight diverse paths in academia,
+    industry, and entrepreneurship.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To strengthen the community beyond competition, we built the <strong>SynBio Circle Community Guide</strong> — a resource for forming supportive networks
+    across institutions. Additionally, our <strong>Mini-Jamboree Event Manual</strong> offers templates for hosting regional synbio gatherings,
+    including logistics, budgeting, and workshop outlines.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    <strong>Resources Contributed:</strong> Open-source handbooks, community toolkits, and event manuals that enable future iGEM teams
+    to organise effectively, secure funding, and sustain long-term collaborative communities.
+  </p>
+
+  <!-- HANDS-ON & CREATIVE LEARNING RESOURCES -->
+  <h3 style="text-align: left; margin-top: 2rem;">
+    <span class="span-lime-green animate-text-scramble">
+      Hands-on & Creative Learning Resources
+    </span>
+  </h3>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To make learning engaging and accessible, we designed <strong>interactive, age-adaptable resources</strong> that blend creativity with biology.
+    These include the <em>Sir Loin plushie kit</em>, which helps explain cultivated meat to children through storytelling and play;
+    our <strong>colouring and picture books</strong> introducing cell biology concepts; and classroom activities like the
+    <strong>Marble Yeast Game</strong> and <strong>The Overlab</strong>, which teach teamwork in scientific environments.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We also developed multimedia content — including a <strong>2000s-style tabloid magazine</strong>,
+    a <strong>Webtoon storybook</strong>, and a <strong>visual dictionary of synthetic biology terms</strong> —
+    to merge science communication with design and media literacy. These formats encourage creative learning and
+    can be reused for outreach events, school visits, or public festivals.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    <strong>Resources Contributed:</strong> Printable kits, illustrated storybooks, and creative games that promote interactive science learning
+    and can be freely adapted by educators and teams worldwide.
+  </p>
+
+  <!-- ETHICS, MEDIA & CROSS-TEAM ENGAGEMENT -->
+  <h3 style="text-align: left; margin-top: 2rem;">
+    <span class="span-lime-green animate-text-scramble">
+      Ethics, Media & Cross-Team Engagement
+    </span>
+  </h3>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    To complement scientific education, we built <strong>ethics and media engagement tools</strong> that foster critical thinking.
+    Our web-based bioethics quiz, <em>The Moral Code</em>, guides players through moral dilemmas in biotechnology,
+    exploring themes of consent, enhancement, and environmental responsibility.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    We supported the quiz with <strong>essay prompts, discussion packs, and classroom debate guides</strong>,
+    enabling its integration into both secondary and higher education. Our <strong>podcast series</strong> extends this reflection,
+    featuring stories from scientists, artists, and iGEM alumni at the intersection of ethics and innovation.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Alongside this, we launched the <strong>Digital Postcard Initiative</strong>, connecting iGEM teams globally through visual storytelling.
+    Cross-team mentoring and international webinars further encouraged dialogue and peer learning across cultures.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    <strong>Resources Contributed:</strong> Playable ethics quizzes, recorded podcasts, and collaborative outreach templates
+    that promote reflection, communication, and interdisciplinary engagement across teams and communities.
+  </p>
+</div>
+
+<div class="spacer3"></div>
+<!-- ===================================== -->
+<!--  HUMAN PRACTICES CONTRIBUTIONS -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="hp-contributions">
+  <h2 style="text-align: left;">
+    <span class="span-sky-blue animate-text-scramble">
+      Human Practices Contributions
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Our <strong>Human Practices</strong> strategy connected every technical choice in the lab
+    with its ethical, industrial, and societal implications. By embedding stakeholder input and expert validation
+    into our design process, we transformed Human Practices into a genuine <strong>decision-making framework</strong>
+    that guided our scientific and entrepreneurial directions.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    The insights we gathered — from researchers, bioprocess engineers, entrepreneurs, and policymakers —
+    helped us ensure our project was both <strong>scientifically sound</strong> and <strong>societally relevant</strong>.
+    We summarised our findings into practical rules and reproducible workflows to aid future iGEM teams
+    in bridging the gap between science and application.
+  </p>
+
+  <ul style="text-align: left; margin-left: 1.3rem; margin-bottom: 1.5rem; line-height: 1.6;">
+    <li>
+      <strong>Technical decision rules:</strong>
+      How the choice of chassis, such as <em>K. phaffii</em>, cascades into downstream consequences — from secretion behaviour
+      to purification strategy and facility design. This framework helps teams integrate manufacturability early in their design phase.
+    </li>
+
+    <li>
+      <strong>Practical lab workflows:</strong>
+      We compiled verified <strong>CRISPR, transformation, and expression protocols</strong> for yeast, including tips on
+      <em>ΔKu70</em> strains, electroporation, and strain burden management. These methods reduce trial-and-error time
+      for future teams and improve reproducibility.
+    </li>
+
+    <li>
+      <strong>Downstream & scale-up guidance:</strong>
+      Consultations with industry professionals provided insight into purification bottlenecks, scale-up validation,
+      and realistic bioreactor design expectations. These were condensed into a set of milestones for scale-readiness.
+    </li>
+
+    <li>
+      <strong>Regulatory, IP & commercial playbook:</strong>
+      Through interviews with legal advisors and startup mentors, we mapped key hurdles — from GRAS certification
+      to IP protection and licensing of microbial strains. This analysis also informed our support of open initiatives
+      like <em>PhaffiiNet</em> for transparent, traceable biotechnology.
+    </li>
+
+    <li>
+      <strong>Network & resource map:</strong>
+      We built a curated database of academics, companies, and government bodies who supported our research validation.
+      This network provides a reusable entry point for future iGEM teams engaging similar stakeholders.
+    </li>
+
+    <li>
+      <strong>Stakeholder engagement templates:</strong>
+      Our framework for stakeholder mapping, structured interviews, and ethical impact assessment ensures
+      that feedback loops are systematic and results can directly influence project design.
+    </li>
+  </ul>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Collectively, these contributions turn Human Practices into a <strong>strategic design discipline</strong>
+    rather than a reporting requirement. They help future iGEM teams approach their projects holistically —
+    combining ethical awareness, industrial feasibility, and scientific excellence.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    All transcripts, workflow templates, and guidance materials are available in our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>, where they can be freely accessed and adapted.
+    We hope these resources empower upcoming teams to design responsibly, act transparently,
+    and build technologies that genuinely serve people and the planet.
+  </p>
+</div>
+
+<div class="spacer5"></div>
+<!-- ===================================== -->
+<!-- 12. CONCLUSION / END OF PAGE -->
+<!-- ===================================== -->
+
+<div class="page-section width-75" id="conclusion">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">
+      Closing Reflections
+    </span>
+  </h2>
+
+  <p style="text-align: left; margin-bottom: 1.5rem;">
+    Together, our scientific, educational, and human practices contributions form a complete ecosystem of open science —
+    from foundational genetic parts and yeast tools to ethical, creative, and collaborative frameworks for future teams.
+    By integrating technical rigor with thoughtful outreach and reproducible documentation, we aim to leave a legacy of
+    transparency, curiosity, and community within iGEM.
+  </p>
+
+  <p style="text-align: left; margin-bottom: 2rem;">
+    Every resource, dataset, and workflow we produced is available for reuse and expansion through our
+    <a href="{{ url_for('pages', page='notebooks') }}" class="link-underline">
+      <strong>lab notebook</strong>
+    </a>.
+    We invite future teams to build upon these foundations, continue exploring <em>K. phaffii</em> as a powerful chassis,
+    and advance the shared mission of open, ethical synthetic biology.
+  </p>
+</div>
+
+<div class="spacer5"></div>
+
+</div> <!-- END .page-section wrapper -->
 
 {% endblock %}
