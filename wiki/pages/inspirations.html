@@ -3,84 +3,94 @@
 {% block title %}Inspirations{% endblock %}
 {% block lead %}{% endblock %}
 
-
 {% block scroll_nav %}
-<nav class="side-scroll-nav scroll-nav">
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
     <span class="side-scroll-nav-label">On This Page</span>
-    <a href="#design-a">Design A</a>
-    <a href="#design-b">Design B</a>
-    <a href="#design-c">Design C</a>
-    <a href="#design-comparison">Comparison</a>
-    <a href="#final-contribution">Contribution</a>
+    <a class="span-lime-green" href="#lab-inspirations"><span>Lab Inspirations</span></a>
+    <a class="span-yellow" href="#edu-inspirations"><span>Education Inspirations</span></a>
+    <a class="span-sky-blue" href="#hp-inspirations"><span>Human Practices Inspirations</span></a>
 </nav>
 {% endblock %}
 
-{% block page_content %}
-
-<div class="education-hero dsp-banner">
+{% block page_content %}  
+<div class="education-hero dsp-banner"
+     style="background-image: url('https://static.igem.wiki/teams/5916/assets/images/inspobanner.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;">
+  
     <div class="education-hero-content-container">
-        <h1 class="text-glitch">Downstream Processing</h1>
+        <h1 class="text-glitch">Inspirations</h1>
     </div>
 </div>
 
 <div class="spacer5"></div>
-
-<div class="page-section width-75" id="design-a">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design A: Cost-Focused Baseline</strong>
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="lab-inspirations">
+    <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">Lab Inspirations</span>
     </h2>
-    <div class="collapsible-content">
-        <div class="image-aligner-center">
-            <img src="" alt="Process diagram for cost-focused baseline" class="section-image"
-                style="margin-bottom: 2rem;">
-            <p style="text-align: left;"><em>insert process diagram</em></p>
-        </div>
-        <p style="text-align: left;">
-         
-        </p>
-        <div class="spacer"></div>
+    <p style="text-align: left; margin-bottom: 1.5rem;"> The 2021 Uppsala iGEM team</a> served as a great inspiration to us, as they shared our vision of bringing cultivated meat to the wider world. 
+        They were the first iGEM team to address the issue of growth factors and serum-free media in cultured meat, using <em>E. coli</em>. Their work focused on FGF2, employing rational engineering screens and FEP to improve binding affinity to FGFR.
+    </p>
 
-        <div class="collapsible-close">Close</div>
-    </div>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        We also recognised the necessity for reliable and cost-effective growth factor expression, but approached the problem from the bottom up through consultations with industrial stakeholders and potential clients. 
+        The decision to use <em>K. phaffii</em> originated from outreach to precision fermentation and purification experts.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Similar to Uppsala, we opted for 6xHis tagging for bench-scale purification. For validation, we sourced mammalian cells, but chose immortalised satellite cells, as experts indicated these are common models for studying growth media.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Though we initially considered engineering our growth factors like Uppsala, we decided to focus on fundamental contributions toward our chassis, enabling future teams and companies to benefit. This strategy also allowed us to engage a broader range of stakeholders.
+    </p>
+
+    <!-- Clear float -->
+    <div style="clear: both;"></div>
 </div>
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="edu-inspirations">
+    <h2 style="text-align: left;">
+    <span class="span-yellow animate-text-scramble">Education Inspirations</span>
+    </h2>
 
-<div class="page-section width-75" id="design-b">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design B:
-            Environmentally-Optimised</strong></h2>
-    <div class="collapsible-content">
-        <div class="image-aligner-center">
-            <img src="" alt="Process diagram for environmentally-optimised design" class="section-image"
-                style="margin-bottom: 2rem;">
-            <p style="text-align: left;"><em>insert process diagram</em></p>
-        </div>
-      
-        <div class="collapsible-close">Close</div>
-    </div>
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Imperial College London iGEM 2016:</strong> Created a game for visual communication and public engagement. Inspired our <strong>bioethics gamified quiz</strong> and <strong>marble/Overlab festival games</strong> for diverse age groups.</li>
+        <li><strong>EPFL 2017:</strong> Ran workshops and designed materials for young audiences. Inspired our <strong>kindergarten outreach picture book</strong> and hands-on workshop activities.</li>
+        <li><strong>Sheffield 2024:</strong> Produced a comic book, inspiring our <strong>Webtoon series</strong>. Hosted the Mini Jamboree; we scaled this to panels, workshops, and collaborative events.</li>
+        <li><strong>Düsseldorf 2020:</strong> Postcard collaboration project expanded into <strong>educational letters</strong> and a <strong>digital collaboration</strong> with scrollable gallery experience.</li>
+        <li><strong>Washington 2012:</strong> Created plush toys (“biochemies”) representing DNA. Adapted into <strong>project-themed plushies</strong> and DIY kits.</li>
+        <li><strong>Cornell 2020:</strong> Covid-19 global survey and infographic campaign. Inspired global collaboration and hosting a <strong>webinar</strong> to discuss results.</li>
+        <li><strong>Exeter 2022:</strong> Produced the <strong>Test Tube Podcast</strong> for public engagement and discussion of synthetic biology topics.</li>
+        <li><strong>Uppsala 2021:</strong> Cultivated meat outreach via webinars and social media. Inspired us to <strong>diversify media formats</strong>.</li>
+        <li><strong>Official iGEM Blog:</strong> Provided guidance for new teams. Inspired our <strong>all-in-one guide on “How to iGEM”</strong>.</li>
+        <li><strong>City U Hong Kong 2024:</strong> Balanced outreach across audiences, inspiring our structured engagement from kindergarten to general public.</li>
+    </ul>
+
+    <!-- Clear float -->
+    <div style="clear: both;"></div>
 </div>
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="hp-inspirations">
+    <h2 style="text-align: left;">
+    <span class="span-sky-blue animate-text-scramble">Human Practices Inspirations</span>
+    </h2>
 
-<div class="page-section width-75" id="design-c">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design C: Hybrid with Recovery
-            Loops</strong></h2>
-    <div class="collapsible-content">
-        
-        <div class="collapsible-close">Close</div>
-    </div>
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Uppsala 2021:</strong> Primarily engaged with academics on growth factors and cultivated meat. Inspired us to broaden our perspective, engaging industry leaders, stakeholders, and business experts to explore pathways to market beyond academia.</li>
+        <li><strong>McGill 2023:</strong> Featured a diverse HP network. Inspired our early-stage HP strategy, highlighting the range of fields to contact and how engagement influences both project and society.</li>
+        <li><strong>Heidelberg 2024:</strong> Presented concise HP takeaways in a fluid, navigable format. Inspired the design of our HP page with <strong>key takeaway bullet points</strong> to improve readability and user experience.</li>
+    </ul>
+
+    <!-- Clear float -->
+    <div style="clear: both;"></div>
 </div>
-
-<div class="page-section width-75" id="design-comparison">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Design Comparison</strong></h2>
-    <div class="collapsible-content">
-       
-        <div class="collapsible-close">Close</div>
-    </div>
-</div>
-
-<div class="page-section width-75" id="final-contribution">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Final Contribution: A Clearer Blueprint for
-            Cultivated Meat Processing</strong></h2>
-    <div class="collapsible-content">
-        
-        <div class="collapsible-close">Close</div>
-    </div>
-</div>
-
 {% endblock %}

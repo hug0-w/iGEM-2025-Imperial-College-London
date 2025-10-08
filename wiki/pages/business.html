@@ -16,7 +16,20 @@
 {% endblock %}
 
 {% block page_content %}
-<div class="education-hero dsp-banner">
+<div class="education-hero dsp-banner"
+     style="background-image: url('https://static.igem.wiki/teams/5916/assets/images/businessbanner.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;">
     <div class="education-hero-content-container">
         <h1 class="text-glitch">Business</h1>
     </div>
@@ -64,28 +77,27 @@
         <p style="text-align: left;">The market size as of now is scaling from a humble estimate of $1 B to $20 B by
             2030, with forecasts reaching $230 B and more by 2040. By 2040, cultivated meat will make up 35% of all meat
             products, overtaking vegan alternatives and challenging traditional meat’s dominance. [1] [2]</p>
-        <div class="image-aligner-center">
-            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 2rem; gap: 2rem;">
-                <div>
-                    <img src="https://static.igem.wiki/teams/5916/business/img-2624.webp"
-                        alt="Global cultivated meat industry market size" class="section-image"
-                        style="width:800px; display: block;">
-                    <div style="text-align: center; max-width: 800px; margin-top: 0.5rem;">
-                        <strong>Figure 1A.</strong> Global cultivated meat industry market size. [1]
-                    </div>
-                </div>
-            </div>
-            <div style="display: flex; flex-direction: row; align-items: center; margin-bottom: 2rem; gap: 2rem;">
-                <div>
-                    <img src="https://static.igem.wiki/teams/5916/business/img-2642.webp"
-                        alt="Meat and meat alternatives market composition" class="section-image"
-                        style="width:1200px; display: block;">
-                    <div style="text-align: center; max-width: 800px; margin-top: 0.5rem;">
-                        <strong>Figure 1B.</strong> Composition of the meat and meat alternatives market worldwide [2]
-                    </div>
-                </div>
+
+        <!-- Image 1 -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="https://static.igem.wiki/teams/5916/business/img-2624.webp"
+                 alt="Global cultivated meat industry market size" 
+                 class="section-image"
+                 style="max-width: 90%; height: auto; display: inline-block;">
+            <div style="text-align: center; max-width: 108%; margin: 0.5rem auto;">
+                <strong>Figure 1A.</strong> Global cultivated meat industry market size. [1]
             </div>
         </div>
+
+        <!-- Image 2 -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+           <img src="https://static.igem.wiki/teams/5916/business/img-2642.webp"
+                alt="Meat and meat alternatives market composition" 
+                class="section-image"
+                style="max-width: 95%; height: auto; display: inline-block;">
+           <div style="text-align: center; max-width: 114%; margin: 0.5rem auto;">
+              <strong>Figure 1B.</strong> Composition of the meat and meat alternatives market worldwide [2]
+           </div>
         <p style="text-align: left;"><strong>2. Investment Landscape</strong></p>
         <p style="text-align: left;">Based on our human practices conversations, funding into cultivated meat startups
             has been scarce. Between 2016 and 2022, the industry attracted $2.8 billion in total funding, with North
@@ -95,22 +107,28 @@
             greatly compared to other regions. This gap is expected to narrow as engineering biology has recently been
             designated a strategic investment priority in the UK, a development that is likely to benefit the cultivated
             meat industry as well [3].</p>
-        <p style="text-align: left;">Further, investment in the cultivated meat industry has been on a downturn since
-            2022, resulting in the closure of companies. 2023 can be seen as an inflection point between a time where
-            there was a lot of hype around cultivated meat, with short term promises and unmet potential, causing
-            investor panic leading to declining venture support.</p>
-        <div class="image-aligner-center">
-            <div style="text-align: center; margin-bottom: 2rem;">
+        <p style="text-align: left;"> Further, investment in the cultivated meat industry has been on a downturn since 2022, resulting in the closure of companies. 2023 can be seen as an inflection point between a time where there was a lot of hype around cultivated meat, with short term promises and unmet potential, causing investor panic leading to declining venture support.
+        </p>
+
+        <div class="image-aligner-center" style="text-align: center; margin-top: 1rem;">
+            <!-- Image 2A -->
+            <div style="margin-bottom: 2rem;">
                 <img src="https://static.igem.wiki/teams/5916/business/img-2644.webp"
-                    alt="Funding into cultivated meat" class="section-image"
-                    style="width:800px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto; max-width: 100%;">
-                <div style="margin-top: 0.5rem;"><strong>Figure 2A. Total funding value into cultivated meat (&amp; seafood) from 2016-2022. [2]</strong></div>
+                     alt="Funding into cultivated meat"
+                     class="section-image"
+                     style="display:block; margin: 0 auto; max-width:100%;">
+                <div style="margin-top: 0.5rem;">
+                    <strong>Figure 2A. Total funding value into cultivated meat (&amp; seafood) from 2016-2022. [2]</strong>
+                </div>
             </div>
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="https://static.igem.wiki/teams/5916/business/img-2643.webp"
-                    alt="Number of cultivated meat companies" class="section-image"
-                    style="width:800px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
-                <div style="margin-top: 0.5rem;"><strong>Figure 2B. Number of cultivated meat companies from 2014-2024. Sudden inflection point broadly matches the declining point of investment funding, supporting our theory. [2]</strong></div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="https://static.igem.wiki/teams/5916/business/img-2643.webp"
+                 alt="Number of cultivated meat companies" class="section-image"
+                 style="display:block; margin: 0 auto 0.5rem auto; max-width:100%;">
+            <div style="margin-top: 0.5rem;">
+                <strong>Figure 2B. Number of cultivated meat companies from 2014-2024. Sudden inflection point broadly matches the declining point of investment funding, supporting our theory. [2]</strong>
             </div>
         </div>
         <p style="text-align: left;">This confirmed that although the cultivated meat market is still up-and-coming and
@@ -124,13 +142,11 @@
             and yield being primary targets. Enabling access to high-yield growth media, would hypothetically decrease
             production costs by at least 50%, with further decrease during the downstream processing stage enabled by
             our <em>K. phaffii</em> platform, making our project a key enabler.</p>
-        <div class="image-aligner-center">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="https://static.igem.wiki/teams/5916/business/img-2644.webp"
-                    alt="Production price per pound of cultivated meat" class="section-image"
-                    style="width:800px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
-                <div style="margin-top: 0.5rem;"><strong>Figure 3. Production price per pound of cultivated meat between 2013-2021. [4]</strong></div>
-            </div>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <img src="https://static.igem.wiki/teams/5916/business/business3.webp"
+                 alt="Production price per pound of cultivated meat" class="section-image"
+                 style="width:960px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto; max-width: 80%;">
+            <div style="margin-top: 0.5rem;"><strong>Figure 3. Production price per pound of cultivated meat between 2013-2021. [4]</strong></div>
         </div>
         <p style="text-align: left;"><strong>4. Consumer Acceptance</strong></p>
         <p style="text-align: left;">There is a perception of overall market acceptance being low, but recent consumer
@@ -143,20 +159,18 @@
         <p style="text-align: left;">As our market entry poi    nt would be B2B growth factors-as-a-service, our project is
             only indirectly influenced by the consumer market. We would be required to improve not only consumers, but
             also our direct customers’ beliefs of the future of alternative media.</p>
-        <div class="image-aligner-center">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="https://static.igem.wiki/teams/5916/business/img-2652.webp"
-                    alt="Consumer willingness to try cultivated meat" class="section-image"
-                    style="width:500px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
-                <div style="margin-top: 0.5rem;"><strong>Figure 4A. Overall consumer-willingness of trying cultivated meat. [2]</strong></div>
-            </div>
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="https://static.igem.wiki/teams/5916/business/img-2653.webp"
-                    alt="Market acceptance of cultivated meat across Europe" class="section-image"
-                    style="width:800px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
-                <div style="margin-top: 0.5rem;"><strong>Figure 4B. Market acceptance of cultivated meat across Europe. [1]</strong></div>
-            </div>
+        <div style="text-align: center; margin-bottom: 2rem;">
+           <img src="https://static.igem.wiki/teams/5916/business/img-2652.webp"
+                alt="Consumer willingness to try cultivated meat" class="section-image"
+                style="width:600px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;max-width: 40%;">
+           <div style="margin-top: 0.5rem;"><strong>Figure 4A. Overall consumer-willingness of trying cultivated meat. [2]</strong></div>
         </div>
+            <div style="text-align: center; margin-bottom: 2rem;">
+              <img src="https://static.igem.wiki/teams/5916/business/img-2653.webp"
+                   alt="Market acceptance of cultivated meat across Europe" class="section-image"
+                   style="width:960px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto; max-width: 50%;">
+              <div style="margin-top: 0.5rem;"><strong>Figure 4B. Market acceptance of cultivated meat across Europe. [1]</strong></div>
+            </div>
         <p style="text-align: left;">This poses the question, why hasn’t the growth factor issue been solved yet?</p>
         <p style="text-align: left;">Based on our Human Practices conversations, the reason why cultivated <strong>meat
                 companies seem to close down isn’t firstly due to a lack of affordable growth factors, but more so due
@@ -240,7 +254,7 @@
                     <img src="https://static.igem.wiki/teams/5916/business/pitch-deck.webp" alt="Pitch Deck Growth"
                         class="section-image" style="width:1200px; margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
                 </a>
-                <div style="margin-top: 0.5rem;"><strong>Figure 7. Pitch Deck Growth</strong></div>
+                <div style="margin-top: 0.5rem;"><strong>Figure 7. Pitch Deck Growf</strong></div>
             </div>
         </div>
         <div class="collapsible-close">Close</div>
