@@ -17,21 +17,24 @@
                 <a href="#">PROJECT</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('pages', page='Problem') }}">
-                            <span>DESCRIPTION</span></a></li>
-                    <li><a href="{{ url_for('pages', page='Description') }}">ENGINEERING</a></li>
+                            <span>PROBLEM</span></a></li>
+                    <li><a href="{{ url_for('pages', page='Description') }}">DESCRIPTION</a></li>
                     <li><a href="{{ url_for('pages', page='Results') }}">RESULTS</a></li>
                     <li><a href="{{ url_for('pages', page='Engineering') }}">ENGINEERING</a></li>
-                    <li><a href="{{ url_for('pages', page='downstream-processing') }}"><span>TECHNO ECONOMIC ASSESSMENT</span></a></li>
+                    <li><a href="{{ url_for('pages', page='downstream-processing') }}"><span>TEA and LCA</span></a></li>
                     <li><a href="{{ url_for('pages', page='contribution') }}">CONTRIBUTION</a></li>
                 </ul>
             </li>
+
             <li class="has-dropdown">
                 <a href="#"> LAB</a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url_for('pages', page='wet-lab') }}"><span>Wet Lab</span></a></li>
                     <li><a href="{{ url_for('pages', page='dry-lab') }}"><span>Dry Lab</span></a></li>
+                    <li><a href="{{ url_for('pages', page='safety-and-security') }}"><span>Safety and Security</span></a></li>
                 </ul>
             </li>
+            <li><a href="{{ url_for('pages', page='Model') }}">MODEL</a></li>   
             <li><a href="{{ url_for('pages', page='education') }}">EDUCATION</a></li>
 
             <li class="has-dropdown">
