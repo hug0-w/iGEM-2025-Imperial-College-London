@@ -6,51 +6,54 @@
 {% block page_content %}
 
 <div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Safety and Security Award</h4>
-      <p>Synthetic biology will need to be used safely and securely if local people are to solve local problems all around the world. The Safety and Security Committee is challenging teams to apply biological engineering approaches to manage risks associated with synthetic biology. Can you take the next step in progress towards knowledge, understanding, and tools that will make the use of synthetic biology safer and more secure?</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/special-prizes">Special Prizes page</a> for more information.</p>
-    </div>
-  </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
+  <div class="col-lg-10 col-xl-8">
+    <h2>Introduction</h2>
     <hr />
-    <p>Describe all potential safety and security risks associated with your project, including:</p>
-    <ul>
-      <li>Biological risks (e.g., pathogenicity, toxicity, environmental impact).</li>
-      <li>Chemical risks (e.g., handling hazardous materials).</li>
-      <li>Physical risks (e.g., equipment safety).</li>
-      <li>Security risks (e.g., potential misuse of technology).</li>
-    </ul>
-    <p>Explain how you are addressing these risks and implementing safety measures.</p>
-    <p>Detail any safety features incorporated into your project design, such as:</p>
-    <ul>
-      <li>Choice of a non-pathogenic chassis.</li>
-      <li>Selection of parts that minimize harm to humans, animals, or plants;</li>
-      <li>Substitution of safer materials in experiments;</li>
-      <li>Implementation of "kill-switch" mechanisms or other safety controls.</li>
-    </ul>
-    <p>Explain the rationale behind these design choices.</p>
-    <div class="bd-callout bd-callout-info">
-      <p>Ensure that your project adheres to all safety requirements outlined in the <a href="https://responsibility.igem.org/safety-policies">Safety Policies page</a>.</p>
-    </div>
-  </div>
+    <p>At Growf, we are committed to conducting our research responsibly and in full compliance with all relevant biosafety regulations. Our team has strictly adhered to both the iGEM Safety and Security Policies and the UK Genetically Modified Organisms (Contained Use) Regulations 2014. All team members were required to complete comprehensive safety and laboratory training before beginning any experimental work. We consulted departmental biosafety specialists and institutional safety officers to ensure our experimental design and laboratory practices met required safety standards.</p>
 
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
+    <h2>Project Design Safety</h2>
     <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/ucalgary/safety">2024 UCalgary</a></li>
-      <li><a href="https://2023.igem.wiki/basis-china/safety">2023 BASIS-China</a></li>
-      <li><a href="https://2023.igem.wiki/edinburgh/safety">2023 Edinburgh</a></li>
-      <li><a href="https://2023.igem.wiki/epfl/safety">2023 EPFL</a></li>
-      <li><a href="https://2023.igem.wiki/nmu-china/safety">2023 NMU-China</a></li>
-    </ul>
+    <p>During project conceptualisation, we prioritised avoiding practices that could pose additional risks, which included the use of animals, human experimentation, environmental sampling, gene drives, and modifying antimicrobial resistance genes. Adhering to the iGEM rules and policies, we worked exclusively with organism from the iGEM white list: <em>Escherichia coli</em> (<em>E. coli</em>) and <em>Komagataella phaffii</em> (<em>K. phaffii</em>). <em>K. phaffii</em> is classified as a BSL-1 organism which poses minimal risk to human health and the environment and is non-sporulating under standard laboratory conditions, but it retains the genetic potential for spore formation as a yeast capable of sexual reproduction under specific environmental triggers [1][2]. By avoiding nutrient starvation through the use of nutrient-rich media, maintaining monocultures and using strict sterile technique, the risk of spore formation is effectively eliminated in standard <em>K. phaffii</em> laboratory work.</p>
+    <p>Our project involved genome editing using the CRISPR-Cas9 system, which poses potential biosafety implications. A key concern was unintended insertions or deletions (InDels) in the <em>K. phaffii</em> genome by the Cas9 protein which could have altered genes involved in essential cellular processes and trigger sporulation [1]. Cas9 nuclease activity is normally directed by a guide RNA (sgRNA), but off-target cleavage often results from promiscuous sgRNAs that bind partially complementary sites elsewhere in the genome [3]. Measures to control for these risks were implemented at each stage of our experimental design. Computational tools were used to design and rank sgRNAs for high specificity and low predicted off-target potential. Each plasmid was first sequence-verified prior to transformation into <em>K. phaffii</em>, where we applied dual antibiotic selection using nourseothricin and hygromycin to ensure that only cells containing both the Cas9 expression plasmid and the sgRNA cassette were maintained. Combining molecular validation with antibiotic-based selection provided a robust safeguard ensuring that only properly engineered strains were propagated for downstream experiments.</p>
+
+    <h2>Laboratory Practices</h2>
+    <hr />
+    <div class="d-flex align-items-start mb-4">
+      <div style="flex: 1;">
+        <p>
+          All experiments were conducted in a BSL-1 classified laboratory that was kept clean, organised, and free from contamination. Team members adhered to lab safety guidelines by wearing lab coats, appropriate clothing and safety gloves when handling lab equipment.
+        </p>
+        <p>
+          During our work with <em>E. coli</em>, we collaborated with experienced postgraduate researchers familiar with the organism's handling requirements. Their guidance helped us maintain established biosafety practices, including strict sterile technique, appropriate waste disposal, and consistent use of personal protective equipment. This collaboration ensured that all <em>E. coli</em> manipulations were carried out safely and responsibly, upholding our commitment to the highest standards of laboratory practice.
+        </p>
+        <p>
+          Additionally, the laboratory waste management system was designed to minimise risk and ensure environmental safety. Where all waste was categorised into domestic, recyclable, sharps, chemical, genetically modified (GM), clinical, and biohazard. Domestic and recyclable were disposed of in clearly labelled bins. Sharps waste, including glass, scalpels, and pipette tips, was collected in designated sharps bins and biobins before final disposal. Chemical waste was properly labelled and handled by trained technicians following institutional protocols. GM and biohazard waste which included biological materials were autoclaved prior to disposal to ensure complete sterilisation and prevent environmental contamination. Clinical waste, which includes non-biological, non-hazardous solids, was disposed of in orange clinical waste bags, while liquid media were disinfected or autoclaved before sink disposal.
+        </p>
+      </div>
+      <div class="ms-3 text-center" style="width: 500px;">
+        <a href="https://static.igem.wiki/teams/5916/wetlab/safety-plates.avif" target="_blank">
+          <img 
+            style="max-width: 80%; transform: none; box-shadow: none;" 
+            src="https://static.igem.wiki/teams/5916/wetlab/safety-plates.avif" 
+            alt="Plates used for safety experiments"
+          />
+        </a>
+        <div class="fw-semibold mb-2" style="margin-top: 0.5rem; white-space: normal;">
+          Plates used for safety experiments
+        </div>
+      </div>
+    </div>
+    <p>
+      To prevent cross-contamination, all work involving biological samples was performed in laminar flow hoods, biosafety cabinets or a sterile field generated by a Bunsen flame. Ensuring the use of sterile instruments, and sanitisation of working surfaces using 70% ethanol. Our project involved the use of specialised equipment, such as electroporators and bioreactors, which required the transfer of <em>K. phaffii</em> samples between facilities. For any such transfers we implemented a triple packaging system consisting of a sealed primary container, a leakproof secondary container, and a rigid secure outer box. This protocol is in full compliance with UN 3373 Category B infectious substance regulations to ensure that no organisms were released beyond containment during transport.
+    </p>
+
+    <h2>References</h2>
+    <hr />
+    <ol>
+      <li>Ata <em>et al.</em>, "What makes <em>Komagataella phaffii</em> non-conventional?," <em>FEMS Yeast Research</em>, Nov. 2021, doi: <a href="https://doi.org/10.1093/femsyr/foab059">https://doi.org/10.1093/femsyr/foab059</a>.</li>
+      <li>L. Bernauer, A. Radkohl, L. G. K. Lehmayer, and A. Emmerstorfer-Augustin, "<em>Komagataella phaffii</em> as Emerging Model Organism in Fundamental Research," <em>Frontiers in Microbiology</em>, vol. 11, Jan. 2021, doi: <a href="https://doi.org/10.3389/fmicb.2020.607028">https://doi.org/10.3389/fmicb.2020.607028</a>.</li>
+      <li>H. A. Han, J. K. S. Pang, and B.-S. Soh, "Mitigating off-target effects in CRISPR/Cas9-mediated in vivo gene editing," <em>Journal of Molecular Medicine</em>, vol. 98, no. 5, pp. 615-632, Mar. 2020, doi: <a href="https://doi.org/10.1007/s00109-020-01893-z">https://doi.org/10.1007/s00109-020-01893-z</a>.</li>
+    </ol>
   </div>
 </div>
 
