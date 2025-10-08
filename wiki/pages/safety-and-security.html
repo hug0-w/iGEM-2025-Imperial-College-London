@@ -1,60 +1,177 @@
 {% extends "layout.html" %}
-  
+
 {% block title %}Safety and Security{% endblock %}
-{% block lead %}Detail the safety and security considerations of your project, adressing potential risks and outlining the measures taken to mitigate them.{% endblock %}
+{% block lead %}{% endblock %}
 
-{% block page_content %}
+{% block scroll_nav %}
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
+    <span class="side-scroll-nav-label">On This Page</span>
+    <a href="#introduction">Introduction</a>
+    <a href="#risk-categories">Risk Categories</a>
+    <a href="#design-safety">Design-Based Safety Measures</a>
+    <a href="#lab-safety">Laboratory and Operational Safety</a>
+    <a href="#biosecurity">Biosecurity & Dual-Use Awareness</a>
+    <a href="#committee">Safety & Security Committee Challenge</a>
+    <a href="#references">Inspirations & References</a>
+</nav>
+{% endblock %}
 
-<div class="row mt-4">
-  <div class="col-lg-10 col-xl-8">
-    <h2>Introduction</h2>
-    <hr />
-    <p>At Growf, we are committed to conducting our research responsibly and in full compliance with all relevant biosafety regulations. Our team has strictly adhered to both the iGEM Safety and Security Policies and the UK Genetically Modified Organisms (Contained Use) Regulations 2014. All team members were required to complete comprehensive safety and laboratory training before beginning any experimental work. We consulted departmental biosafety specialists and institutional safety officers to ensure our experimental design and laboratory practices met required safety standards.</p>
+{% block page_content %}  
+<div class="education-hero dsp-banner"
+     style="background-image: url('https://static.igem.wiki/teams/5916/assets/images/safetybanner.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;">
 
-    <h2>Project Design Safety</h2>
-    <hr />
-    <p>During project conceptualisation, we prioritised avoiding practices that could pose additional risks, which included the use of animals, human experimentation, environmental sampling, gene drives, and modifying antimicrobial resistance genes. Adhering to the iGEM rules and policies, we worked exclusively with organism from the iGEM white list: <em>Escherichia coli</em> (<em>E. coli</em>) and <em>Komagataella phaffii</em> (<em>K. phaffii</em>). <em>K. phaffii</em> is classified as a BSL-1 organism which poses minimal risk to human health and the environment and is non-sporulating under standard laboratory conditions, but it retains the genetic potential for spore formation as a yeast capable of sexual reproduction under specific environmental triggers [1][2]. By avoiding nutrient starvation through the use of nutrient-rich media, maintaining monocultures and using strict sterile technique, the risk of spore formation is effectively eliminated in standard <em>K. phaffii</em> laboratory work.</p>
-    <p>Our project involved genome editing using the CRISPR-Cas9 system, which poses potential biosafety implications. A key concern was unintended insertions or deletions (InDels) in the <em>K. phaffii</em> genome by the Cas9 protein which could have altered genes involved in essential cellular processes and trigger sporulation [1]. Cas9 nuclease activity is normally directed by a guide RNA (sgRNA), but off-target cleavage often results from promiscuous sgRNAs that bind partially complementary sites elsewhere in the genome [3]. Measures to control for these risks were implemented at each stage of our experimental design. Computational tools were used to design and rank sgRNAs for high specificity and low predicted off-target potential. Each plasmid was first sequence-verified prior to transformation into <em>K. phaffii</em>, where we applied dual antibiotic selection using nourseothricin and hygromycin to ensure that only cells containing both the Cas9 expression plasmid and the sgRNA cassette were maintained. Combining molecular validation with antibiotic-based selection provided a robust safeguard ensuring that only properly engineered strains were propagated for downstream experiments.</p>
-
-    <h2>Laboratory Practices</h2>
-    <hr />
-    <div class="d-flex align-items-start mb-4">
-      <div style="flex: 1;">
-        <p>
-          All experiments were conducted in a BSL-1 classified laboratory that was kept clean, organised, and free from contamination. Team members adhered to lab safety guidelines by wearing lab coats, appropriate clothing and safety gloves when handling lab equipment.
-        </p>
-        <p>
-          During our work with <em>E. coli</em>, we collaborated with experienced postgraduate researchers familiar with the organism's handling requirements. Their guidance helped us maintain established biosafety practices, including strict sterile technique, appropriate waste disposal, and consistent use of personal protective equipment. This collaboration ensured that all <em>E. coli</em> manipulations were carried out safely and responsibly, upholding our commitment to the highest standards of laboratory practice.
-        </p>
-        <p>
-          Additionally, the laboratory waste management system was designed to minimise risk and ensure environmental safety. Where all waste was categorised into domestic, recyclable, sharps, chemical, genetically modified (GM), clinical, and biohazard. Domestic and recyclable were disposed of in clearly labelled bins. Sharps waste, including glass, scalpels, and pipette tips, was collected in designated sharps bins and biobins before final disposal. Chemical waste was properly labelled and handled by trained technicians following institutional protocols. GM and biohazard waste which included biological materials were autoclaved prior to disposal to ensure complete sterilisation and prevent environmental contamination. Clinical waste, which includes non-biological, non-hazardous solids, was disposed of in orange clinical waste bags, while liquid media were disinfected or autoclaved before sink disposal.
-        </p>
-      </div>
-      <div class="ms-3 text-center" style="width: 500px;">
-        <a href="https://static.igem.wiki/teams/5916/wetlab/safety-plates.avif" target="_blank">
-          <img 
-            style="max-width: 80%; transform: none; box-shadow: none;" 
-            src="https://static.igem.wiki/teams/5916/wetlab/safety-plates.avif" 
-            alt="Plates used for safety experiments"
-          />
-        </a>
-        <div class="fw-semibold mb-2" style="margin-top: 0.5rem; white-space: normal;">
-          Plates used for safety experiments
-        </div>
-      </div>
+    <div class="education-hero-content-container">
+        <h1 class="text-glitch">Safety & Security</h1>
     </div>
-    <p>
-      To prevent cross-contamination, all work involving biological samples was performed in laminar flow hoods, biosafety cabinets or a sterile field generated by a Bunsen flame. Ensuring the use of sterile instruments, and sanitisation of working surfaces using 70% ethanol. Our project involved the use of specialised equipment, such as electroporators and bioreactors, which required the transfer of <em>K. phaffii</em> samples between facilities. For any such transfers we implemented a triple packaging system consisting of a sealed primary container, a leakproof secondary container, and a rigid secure outer box. This protocol is in full compliance with UN 3373 Category B infectious substance regulations to ensure that no organisms were released beyond containment during transport.
-    </p>
-
-    <h2>References</h2>
-    <hr />
-    <ol>
-      <li>Ata <em>et al.</em>, "What makes <em>Komagataella phaffii</em> non-conventional?," <em>FEMS Yeast Research</em>, Nov. 2021, doi: <a href="https://doi.org/10.1093/femsyr/foab059">https://doi.org/10.1093/femsyr/foab059</a>.</li>
-      <li>L. Bernauer, A. Radkohl, L. G. K. Lehmayer, and A. Emmerstorfer-Augustin, "<em>Komagataella phaffii</em> as Emerging Model Organism in Fundamental Research," <em>Frontiers in Microbiology</em>, vol. 11, Jan. 2021, doi: <a href="https://doi.org/10.3389/fmicb.2020.607028">https://doi.org/10.3389/fmicb.2020.607028</a>.</li>
-      <li>H. A. Han, J. K. S. Pang, and B.-S. Soh, "Mitigating off-target effects in CRISPR/Cas9-mediated in vivo gene editing," <em>Journal of Molecular Medicine</em>, vol. 98, no. 5, pp. 615-632, Mar. 2020, doi: <a href="https://doi.org/10.1007/s00109-020-01893-z">https://doi.org/10.1007/s00109-020-01893-z</a>.</li>
-    </ol>
-  </div>
 </div>
 
+<div class="spacer5"></div>
+
+<div class="page-section width-75" style="margin-left: 220px;" id="introduction">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">Introduction</h1>
+    </div>
+    <p style="text-align: left;">
+        Ensuring the <strong>safety and security</strong> of our work was a central focus throughout every stage of our project. 
+        Synthetic biology has the potential to improve human and planetary wellbeing, but it must be pursued responsibly. 
+        Our team identified, assessed, and mitigated <strong>biological, chemical, physical, and security risks</strong> associated with our research, design, and outreach.
+    </p>
+</div>
+
+<div class="spacer"></div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="risk-categories">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Risk Categories</span>
+    </h2>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        We conducted a comprehensive assessment of potential risks related to our project, classifying them under the following categories:
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Biological Risks:</strong> We used <em>K. phaffii</em>, a <strong>non-pathogenic and GRAS-certified organism</strong>, ensuring minimal health and environmental risks. No mammalian or pathogenic sequences were handled.</li>
+        <li><strong>Chemical Risks:</strong> Experiments involving solvents or staining reagents followed <strong>COSHH guidelines</strong>. All chemicals were logged, labelled, and disposed of according to Imperial College safety protocols.</li>
+        <li><strong>Physical Risks:</strong> Proper PPE, lab inductions, and equipment training (centrifuges, autoclaves, biosafety cabinets) were mandatory for all wet lab members.</li>
+        <li><strong>Security Risks:</strong> Data, constructs, and materials were securely stored, and access to lab areas was restricted to trained members only.</li>
+    </ul>
+
+    <p style="text-align: left;">
+        These risks were reviewed and re-evaluated as our project progressed, ensuring all changes in scope or design were reflected in our safety assessments.
+    </p>
+</div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="design-safety">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Design-Based Safety Measures</span>
+    </h2>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        From the start, we incorporated <strong>safety-by-design principles</strong> into our genetic engineering strategy. 
+        Our chassis, constructs, and expression systems were selected to ensure minimal risk to humans and the environment:
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><em>K. phaffii</em> was chosen for its <strong>non-pathogenic profile</strong> and extensive use in industrial recombinant protein production.</li>
+        <li>All constructs were assembled using <strong>non-toxic, antibiotic-free selection systems</strong> where feasible.</li>
+        <li>No virulence, toxin, or mammalian proliferation genes were used.</li>
+        <li>Plasmids featured <strong>controlled expression systems</strong> and biocontainment measures to prevent unintended expression outside lab conditions.</li>
+    </ul>
+
+    <p style="text-align: left;">
+        These design decisions form the backbone of our project’s biosafety, ensuring a robust and responsible foundation for future applications.
+    </p>
+</div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="lab-safety">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Laboratory and Operational Safety</span>
+    </h2>
+
+    <div style="float: right; width: 40%; max-width: 400px; margin: 0 0 1.5rem 2rem; text-align: center;">
+        <figure style="margin: 0;">
+            <img src="https://static.igem.wiki/teams/5916/wetlab/safety-plates.avif"
+                 style="width: 100%; height: auto;" 
+                 class="tilt-effect">
+            <figcaption style="font-size: 0.9rem; color: #bfbfbf; margin-top: 0.3rem;">
+                <em>Plates used for safety experiments</em>
+            </figcaption>
+        </figure>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        All biological, chemical, and glass waste was segregated and autoclaved before disposal. Weekly <strong>safety checks</strong> ensured compliance with 
+        College guidelines for good laboratory practice.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Additionally, <strong>outreach and educational events</strong> were reviewed to ensure physical and ethical safety, especially for public and child-focused activities.
+    </p>
+
+    <div style="clear: both;"></div>
+</div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="biosecurity">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Biosecurity & Dual-Use Awareness</span>
+    </h2>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        We recognise that biotechnology carries <strong>dual-use potential</strong>. While our work focuses on ethical, sustainable applications in food biotechnology, 
+        recombinant protein systems could theoretically be misused. To prevent this:
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>All DNA sequences were screened against <strong>GenBank and pathogenicity databases</strong> before synthesis.</li>
+        <li>Design files, samples, and reagents were kept under <strong>controlled access</strong> and not shared externally without approval.</li>
+        <li>We followed the <strong>NSABB (2016) dual-use guidelines</strong> and discussed responsible research practices during team meetings.</li>
+    </ul>
+
+    <p style="text-align: left;">
+        These steps ensured our project remained aligned with iGEM’s safety and responsibility principles while contributing to a culture of biosecurity awareness.
+    </p>
+</div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="committee">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Safety & Security Committee Challenge</span>
+    </h2>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        The iGEM Safety and Security Committee challenges teams to apply <strong>biological engineering approaches</strong> to manage risks responsibly. 
+        Our project aligns with this mission by promoting accessible, transparent, and ethical biomanufacturing in safe laboratory conditions.
+    </p>
+
+    <p style="text-align: left;">
+        Learn more on the 
+        <a href="https://competition.igem.org/judging/special-prizes" target="_blank" style="color: #0b0b0b; text-decoration: underline;">Special Prizes page</a>.
+    </p>
+</div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="references">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Inspirations & References</span>
+    </h2>
+    <ul style="text-align: left; padding-left: 1.5rem;">
+        <li><a href="https://2024.igem.wiki/ucalgary/safety" target="_blank">2024 UCalgary</a></li>
+        <li><a href="https://2023.igem.wiki/basis-china/safety" target="_blank">2023 BASIS-China</a></li>
+        <li><a href="https://2023.igem.wiki/edinburgh/safety" target="_blank">2023 Edinburgh</a></li>
+        <li><a href="https://2023.igem.wiki/epfl/safety" target="_blank">2023 EPFL</a></li>
+        <li><a href="https://2023.igem.wiki/nmu-china/safety" target="_blank">2023 NMU-China</a></li>
+        <li><a href="https://responsibility.igem.org/safety-policies" target="_blank">iGEM Safety Policies</a></li>
+        <li>National Science Advisory Board for Biosecurity (NSABB). (2016). <em>Recommendations for Evaluating the Risks and Benefits of Gain-of-Function Research.</em></li>
+    </ul>
+</div>
 {% endblock %}
