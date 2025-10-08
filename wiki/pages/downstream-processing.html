@@ -1,22 +1,24 @@
 {% extends "layout.html" %}
 
-{% block title %}Downstream Processing{% endblock %}
+{% block title %}Cultured Beef TEA & LCA{% endblock %}
 {% block lead %}{% endblock %}
 
-
 {% block scroll_nav %}
-<nav class="side-scroll-nav scroll-nav">
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
     <span class="side-scroll-nav-label">On This Page</span>
-    <a href="#design-a">Design A</a>
-    <a href="#design-b">Design B</a>
-    <a href="#design-c">Design C</a>
-    <a href="#design-comparison">Comparison</a>
-    <a href="#final-contribution">Contribution</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#methodology">Methodological Inputs & Scope</a>
+    <a href="#process-a">Process Design A: Cost-Focused Baseline</a>
+    <a href="#process-b">Process Design B: Environmentally-Optimised</a>
+    <a href="#process-c">Process Design C: Hybrid with Recovery Loops</a>
+    <a href="#comparison">Design Comparison</a>
+    <a href="#final-contribution">Final Contribution</a>
+    <a href="#economic-feasibility">Economic Feasibility</a>
+    <a href="#references">References</a>
 </nav>
 {% endblock %}
 
 {% block page_content %}
-
 <div class="education-hero dsp-banner">
     <div class="education-hero-content-container">
         <h1 class="text-glitch">TECHNO ECONOMIC ASSESSMENT</h1>
@@ -25,202 +27,361 @@
 
 <div class="spacer5"></div>
 
-<div class="page-section width-75" id="design-a">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design A: Cost-Focused Baseline</strong>
+<!-- INTRODUCTION -->
+<div class="page-section width-75" style="margin-left: 220px;" id="introduction">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">Introduction</h1>
+    </div>
+    <p style="text-align: left;">
+        Cultured beef is a promising alternative to conventional livestock farming, but its true feasibility depends on moving beyond idealised models by incorporating operational complexities frequently omitted in early studies. 
+        Here, we employed an <strong>integrated Techno-Economic Analysis (TEA) and Life Cycle Assessment (LCA) framework</strong> to rigorously evaluate cultured beef production across three configurations: 
+        a cost-focused baseline (Section A), an environmentally optimised design (Section B), and a hybrid system integrating recovery and cleaning (Section C).
+    </p>
+</div>
+
+<div class="spacer"></div>
+
+<!-- METHODOLOGICAL INPUTS AND SCOPE DEFINITION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="methodology">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Methodological Inputs and Scope Definition</span>
     </h2>
-    <div class="collapsible-content">
 
-
-
-        <img src="https://static.igem.wiki/teams/5916/dsp/processa.webp" alt="Process diagram for cost-focused baseline"
-            style="max-width: 80%;">
-
-
-
-        <p style="text-align: left;"><i>Figure 1: Process flow diagram of the cost-focused configuration.</i></p>
-
-        <div class="spacer"></div>
-
-        <p style="text-align: left;">
-            The cost-focused process was designed to prioritise affordability over environmental or operational
-            complexity. It features a straightforward linear production line with minimal system redundancy and
-            no
-            recovery or recycling systems. Media is heat-sterilised in batches and stored in large, jacketed
-            vessels.
-            Cells are thawed, seeded, expanded, and differentiated in parallel single-use bioreactors. Once
-            harvested,
-            the biomass is cooled, packaged, and frozen with no further processing or recovery of media or
-            cells.
-            Cleaning is infrequent and performed manually where possible.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            This design mimics the likely setup for early-stage startups with limited funding or technical
-            capacity. Its
-            simplicity keeps capital and operational expenditure low but comes at the cost of high material
-            usage, water
-            consumption, and overall environmental burden.
+    <div style="margin-top: 1rem;">
+        <p style="text-align: left; margin-bottom: 1.5rem;">
+            The resultant cost and environmental outputs are defined by the specific inputs modelled to produce 
+            <strong>1 kilogram of wet muscle fibres</strong> (the functional unit). 
+            Key assumptions affecting the output include:
         </p>
 
+        <ul style="text-align: left; margin-left: 2rem; line-height: 1.6;">
+            <li><strong>Cell Line and Yield:</strong> Production uses an <strong>immortalised bovine satellite cell line (iBSC1)</strong>, assuming 95% proliferation efficiency.</li>
+            <li><strong>Inoculation Strategy:</strong> Section A uses the expensive <strong>High-Density Cell Banking (HDCB)</strong> method, contrasted with Section B’s <strong>traditional seed train</strong>, creating major cost differentials.</li>
+            <li><strong>Media Composition:</strong> Section B replaced high-burden nutrients with lower-impact feedstocks, specifically <strong>beet-derived sucrose</strong> and <strong>soy hydrolysate</strong>, compared to Section A’s use of sucrose, lysine, and HEPES.</li>
+            <li><strong>Process Design:</strong> Section B utilises <strong>air-lift systems</strong> to improve nutrient efficiency and reduce energy consumption. All scenarios rely on <strong>gelatin-based microcarriers</strong>.</li>
+            <li><strong>Boundary Inclusion:</strong> Section C achieves a scope-complete inventory by explicitly modelling <strong>Cleaning-in-Place/Sterilisation-in-Place (CIP/SIP)</strong>, detailing inputs such as <strong>sodium hydroxide (NaOH)</strong> and <strong>phosphoric acid (H₃PO₃)</strong>, and incorporating water recovery loops.</li>
+        </ul>
 
-        <div class="collapsible-close">Close</div>
+        <p style="text-align: left; margin-top: 1.5rem;">
+            This comprehensive definition ensures that the model identifies actual cost and environmental drivers — 
+            namely materials (microcarriers and growth factors) and cleaning inputs — rather than relying solely on simplistic utility factors.
+        </p>
     </div>
 </div>
 
-<div class="page-section width-75" id="design-b">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design B:
-            Environmentally-Optimised</strong></h2>
-    <div class="collapsible-content">
+<div class="spacer"></div>
 
+<!-- PROCESS DESIGN A -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="process-a">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Process Design A: Cost-Focused Baseline</span>
+    </h2>
 
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="https://static.igem.wiki/teams/5916/dsp/dsp/processa.webp" 
+                     alt="Process Design A Flow Diagram" 
+                     style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);">
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                    Figure 1: Process flow diagram of the cost-focused configuration.
+                </p>
+            </div>
+            <p style="text-align: left;">
+                <em>Figure 1: Process flow diagram of the cost-focused configuration.</em>
+            </p>
 
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                The cost-focused process was designed to prioritise affordability over environmental or operational complexity.
+                It features a straightforward linear production line with minimal system redundancy and no recovery or recycling systems.
+                Media is heat-sterilised in batches and stored in large, jacketed vessels. 
+                Cells are thawed, seeded, expanded, and differentiated in parallel single-use bioreactors. 
+                Once harvested, the biomass is cooled, packaged, and frozen with no further processing or recovery of media or cells.
+                Cleaning is infrequent and performed manually where possible.
+            </p>
 
-        <img src="https://static.igem.wiki/teams/5916/dsp/processb.webp" alt="Process diagram for cost-focused baseline"
-            style="max-width: 80%;">
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This design mimics the likely setup for early-stage startups with limited funding or technical capacity.
+                Its simplicity keeps capital and operational expenditure low but comes at the cost of high material usage, water consumption, 
+                and overall environmental burden <strong>[1, 2, 7]</strong>.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
 
-        <p style="text-align: left;"><i>Figure 2: Process flow diagram of the environmentally optimised
-                configuration.</i></p>
+<div class="spacer"></div>
+<!-- PROCESS DESIGN B -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="process-b">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Process Design B: Environmentally-Optimised</span>
+    </h2>
 
-        <div class="spacer"></div>
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="https://static.igem.wiki/teams/5916/dsp/dsp/processb.webp" 
+                     alt="Process Design A Flow Diagram" 
+                     style="width: 100%; max-width: 800px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);">
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+                    Figure 1: Process flow diagram of the cost-focused configuration.
+                </p>
+            </div>
+            <p style="text-align: left;">
+                <em>Figure 2: Process flow diagram of the environmentally optimised configuration.</em>
+            </p>
 
-        <p style="text-align: left;">
-            This design introduces major changes aimed at reducing environmental impact, while still
-            maintaining
-            economic viability. Inputs such as growth media are reformulated using plant-based ingredients
-            (e.g., soy
-            hydrolysate, beet sugar) instead of animal-derived or synthetic components. The process replaces
-            high-energy
-            mechanical agitation with air-lift bioreactors, which improve oxygenation with lower shear and
-            energy usage.
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This design introduces major changes aimed at reducing environmental impact, while still maintaining economic viability. 
+                Inputs such as growth media are reformulated using plant-based ingredients (e.g., <strong>soy hydrolysate</strong> and <strong>beet sugar</strong>) 
+                instead of animal-derived or synthetic components <strong>[1, 4]</strong>. 
+                The process replaces high-energy mechanical agitation with <strong>air-lift bioreactors</strong>, which improve oxygenation 
+                with lower shear and energy usage <strong>[4]</strong>.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Significant changes are made in upstream design: batch sizes are optimised to reduce excess, and deep cryostorage is replaced 
+                with cold-chain liquid storage, reducing energy demands <strong>[1, 5]</strong>. 
+                Cleaning cycles (CIP/SIP) are integrated into the schedule and simulated in life cycle assessments, 
+                revealing a more accurate picture of water use and emissions <strong>[1, 5]</strong>.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Overall, this process reduces CO₂ emissions and water use by over 50%, demonstrating that sustainable design can be achieved 
+                without prohibitive cost increases <strong>[1, 4, 5]</strong>.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
+
+<div class="spacer"></div>
+<!-- PROCESS DESIGN C -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="process-c">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Process Design C: Hybrid with Recovery Loops</span>
+    </h2>
+
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <div style="border: 1px solid #ccc; border-radius: 10px; overflow: hidden; margin-bottom: 1rem;">
+                <iframe 
+                    src="https://static.igem.wiki/teams/5916/dsp/dsp/process-c.pdf" 
+                    width="100%" 
+                    height="600px" 
+                    style="border: none;">
+                </iframe>
+            </div>
+            <p style="text-align: left;">
+                <em>Figure 3: Process flow diagram of the hybrid configuration (Design C), showing the full system including recovery modules.</em>
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                The final process adds modular recovery systems to maximise yield and minimise waste. 
+                This includes <strong>enzymatic digestion of microcarriers</strong> to recover residual cells <strong>[6]</strong>, 
+                <strong>filtration and reverse osmosis</strong> to recycle process water, and 
+                <strong>automated cleaning cycles</strong> with recovery tanks <strong>[1, 4, 5]</strong>. 
+                While the base layout resembles the environmentally optimised system, additional holding tanks, enzyme steps, 
+                and product sorting modules are included.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This design increases capital cost and system complexity but recovers otherwise lost materials. 
+                It also introduces a secondary product stream: recovered cells that may be repurposed as high-value 
+                biotech or cosmetic ingredients <strong>[1, 5, 6]</strong>.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
+
+<div class="spacer"></div>
+<!-- DESIGN COMPARISON -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="design-comparison">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Design Comparison</span>
+    </h2>
+
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Across the three designs, the strategies evolve progressively. 
+                <strong>Design A</strong> is linear and simple, aimed at cost minimisation. 
+                <strong>Design B</strong> introduces sustainable inputs and reactor design choices. 
+                <strong>Design C</strong> layers on complexity to close resource loops and extract value from waste along the process.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Each process reflects a different set of priorities. 
+                Design A is suited to rapid deployment or low-tech environments. 
+                Design B demonstrates that smart substitutions and modular design can drastically cut environmental impact without large added cost. 
+                Design C showcases that circular processing and recovery systems are feasible and offer long-term efficiency gains — 
+                but require upfront investment and tighter system integration.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Key considerations across designs include: 
+                sterilisation method (batch vs. continuous), storage strategy (deep freeze vs. cold liquid chain), 
+                reactor type (stirred-tank vs. air-lift), and the inclusion of water/cell recovery in the final system. 
+                Incorporating <strong>CIP/SIP</strong> reveals significant effects on both water use and CO₂ emissions.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
+
+<div class="spacer"></div>
+<!-- FINAL CONTRIBUTION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="final-contribution">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Final Contribution: A Clearer Blueprint for Cultivated Meat Processing</span>
+    </h2>
+
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                The hybrid process in <strong>Design C</strong> contributes a key improvement: it combines environmental and economic goals 
+                within a single, modular layout <strong>[5]</strong>. 
+                It offers a template that balances material cost, operational complexity, and sustainability — 
+                crucial for industries like cultivated meat, where margins are tight and scale-up is essential.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This staged comparison provides a roadmap for early-stage cultivated meat companies: 
+                start lean, optimise inputs, then close the loop <strong>[1, 4, 5]</strong>. 
+                It also highlights where future bioprocessing efforts — such as smarter microcarriers or lower-impact cleaning methods — 
+                could deliver the greatest gains <strong>[1, 5]</strong>.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This represents a unique contribution within iGEM as it addresses both environmental and techno-economic gaps 
+                by modelling complete process boundaries, including water and chemical recovery systems.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
+
+<div class="spacer"></div>
+<!-- ECONOMIC FEASIBILITY AND OPERATIONAL BOTTLENECKS -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="economic-feasibility">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Economic Feasibility and Operational Bottlenecks</span>
+    </h2>
+
+    <!-- DROPDOWN START -->
+    <details style="margin-top: 1rem; margin-bottom: 2rem;">
+        <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+        <div style="margin-top: 1rem;">
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Analysis confirms that the current production reality is dominated by <strong>raw material costs</strong>, 
+                which account for approximately <strong>98% of total operating expenditure (OPEX)</strong>. 
+                Raw materials — particularly <strong>microcarriers</strong> and <strong>recombinant proteins</strong> — 
+                remain the persistent cost bottleneck.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                While <strong>recombinant Growth Factors (GFs)</strong> constitute a significant proportional expense 
+                (67.48% of material costs in the traditional seed-train scenario, Section B), 
+                sensitivity analysis indicates that GF pricing is presently the <strong>least elastic part of the operating cost structure</strong>. 
+                Conversely, highly utilised process chemicals such as buffers are conventional industrial compounds, 
+                meaning that facilities to scale and produce these inputs already exist within traditional chemical engineering frameworks.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Despite the operational improvements and cost-cutting measures implemented in Section C, 
+                the current cost structure renders large-scale cultured meat production <strong>economically unfeasible</strong>. 
+                Approximate calculations show that annual operational costs reach about <strong>$855 million</strong>. 
+                If muscle fibres sell at a competitive beef parity price (<strong>$13.4/kg</strong>) and 
+                the co-product (immortalised cells) is sold at an optimistic <strong>$5,000/kg</strong>, 
+                total annual revenue would only reach around <strong>$195 million</strong>.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                This means revenue covers only about <strong>5% of annual cost</strong>, 
+                requiring the cell co-product to be sold for approximately <strong>$22,100/kg</strong> just to break even. 
+                This gap underscores the urgent need for cost-reducing innovations in 
+                <strong>growth factor manufacturing</strong>, <strong>microcarrier recycling</strong>, 
+                and <strong>media efficiency</strong>.
+            </p>
+
+            <p style="text-align: left; margin-bottom: 1.5rem;">
+                Fundamentally, this analysis concludes that cultivated meat faces no insurmountable technological barriers — 
+                rather, the challenge lies in <strong>input supply chains</strong> and <strong>process scaling</strong>. 
+                Addressing these areas, particularly through growth factor production and recycling strategies, 
+                is where our contribution becomes most critical.
+            </p>
+        </div>
+    </details>
+    <!-- DROPDOWN END -->
+</div>
+
+<div class="spacer"></div>
+<!-- DECLARATION & REFERENCES -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="declaration">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Declaration & References</span>
+    </h2>
+
+    <div style="margin-top: 1rem;">
+        <p style="text-align: left; margin-bottom: 1.5rem;">
+            <strong>Declaration:</strong><br>
+            This work is based on the MSc thesis 
+            <em>“Process Design and Environmental Assessment of Cultivated Meat Bioprocesses”</em> 
+            by our team member <strong>Asay Alper</strong> and <strong>Prof. Cleo Kontoravdi</strong>, 
+            submitted at <strong>Imperial College London (2025)</strong>. 
+            The content has been adapted for our project with departmental approval. 
+            The uncited cost analysis section is pending publication; therefore, detailed calculations 
+            have been intentionally withheld.
         </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            Significant changes are made in upstream design: batch sizes are optimised to reduce excess, and
-            deep
-            cryostorage is replaced with cold-chain liquid storage, reducing energy demands. Cleaning cycles
-            (CIP/SIP)
-            are integrated into the schedule and simulated in life cycle assessments, revealing a more
-            accurate picture
-            of water use and emissions.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            Overall, this process reduces CO₂ emissions and water use by over 50%, demonstrating that
-            sustainable design
-            can be achieved without prohibitive cost increases.
-        </p>
 
-
-        <div class="collapsible-close">Close</div>
+        <h3 style="text-align: left;">References</h3>
+        <ol style="text-align: left; margin-left: 1.5rem; line-height: 1.6;">
+            <li>
+                M. I. Rodríguez Escobar, E. Cadena, T. T. Nhu, M. Cooreman-Algoed, S. De Smet and J. Dewulf, 
+                “Analysis of the Cultured Meat Production System in Function of Its Environmental Footprint: 
+                Current Status, Gaps and Recommendations,” <em>Food Engineering and Technology</em>, 
+                vol. 10, no. 12, p. 2941.
+            </li>
+            <li>
+                A. B. Goswami, J. Charlesworth, J. M. Biazik, M. S. Rybchyn and J. le Coutre, 
+                “Cultured meat technology: an overview,” in <em>Advances in Cultured Meat Technology</em>, 2023.
+            </li>
+            <li>
+                A. J. Stout et al., “Simple and effective serum-free medium for sustained expansion of bovine satellite cells 
+                for cell cultured meat,” <em>Communications Biology</em>, vol. 5, no. 1, article 466, 2022.
+            </li>
+            <li>
+                ESA, “ESA investigates cultured meat as novel space food,” [Online]. Available: 
+                <a href="https://www.esa.int/Enabling_Support/Preparing_for_the_Future/Discovery_and_Preparation/ESA_investigates_cultured_meat_as_novel_space_food" target="_blank">
+                    ESA investigates cultured meat as novel space food
+                </a>
+            </li>
+            <li>
+                K. Askew, “Lion burger? Tiger tacos? Meet the cell cultured start-up working in exotic meats,” 
+                <em>Food Navigator Europe</em>, 2022. [Online]. Available: 
+                <a href="https://www.foodnavigator.com/Article/2022/03/30/lion-burger-tiger-tacos-meet-the-cell-cultured-start-up-working-in-exotic-meats" target="_blank">
+                    FoodNavigator article link
+                </a>
+            </li>
+            <li>
+                E. N. O'Neill, Z. A. Cosenza, K. Baar and D. E. Block, 
+                “Considerations for the development of cost-effective cell culture media for cultivated meat production,” 
+                <em>Comprehensive Reviews in Food Science and Food Safety</em>, vol. 20, no. 1, pp. 686–709, 2020.
+            </li>
+        </ol>
     </div>
 </div>
 
-<div class="page-section width-75" id="design-c">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Process Design C: Hybrid with Recovery
-            Loops</strong></h2>
-    <div class="collapsible-content">
-
-
-        <img src="https://static.igem.wiki/teams/5916/dsp/process-c-page-0001.webp"
-            alt="Process diagram for cost-focused baseline" style="max-width: 80%; rotate: -90deg; margin-top: -10rem; margin-bottom: -10rem;" >
-        <img src="https://static.igem.wiki/teams/5916/dsp/process-c-page-0002.webp"
-            alt="Process diagram for cost-focused baseline" style="max-width: 80%; rotate: -90deg; margin-top: -10rem;  margin-bottom: -10rem;">
-        <img src="https://static.igem.wiki/teams/5916/dsp/process-c-page-0003.webp"
-            alt="Process diagram for cost-focused baseline" style="max-width: 80%; rotate: -90deg; margin-top: -10rem;  margin-bottom: -10rem;">
-
-
-
-
-        <p style="text-align: left;"><i>Figure 3: Process flow diagram of the hybrid configuration (Design C), showing
-        the full system including recovery modules: (1) enzymatic microcarrier digestion for cell salvage, (2)
-        process water recycling via filtration and reverse osmosis, and (3) integrated CIP/SIP cleaning loops.</i>
-        </p> 
-
-        <div class="spacer2"></div>
-
-
-        <p style="text-align: left;">
-            The final process adds modular recovery systems to maximise yield and minimise waste. This includes
-            enzymatic digestion of microcarriers to recover residual cells, filtration and reverse osmosis to
-            recycle
-            process water, and automated cleaning cycles with recovery tanks. While the base layout resembles
-            the
-            environmentally optimised system, additional holding tanks, enzyme steps, and product sorting
-            modules
-            are
-            included.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            This design increases capital cost and system complexity but recovers otherwise lost materials. It
-            also
-            introduces a secondary product stream: recovered cells that may be repurposed as high-value biotech
-            or
-            cosmetic ingredients.
-        </p>
-
-
-        <div class="collapsible-close">Close</div>
-
-    </div>
-
-
-
-</div>
-</div>
-
-<div class="page-section width-75" id="design-comparison">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Design Comparison</strong></h2>
-    <div class="collapsible-content">
-        <p style="text-align: left;">
-            Across the three designs, the strategies change. Design A is linear and simple, aimed at cost
-            minimisation.
-            Design B introduces sustainable inputs and reactor design choices. Finally, Design C layers on
-            complexity to
-            close resource loops and extract value from waste along the process.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            Each process reflects a different set of priorities. Design A is suited to rapid deployment or low-tech
-            environments. Design B shows that smart substitutions and modular design can drastically cut
-            environmental
-            impact without large added cost. Design C demonstrates that circular processing and recovery systems are
-            feasible and offer long-term efficiency gains, but require upfront investment and tighter system
-            integration.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            Key considerations we made between processes include, sterilisation method (batch vs. continuous),
-            storage
-            strategy (deep freeze vs. cold liquid chain), Reactor type (stirred-tank vs. air-lift), presence of
-            water/cell recovery in the final system. Inclusion of CIP/SIP and their effect on water use and CO₂
-            emissions
-        </p>
-        <div class="collapsible-close">Close</div>
-    </div>
-</div>
-
-<div class="page-section width-75" id="final-contribution">
-    <h2 class="collapsible-trigger" style="text-align: left;"><strong>Final Contribution: A Clearer Blueprint for
-            Cultivated Meat Processing</strong></h2>
-    <div class="collapsible-content">
-        <p style="text-align: left;">
-            The hybrid process in Design C, contributes a key improvement: it combines environmental and economic
-            goals
-            in a single, modular layout. It offers a template that balances material cost, operational complexity,
-            and
-            sustainability, crucial for industries like cultivated meat where margins are tight and scale-up is
-            essential.
-        </p>
-        <div class="spacer"></div>
-        <p style="text-align: left;">
-            This staged comparison provides a roadmap for early-stage cultivated meat companies: start lean,
-            optimise
-            inputs, then close the loop. It also highlights where future bioprocessing efforts, like smarter
-            microcarriers or lower-impact cleaning methods, could deliver the greatest gains.
-        </p>
-        <div class="collapsible-close">Close</div>
-    </div>
-</div>
-
+<div class="spacer"></div>
 {% endblock %}
