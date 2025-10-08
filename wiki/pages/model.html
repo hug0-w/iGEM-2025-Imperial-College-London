@@ -329,13 +329,38 @@
 
     <p>As the dataset of this paper is relatively sparse, we fitted a Gaussian process with a scaled RBF kernel and additional white noise kernel to their data, creating a surface approximating the actual optimisation landscape of the four-dimensional input space. The procedure is outlined below.</p>
 
-    <p>[ NOISE PLOT ]</p>
-    <p><img src="/static/images/noise-plot-placeholder.png" alt="Noise plot" style="max-width:100%; height:auto;"/></p>
+  <p>[ NOISE PLOT ]</p>
+  <p><img src="https://static.igem.wiki/teams/5916/drylab/bayes-empirical.avif" alt="Bayes empirical" style="max-width:100%; height:auto; border-radius:6px;"/></p>
 
     <p>The plot above shows the extrapolated surface from 83 unique observations, each having six technical repeats.</p>
 
     <p>[ SIGNAL PLOT GP FIT ]</p>
-    <p><img src="/static/images/signal-plot-placeholder.png" alt="Signal GP fit" style="max-width:100%; height:auto;"/></p>
+    <p><img src="https://static.igem.wiki/teams/5916/drylab/dry-signal.avif" alt="Dry signal" style="max-width:100%; height:auto; border-radius:6px;"/></p>
+
+    <!-- Image gallery for GP progression and models -->
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/gaussian-process-after-4-observations.webp" alt="GP after 4 observations" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/gaussian-process-after-6-observations.webp" alt="GP after 6 observations" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/gaussian-process-after-8-observations.avif" alt="GP after 8 observations" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/gaussian-process-after-10-observations.avif" alt="GP after 10 observations" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/model1.avif" alt="Model 1" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/model2.avif" alt="Model 2" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+      <div style="flex:1 1 48%;">
+        <img src="https://static.igem.wiki/teams/5916/drylab/noise-signal.avif" alt="Noise signal" style="width:100%; height:auto; border-radius:6px;" />
+      </div>
+    </div>
 
     <p>The same procedure was applied, however instead of using the means calculated from experimental data, we estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic noise meshgrid, then supplied as a parameter for the standard deviation for random sampling from a normal distribution.</p>
 
