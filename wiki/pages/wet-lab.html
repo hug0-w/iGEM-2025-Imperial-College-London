@@ -1,36 +1,167 @@
 {% extends "layout.html" %}
   
-{% block title %}Notebook{% endblock %}
+{% block title %}wet-lab{% endblock %}
 {% block lead %}This serves as a chronological record of your team's progress throughout the season. It documents your daily activities, experiments, discussions, and decisions.{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <ul>
-      <li>Record all activities in chronological order, with each entry clearly dated.</li>
-      <li>Provide sufficient detail for each activity, including:</li>
-      <ul>
-        <li>Purpose of the activity.</li>
-        <li>Methods and procedures used.</li>
-        <li>Results obtained.</li>
-        <li>Observations and notes.</li>
-      </ul>
-      <li>Document all experiments, protocols, data analysis, meetings, brainstorming sessions, and other project-related activities.</li>
-      <li>Include photos, videos, and diagrams to illustrate your progress.</li>
-      <li>Indicate which team members participated in each activity.</li>
-    </ul>
+
+  
+</div>
+
+<!-- EXPERIMENTAL DESIGN -->
+<div class="spacer"></div>
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="experimental-design">
+  <h2 style="text-align: left;"><span class="highlight-green animate-text-scramble">Experimental Design</span></h2>
+  <p style="text-align: left;">
+    <strong>We conducted three key experiments for our overall proof of concept:</strong>
+  </p>
+  <ul style="text-align: left; padding-left: 1.5rem;">
+    <li>The <strong>CRISPR/Cas9-based engineering of EPS-related pathways to minimise EPS production and secretion;</strong></li>
+    <li>The production of <strong>recombinant growth factors from <em>K. phaffii</em></strong> for use in the cultivated meat industry;</li>
+    <li><strong>Optimisation of an enzymatic pathway in <em>E. coli</em></strong> as validation for a no-code Bayesian optimisation workflow for future <em>K. phaffii</em> metabolic engineering and media optimisation.</li>
+  </ul>
+
+  <div class="spacer"></div>
+
+  <h3 style="text-align: left;">Strain engineering of <em>K. phaffii</em> to minimise exopolysaccharide production and secretion</h3>
+  <p style="text-align: left;">
+    We spread our engineering strategy such that it addressed <strong>the most mechanistically plausible causes for EPS secretion</strong>, which has not yet been determined in literature.
+  </p>
+
+  <p style="text-align: left;">
+    Our first theory was that the non-specific nature of the truncated <strong>Hoc1</strong> enzyme results in less branching of glycans and more free mannans in the extracellular space. Secondly, a putative reparative cell wall stress response as a result of the thinner cell wall phenotype may drive excess mannans into the Golgi apparatus. Finally, we accounted for the scenario where neither of our assumptions were true, in which case we planned to reduce the total mannose available in the cell by inhibiting or downregulating the production of mannose within the cell.
+  </p>
+
+  <p style="text-align: left;">
+    We decided on one protein target for each plausible theory, which resulted in the three targets we chose to engineer for our experiment:
+  </p>
+  <ul style="text-align: left; padding-left: 1.5rem;">
+    <li><strong>Hoc1</strong>, a 1,6-mannosyltransferase enzyme responsible for the branching of long poly-mannose arms on already glycosylated proteins;</li>
+    <li><strong>PMI</strong>, phosphomannose isomerase, the enzyme responsible for converting fructose-6-phosphate into mannose-6-phosphate, the bridge between glycolysis and GDP-mannose production;</li>
+    <li><strong>Rho1</strong>, a key signalling protein in the cell wall integrity pathway whose overexpression can positively or negatively affect cell wall integrity based on basal cell wall integrity.</li>
+  </ul>
+
+  <p style="text-align: left;">
+    Since the Hoc1 truncation arose during an industrial directed evolution experiment and has maintained broad application due to enhanced protein secretion and transformability properties associated with the frameshift, we do not aim to restore full cell wall integrity, but instead combat EPS impurity formation while maintaining high secretion and enzyme specificity by downregulating the enzyme.
+  </p>
+
+  <p style="text-align: left;">
+    However, restoring cell wall integrity and altering glycosylation pathways may carry trade-offs: tighter cell walls could reduce secretion efficiency, and modifying central metabolism could affect growth rate or introduce unforeseen downstream effects. This is why we spread our engineering more broadly.
+  </p>
+
+  <p style="text-align: left;">
+    To modify <strong>Hoc1</strong> and <strong>PMI</strong>, we chose to use the CRISPR/Cas9 system as it represented a relatively straightforward and well-characterised method of gene editing that would allow us to perform all of our desired modifications without major issues. However, we note that going forward, CRISPR may not be the optimal choice for genetic engineering, as the commercial red tape and patents surrounding the technology make it undesirable for strain engineering in scale-up cultivated meat.
+  </p>
+
+  <p style="text-align: left;">
+    We established in silico that <strong>split-marker integration</strong> would result in a similar effect to that of CRISPR/Cas9 with substantially fewer restrictions on commercial usage. We therefore determined that it would be mechanistically possible to reproduce our intended modifications using this method. Our contribution therefore maintains commercial viability as it does not inherently rely strictly on CRISPR, thus avoids its licensing troubles.
+  </p>
+
+  <p style="text-align: left;">
+    We designed <strong>10 sgRNA devices</strong> following protocol from Gassler et al. that would allow us to efficiently edit the <em>K. phaffii</em> genome and insert our own sequences using homologous recombination[1]. These devices have 5’ hammerhead (HH) and 3’ hepatitis delta virus (HDV) ribozymes flanking the sgRNA construct to allow for efficient sgRNA self-excision once the plasmid is inserted. We targeted our sgRNAs around the start and stop codons of the <em>Hoc1</em> and <em>PMI</em> genes where possible in order to minimise the chance of any unwanted engineering.
+  </p>
+
+  <p style="text-align: left;">
+    Regarding the engineering of <strong>Rho1</strong>, we chose to overexpress this protein using a weak constitutive promoter, <strong>pPGK1</strong>, in the hopes that it would upregulate the expression levels to partially repair cell wall integrity, but not so much that it would negatively affect cell growth and proliferation[2].
+  </p>
+
+  <div class="spacer"></div>
+
+  <h3 style="text-align: left;">Production of recombinant growth factors in <em>K. phaffii</em></h3>
+  <p style="text-align: left;">
+    Our growth factor experiment planned to <strong>demonstrate the ability of <em>K. phaffii</em> to produce recombinant mammalian growth factors at high titres</strong> and characterise <strong>the production of HGF and IGF-1 in <em>K. phaffii</em> for the first time in iGEM</strong>.
+  </p>
+
+  <p style="text-align: left;">
+    We chose to <strong>target four growth factors</strong> due to varying reasons:
+  </p>
+  <ul style="text-align: left; padding-left: 1.5rem;">
+    <li><strong>Epidermal growth factor (EGF)</strong>, due to its ability to induce cell proliferation[3].</li>
+    <li><strong>Basic Fibroblast growth factor (bFGF)</strong>, due to its ability to strongly induce cell proliferation and migration[4].</li>
+    <li><strong>Hepatocyte growth factor (HGF)</strong>, due to its large size and ability to activate muscle satellite cells[5].</li>
+    <li><strong>Insulin-like growth factor 1 (IGF-1)</strong>, due to its ability to induce cell proliferation very strongly in muscle and bone cells[6].</li>
+  </ul>
+
+  <p style="text-align: left;">
+    We engineered these growth factors to be secreted from the cells via the <strong>pre-Ost-pro-alpha mating factor fusion secretion tag.</strong>
+  </p>
+
+  <p style="text-align: left;">
+    Typically, the alpha-mating factor of <em>S. cerevisiae</em> is commonly used to target recombinant proteins for secretion in <em>K. phaffii</em>. However, when secreting recombinant proteins, the alpha-mating factor runs into two primary issues. Firstly, the signal promotes <strong>post-translational translocation into the ER</strong>, which can <strong>negatively affect the translocation rate of larger proteins like FGF2 and HGF</strong>. Furthermore, the signal also can <strong>cause aggregation in self-associating proteins</strong>, which <strong>negatively affects ER export if the production volume is high</strong>, like in our case with growth factors.
+  </p>
+
+  <p style="text-align: left;">
+    Barrero et al., 2018, found that by fusing the pre-factor of the <strong>Ost1 signal sequence</strong> from <em>S. cerevisiae</em>, these issues could be overcome and secretion was several-fold more efficient than the alpha-mating factor in full, up to 20-fold for some proteins[7].
+  </p>
+
+  <p style="text-align: left;">
+    Additionally, a <strong>C-terminal poly-histidine (6xHis) tag</strong> was fused to the protein using a G4Sx3 flexible linker in order to facilitate <strong>Nickel spin column-mediated affinity chromatography</strong> for purification of recombinant growth factors. We chose to use His-tag affinity chromatography knowing the potential immunogenic effects for two key reasons:
+  </p>
+  <ul style="text-align: left; padding-left: 1.5rem;">
+    <li>We <strong>do not plan on transitioning this into a therapeutic</strong>, which means there is very likely no severe effect of the His-tag on humans.</li>
+    <li><strong>His-tag is the combination of a reliable, affordable, and low-manpower requirement protein purification method</strong>, making it quite ideal to isolate and purify recombinant proteins.</li>
+  </ul>
+
+  <div class="spacer"></div>
+
+  <h3 style="text-align: left;">Validating a no-code Bayesian optimisation workflow</h3>
+  <p style="text-align: left;">
+    We designed an experiment that would be conducted both in silico and in vitro to determine the usefulness of <strong>BioKernel batch Bayesian optimisation (BO)</strong> workflow for optimising inducer concentrations to fine-tune enzyme expression in a metabolic pathway.
+  </p>
+
+  <p style="text-align: left;">
+    To validate this experiment, we designed a framework that would utilise the <strong>Marionette-Wild MG1655 strain of <em>E. coli</em></strong>[8] and the <strong>EcoFlex MoClo kit</strong>[9] to assemble a plasmid containing ten distinct promoters, each regulating the expression of one enzyme in the astaxanthin bioproduction pathway, for the experiment.
+  </p>
+
+  <h4 style="text-align: left;">EcoFlex Kit</h4>
+  <p style="text-align: left;">
+    The <strong>EcoFlex MoClo</strong> <strong>kit</strong> is a well-characterised plasmid kit for the assembly of expression vectors for <em>E. coli</em> developed at Imperial College London by the Paul Freemont lab. We chose this kit over many other MoClo kits for <em>E. coli</em> due to the immediate availability of the kit on campus and its usage of negative selection on some plasmids via RFP.
+  </p>
+
+  <p style="text-align: left;">
+    The EcoFlex kit uses <strong>two distinct methods of negative selection</strong> to test for the correct assembly of a plasmid. One is the lacZ marker, which provides blue/white selection on X-Gluc. The other is the RFP marker, which makes colonies express RFP natively, which is cleaved out when the Golden Gate assembly is performed, instead replacing it with our insert of interest. In this way, the EcoFlex kit is able to efficiently provide us with <strong>colorimetric qualitative proof if the assembly reaction</strong> has worked or not.
+  </p>
+
+  <p style="text-align: left;">
+    We used RFP negative selection vectors at Stage 1, 2, and 3 for this experiment. We planned the cloning so that we would make <strong>10 transcriptional units, 1 per stage 1 plasmid, and assemble five of them into two Stage 2 plasmids before combining those into one stage 3 plasmid</strong>.
+  </p>
+
+  <p style="text-align: left;">
+    Figure 1. EcoFlex MoClo Assembly Workflow. Figure created in Biorender.com
+  </p>
+
+  <!-- Full-width EcoFlex workflow image -->
+  <div style="margin: 1.5rem 0;">
+    <img src="https://static.igem.wiki/teams/5916/wetlab/ecoflex-workflow.avif" alt="EcoFlex MoClo Assembly Workflow" style="width:100%; height:auto; border-radius:6px; box-shadow:none; display:block;" />
   </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul> 
-      <li><a href="https://2024.igem.wiki/epfl/notebook">2024 EPFL</a></li>
-      <li><a href="https://2024.igem.wiki/ju-krakow/notebook">2024 JU-Krakow</a></li>
-    </ul>
-  </div>
+
+  <div class="spacer"></div>
+  <h3 style="text-align: left;">Astaxanthin</h3>
+  <p style="text-align: left;">
+    We chose to produce astaxanthin using our modified Marionette strain, as its synthesis is well-characterised as a product further down the beta-carotene pathway, and its concentration can be colorimetrically determined without the need for cell lysis, a significant advantage over other molecules in this pathway such as beta-carotene and lycopene.
+  </p>
+
+  <p style="text-align: left;">
+    We designed a protocol to run in 96-well plates that would allow us to incubate the transformed Marionette-Wild <em>E. coli</em> overnight in 96-well plates before directly reading the concentration of astaxanthin via absorbance at 490 nm. We were unfortunately unable to run this experiment due to time constraints. We implore future iGEM teams to characterize the bioproduction of astaxanthin using our strain and workflow.
+  </p>
+
+  <div class="spacer"></div>
+
+  <h3 style="text-align: left;">References</h3>
+  <ol style="text-align: left; margin-left: 1.5rem; line-height: 1.6;">
+    <li>Gassler, T., Heistinger, L., Mattanovich, D., Gasser, B., Prielhofer, R. (2019). CRISPR/Cas9-Mediated Homology-Directed Genome Editing in <em>Pichia pastoris</em>. In: Gasser, B., Mattanovich, D. (eds) Recombinant Protein Production in Yeast. Methods in Molecular Biology, vol 1923. Humana Press, New York, NY. https://doi.org/10.1007/978-1-4939-9024-5_9</li>
+    <li>Xu S, Zhang GY, Zhang H, Kitajima T, Nakanishi H, Gao XD. Effects of Rho1, a small GTPase on the production of recombinant glycoproteins in <em>Saccharomyces cerevisiae</em>. Microb Cell Fact. 2016 Oct 21;15(1):179. doi: 10.1186/s12934-016-0575-7. PMID: 27769287; PMCID: PMC5073930.</li>
+    <li>Alexander, P., Yuan, L., Yang, P. <em>et al.</em> EGF promotes mammalian cell growth by suppressing cellular senescence. <em>Cell Res</em> 25, 135–138 (2015). https://doi.org/10.1038/cr.2014.141</li>
+    <li>Yun YR, Won JE, Jeon E, Lee S, Kang W, Jo H, Jang JH, Shin US, Kim HW. Fibroblast growth factors: biology, function, and application for tissue regeneration. J Tissue Eng. 2010 Nov 7;2010:218142. doi: 10.4061/2010/218142. PMID: 21350642; PMCID: PMC3042641.</li>
+    <li>Miller KJ, Thaloor D, Matteson S, Pavlath GK. Hepatocyte growth factor affects satellite cell activation and differentiation in regenerating skeletal muscle. Am J Physiol Cell Physiol. 2000 Jan;278(1):C174-81. doi: 10.1152/ajpcell.2000.278.1.C174. PMID: 10644525.</li>
+    <li>Yoshida T, Delafontaine P. Mechanisms of IGF-1-Mediated Regulation of Skeletal Muscle Hypertrophy and Atrophy. Cells. 2020 Aug 26;9(9):1970. doi: 10.3390/cells9091970. PMID: 32858949; PMCID: PMC7564605.</li>
+    <li>Barrero JJ, Casler JC, Valero F, Ferrer P, Glick BS. An improved secretion signal enhances the secretion of model proteins from <em>Pichia pastoris</em>. <em>Microb Cell Fact</em>. 2018 Oct 12;17(1):161. doi: 10.1186/s12934-018-1009-5.</li>
+    <li>Meyer, A.J., Segall-Shapiro, T.H., Glassey, E. <em>et al.</em> <em>Escherichia coli</em> “Marionette” strains with 12 highly optimized small-molecule sensors. <em>Nat Chem Biol</em> 15, 196–204 (2019). https://doi.org/10.1038/s41589-018-0168-3</li>
+    <li>Moore SJ, Lai HE, Kelwick RJ, Chee SM, Bell DJ, Polizzi KM, Freemont PS. EcoFlex: A Multifunctional MoClo Kit for <em>E. coli</em> Synthetic Biology. <em>ACS Synth Biol</em>. 2016 Oct 21;5(10):1059-1069. doi: 10.1021/acssynbio.6b00031. Epub 2016 May 2. Erratum in: ACS Synth Biol. 2020 May 15;9(5):1225. doi: 10.1021/acssynbio.0c00177. PMID: 27096716.</li>
+  </ol>
+
 </div>
 
 {% endblock %}
+

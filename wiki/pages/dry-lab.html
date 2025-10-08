@@ -1,37 +1,113 @@
 {% extends "layout.html" %}
   
-{% block title %}Notebook{% endblock %}
-{% block lead %}This serves as a chronological record of your team's progress throughout the season. It documents your daily activities, experiments, discussions, and decisions.{% endblock %}
+{% block title %}Dry Lab{% endblock %}
+{% block lead %}{% endblock %}
+
+{% block scroll_nav %}
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
+    <span class="side-scroll-nav-label">On This Page</span>
+    <a href="#workflow-overview">No-Code Bayesian Optimisation Workflow</a>
+    <a href="#astaxanthin-target">Astaxanthin as Quantification Target</a>
+    <a href="#experimental-optimisation">Further Experimental Optimisation</a>
+    <a href="#references">References</a>
+</nav>
+{% endblock %}
 
 {% block page_content %}
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>What Should this Page Contain?</h2>
-    <hr />
-    <ul>
-      <li>Record all activities in chronological order, with each entry clearly dated.</li>
-      <li>Provide sufficient detail for each activity, including:</li>
-      <h2> I Love BO-Coli </h2>
-      <ul>
-        <li>Purpose of the activity.</li>
-        <li>Methods and procedures used.</li>
-        <li>Results obtained.</li>
-        <li>Observations and notes.</li>
-      </ul>
-      <li>Document all experiments, protocols, data analysis, meetings, brainstorming sessions, and other project-related activities.</li>
-      <li>Include photos, videos, and diagrams to illustrate your progress.</li>
-      <li>Indicate which team members participated in each activity.</li>
-    </ul>
-  </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul> 
-      <li><a href="https://2024.igem.wiki/epfl/notebook">2024 EPFL</a></li>
-      <li><a href="https://2024.igem.wiki/ju-krakow/notebook">2024 JU-Krakow</a></li>
-    </ul>
-  </div>
+<div class="education-hero hp-banner">
+    <div class="education-hero-content-container">
+        <h1 class="text-glitch">DRY LAB</h1>
+    </div>
+</div>
+
+<div class="spacer5"></div>
+
+<!-- NO-CODE BAYESIAN OPTIMISATION WORKFLOW -->
+<div class="page-section width-75" style="margin-left: 220px;" id="workflow-overview">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">No-Code Bayesian Optimisation Workflow</h1>
+    </div>
+    <p style="text-align: left;">
+        During our experiments we recognised that having a readily accessible <strong>optimisation model</strong> would
+        streamline decisions on <strong>media composition</strong>, <strong>incubation times</strong>, and the upkeep of
+        both bioreactors and shake flasks. A review of scientific literature and past iGEM contributions suggested that a
+        <strong>generalised, no-code batch Bayesian optimisation workflow</strong> would offer a distinctive capability
+        to the community. This led us to develop <strong>BioKernel</strong>, our no-code interface for experiment
+        optimisation (<a href="{{ url_for('pages', page='model') }}">explore the model</a>).
+    </p>
+    <p style="text-align: left;">
+        To validate BioKernel, we designed an experiment focused on optimising inducer concentrations within a metabolic
+        pathway controlled by orthogonal inputs. The foundation for this experiment was the “Marionette” strain of
+        <em>E. coli</em>, which offers twelve highly orthogonal and engineered small-molecule sensors for precise pathway
+        control.<sup>[1]</sup> Using this chassis, we targeted the production of <strong>astaxanthin</strong>, a carotenoid
+        measurable in 96-well plate assays without cell lysis, enabling high-throughput characterisation of our
+        optimisation routine.<sup>[2]</sup>
+    </p>
+</div>
+
+<div class="spacer3"></div>
+
+<!-- ASTAXANTHIN AS A FINAL TARGET -->
+<div class="page-section width-75" style="margin-left: 220px;" id="astaxanthin-target">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Astaxanthin as a Final Target for Quantification</span>
+    </h2>
+    <p style="text-align: left;">
+        The carotenoid pathway is well-characterised and generates pigments whose concentrations can be determined
+        colorimetrically. Previous work achieved high beta-carotene titres in <em>E. coli</em> by co-expressing the
+        mevalonate (MVA) and methylerythritol 4-phosphate (MEP) pathways,<sup>[3]</sup> and subsequent optimisation of the
+        MEP pathway alone enabled industrially relevant isoprene production.<sup>[4]</sup> We initially explored recreating
+        this dual-pathway approach, but the additional enzyme burden would exceed the Marionette strain’s capacity of twelve
+        orthogonal regulators.
+    </p>
+    <p style="text-align: left;">
+        We therefore restricted our experiment to the endogenous MEP pathway, relying on Bayesian optimisation to navigate
+        complex parameter interactions while maintaining a manageable circuit size. Literature benchmarking also indicated
+        that <strong>astaxanthin</strong> diffuses across the plasma membrane more readily than other carotenoids, and its
+        extracellular concentration strongly correlates with intracellular levels (R² = 0.9548).<sup>[2]</sup> By introducing
+        the enzymes <strong>CrtW</strong> and <strong>CrtZ</strong>, we redirected the beta-carotene pathway towards
+        astaxanthin, securing a quantifiable readout that suits rapid iteration with BioKernel.
+    </p>
+</div>
+
+<div class="spacer3"></div>
+
+<!-- FURTHER OPTIMISATION OF EXPERIMENTAL PLAN -->
+<div class="page-section width-75" style="margin-left: 220px;" id="experimental-optimisation">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Further Optimisation of Experimental Plan</span>
+    </h2>
+    <p style="text-align: left;">
+        Ensuring that measured outputs reflected only changes in inducer concentrations required additional genetic design
+        considerations. We added <strong>insulators</strong> to each transcriptional unit to maintain orthogonality and to
+        shield our circuits from unintended enhancer or silencer effects originating from neighbouring sequences. We
+        selected eleven orthogonal insulators described by Nielsen <em>et al.</em> to support this architecture.<sup>[5]</sup>
+    </p>
+    <p style="text-align: left;">
+        To further tighten control, we standardised translational initiation rates across the pathway. We designed batches
+        of ribosome binding sites using the <strong>De Novo DNA RBS Calculator</strong>, targeting a translation initiation
+        rate of 50,000 for each coding sequence while providing the calculator with the upstream promoter-insulator context
+        and the full enzyme CDS.<sup>[6]</sup> Together, these design choices give us confidence that BioKernel’s
+        optimisation cycles would map cleanly onto biological responses once wet-lab execution resumes.
+    </p>
+</div>
+
+<div class="spacer3"></div>
+
+<!-- REFERENCES -->
+<div class="page-section width-75" style="margin-left: 220px;" id="references">
+    <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">References</span>
+    </h2>
+    <ol style="text-align: left; margin-left: 1.5rem; line-height: 1.6;">
+        <li id="ref-1">Meyer, A. J., Segall-Shapiro, T. H., Glassey, E. <em>et al.</em> <em>Escherichia coli</em> “Marionette” strains with 12 highly optimized small-molecule sensors. <em>Nat. Chem. Biol.</em> <strong>15</strong>, 196–204 (2019). https://doi.org/10.1038/s41589-018-0168-3</li>
+        <li id="ref-2">Zhang, C., Seow, V. Y., Chen, X. <em>et al.</em> Multidimensional heuristic process for high-yield production of astaxanthin and fragrance molecules in <em>Escherichia coli</em>. <em>Nat. Commun.</em> <strong>9</strong>, 1858 (2018). https://doi.org/10.1038/s41467-018-04211-x</li>
+        <li id="ref-3">Yang, J., Guo, L. Biosynthesis of β-carotene in engineered <em>E. coli</em> using the MEP and MVA pathways. <em>Microb. Cell Fact.</em> <strong>13</strong>, 160 (2014). https://doi.org/10.1186/s12934-014-0160-x</li>
+        <li id="ref-4">Yang, C., Gao, X., Jiang, Y., Sun, B., Gao, F., Yang, S. Synergy between methylerythritol phosphate pathway and mevalonate pathway for isoprene production in <em>Escherichia coli</em>. <em>Metab. Eng.</em> <strong>37</strong>, 79–91 (2016). https://doi.org/10.1016/j.ymben.2016.05.003</li>
+        <li id="ref-5">Nielsen, A. A. K. <em>et al.</em> Genetic circuit design automation. <em>Science</em> <strong>352</strong>, aac7341 (2016). https://doi.org/10.1126/science.aac7341</li>
+        <li id="ref-6">Reis, A. C. & Salis, H. M. An automated model test system for systematic development and improvement of gene expression models. <em>ACS Synth. Biol.</em> <strong>9</strong>(11), 3145–3156 (2020).</li>
+    </ol>
 </div>
 
 {% endblock %}
