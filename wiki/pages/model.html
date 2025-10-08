@@ -1,39 +1,350 @@
 {% extends "layout.html" %}
-  
-{% block title %}Model{% endblock %}
-{% block lead %}Explain your model's assumptions, data, parameters, and results in a way that anyone could understand.{% endblock %}
+
+{% block title %}BioKernel: Bayesian Optimisation for Biology{% endblock %}
+{% block lead %}{% endblock %}
+
+{% block scroll_nav %}
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
+    <span class="side-scroll-nav-label">On This Page</span>
+    <a href="#introduction">Introduction</a>
+    <a href="#results">Results</a>
+    <a href="#what-is-bo">What is Bayesian optimisation?</a>
+    <a href="#why-underemployed">Why is Bayesian optimisation under-employed in biology?</a>
+    <a href="#outlook">Outlook</a>
+    <a href="#references">References</a>
+</nav>
+{% endblock %}
 
 {% block page_content %}
-
-<div class="row mt-4">
-  <div class="col">
-    <div class="bd-callout bd-callout-info">
-      <h4>Best Model</h4>
-      <p>Models and computer simulations can help us understand the function and operation of BioBrick Parts and Devices. Simulation and modeling are critical engineering skills that can contribute to project design or provide a better understanding of the modeled process. These processes are even more useful and/or informative when real-world data are included in the model. This award is for teams who build a model of their system and use it to inform system design or simulate expected behavior before, or in conjunction with, experiments in the wetlab.</p>
-      <hr />
-      <p>Visit the <a href="https://competition.igem.org/judging/special-prizes">Special Prizes page</a> for more information.</p>
+<div class="education-hero dsp-banner"
+     style="background-image: url('https://static.igem.wiki/teams/5916/assets/drylab-banner.avif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            color: white;
+            text-align: left;
+            box-sizing: border-box;">
+  
+    <div class="education-hero-content-container">
+        <h1 class="text-glitch">BioKernel</h1>
     </div>
-  </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-lg-8">
-    <h2>Overview</h2>
-    <hr />
-    <p>Mathematical models and computer simulations provide a great way to describe the function and operation of Parts and Devices. Synthetic Biology is an engineering discipline, and part of engineering is simulation and modeling to determine the behavior of your design before you build it. Designing and simulating can be iterated many times in a computer before moving to the lab.</p>
-  </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/utoronto/model">2024 UToronto</a></li>
-      <li><a href="https://2024.igem.wiki/heidelberg/model">2024 Heidelberg</a></li>
-      <li><a href="https://2024.igem.wiki/waseda-tokyo/model">2024 Waseda-Tokyo</a></li>
-      <li><a href="https://2024.igem.wiki/bnuzh-china/model">2024 BNUZH-China</a></li>
-      <li><a href="https://2024.igem.wiki/cjuh-jlu-china/model">2024 CJUH-JLU-China</a></li>
-      <li><a href="https://2024.igem.wiki/tsinghua/model">2024 Tsinghua</a></li>
+<div class="spacer5"></div>
+<div class="page-section width-75" style="margin-left: 220px;" id="introduction">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">Introduction</h1>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Synthetic biology projects consistently face a fundamental challenge: <strong>how to achieve optimal system performance when experimental resources are severely constrained</strong>. During our project development, we confronted this reality directly. Our goal was to metabolically engineer our chassis into a high-performance production system, yet cloning complexity, protracted growth cycles, and limited lab infrastructure meant we could conduct only a handful of DBTL cycles before the project freeze. With access to just a few large shake flasks and a single bioreactor, yet dozens of strain modifications and culture conditions to explore, we needed a rigorous approach to extract maximum information from minimal experiments.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        This challenge extends far beyond our immediate project. Biological optimisation problems are fundamentally difficult: they involve expensive-to-evaluate objective functions, inherent experimental noise, particularly heteroscedastic noise which is non-constant, and high-dimensional design spaces<sup>[2]</sup>. Traditional approaches like exhaustive screening or one-factor-at-a-time experimentation are prohibitively resource-intensive. While Bayesian optimisation has emerged as a powerful solution for such scenarios, existing implementations often lack accessibility for experimental biologists or the flexibility to handle the specific complexities of biological data.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        <strong>We developed BioKernel, a no-code Bayesian optimisation framework specifically designed to guide biological experimental campaigns toward optimal outcomes with minimal resource expenditure.</strong> Our software addresses key limitations of existing tools through some critical innovations that are, to our best knowledge, novel to iGEM:
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Modular kernel architecture</strong> enabling users to select or combine covariance functions appropriate for their biological system.</li>
+        <li><strong>Flexible acquisition function selection</strong> (Expected Improvement, Upper Confidence Bound, Probability of Improvement, etc.) to balance exploration and exploitation based on experimental goals.</li>
+        <li><strong>Heteroscedastic noise modelling</strong> to accurately capture the non-constant measurement uncertainty inherent in biological systems.</li>
+        <li><strong>Support for variable batch sizes and technical replicates</strong>, recognising the practical realities of laboratory workflows and providing flexibility.</li>
     </ul>
-  </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        These features transform Bayesian optimisation from a theory-heavy tool into a practical laboratory companion, enabling researchers to intelligently navigate complex parameter spaces and identify high-performing conditions with dramatically fewer experiments than conventional approaches.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">Validation Strategy and Broader Applicability</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        To validate our framework, we pursued two complementary approaches. First, we applied our software to optimise published datasets from metabolic engineering studies, demonstrating that our approach successfully identifies optimal conditions with substantially fewer experiments than were originally required.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Second, we designed a comprehensive experimental proof-of-concept: optimising astaxanthin production via a heterologous 10-step enzymatic pathway integrated into the Marionette-wild <em>E. coli</em> strain<sup>[5]</sup>. This strain possesses a genomically integrated array of twelve orthogonal, highly sensitive inducible transcription factors, allowing for a twelve-dimensional optimisation landscape ideal for demonstrating our software's capabilities. By systematically varying inducer concentrations across the pathway, we aimed to verify that Bayesian optimisation could guide this complex, multi-step enzymatic process to a strong optimum using far fewer experiments than conventional screening methods.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        We opted to use astaxanthin as it is readily quantified spectrophotometrically<sup>[23]</sup>, reducing the time needed to evaluate each batch.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        It is not economically feasible to utilise inducible promoters for industrial transcriptional control. We thus propose utilising the framework from<sup>[6]</sup>, offering a solution to find a constitutive ‘match’ for the expression levels corresponding to an optimum reached in an experimental campaign. This way, expensive inducers like naringenin are only necessary for initial screening campaigns.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        While parts delivery delays prevented completion of our full experimental validation within the competition timeline, the <strong>successful retrospective optimisation of published datasets serves as a compelling proof of concept</strong>. These results demonstrate that our framework can effectively optimise cellular "black box" functions, systems where the relationship between inputs and outputs is unknown, using substantially fewer experimental iterations than traditional approaches.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">Future Impact and Community Value</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Looking forward, we envision broad applications for optimisation-guided strain engineering. As synthetic biology advances toward complex circuits with multiple orthogonally induced genes controlling related pathways (secretion machinery, metabolic flux, protein folding capacity), the parameter spaces will only grow more complex. Precedent already exists in prokaryotic metabolic engineering for such multi-dimensional optimisation challenges. <strong>Our framework provides the community with an accessible, robust tool to tackle these problems systematically</strong>, making efficient experimental design available to teams without computational expertise. As efforts to implement Marionette-like transcriptional arrays across other hosts continue<sup>[8],[22]</sup>, the scope of application of our package increases.
+    </p>
+
+    <p style="text-align: left;">
+        By releasing BioKernel as an open-source, user-friendly platform, we enable other researchers to apply principled optimisation strategies to their own biological systems, ultimately accelerating the pace of discovery across synthetic biology. Our package allows for easy addition of new acquisition functions and kernels outside of what we added.
+    </p>
+</div>
+
+<div class="spacer"></div>
+<!-- RESULTS SECTION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="results">
+  <details open class="dropdown-section">
+    <summary>
+      <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Results</span>
+      </h2>
+    </summary>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Though we could not perform optimisation batches using our Marionette strain due to an unforeseen, significant order delay of the parts needed to clone the astaxanthin pathway.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      To first validate the effectiveness of our package despite the delay, we took a dataset from an optimisation experiment applying four-dimensional transcriptional control to limonene production in Marionette-wild <em>E. coli</em><sup>[21]</sup>. Though this represents a significantly more tractable optimisation problem than the astaxanthin pathway we chose for our in-lab validation, it serves as a strong validation that BioKernel can find an optimum far faster than the exhaustive combinatorial search.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      As the dataset of this paper is relatively sparse, we fitted a Gaussian process with a scaled RBF kernel and additional white noise kernel to their data, creating a surface approximating the actual optimisation landscape of the four-dimensional input space. The procedure is outlined below.
+    </p>
+
+    <!-- Figure 1 -->
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/drylab/model1.avif" 
+           alt="Gaussian process noise plot (Figure 1)" 
+           style="max-width: 80%; border-radius: 0.5rem;" 
+           class="tilt-effect">
+      <p style="text-align: center; margin-top: 0.5rem; color: #aaa;">Figure 1. Extrapolated noise surface derived from 83 unique observations with six technical repeats each.</p>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The plot above shows the extrapolated surface from 83 unique observations, each having six technical repeats.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The same procedure was applied, however instead of using the means calculated from experimental data, we estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic noise meshgrid, then supplied as a parameter for the standard deviation for random sampling from a normal distribution.
+    </p>
+
+    <!-- Figure 2 -->
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/drylab/model2.avif" 
+           alt="Gaussian process signal fit (Figure 2)" 
+           style="max-width: 80%; border-radius: 0.5rem;" 
+           class="tilt-effect">
+      <p style="text-align: center; margin-top: 0.5rem; color: #aaa;">Figure 2. Heteroscedastic noise model surface fitted using BioKernel’s Gaussian process framework.</p>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      This surface then became our test set for BioKernel. The following optimisation was performed using our package, with options set to use a Matern kernel with a gamma noise prior.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      BioKernel converged to the optimum as measured by normalised Euclidean distance of 0.27 in four dimensions (maximal distance would be 2) within five sequential batches of six technical replicates. It thus took BioKernel 120 measurements to converge close to the optimum, as opposed to the 648 taken by the adapted grid search used in the paper<sup>[21]</sup>.
+    </p>
+  </details>
+</div>
+
+<div class="spacer"></div>
+<!-- WHAT IS BAYESIAN OPTIMISATION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="what-is-bo">
+  <details open class="dropdown-section">
+    <summary>
+      <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">What is Bayesian Optimisation?</span>
+      </h2>
+    </summary>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Bayesian Optimisation (BO) is a sample-efficient, sequential strategy for global optimisation of black-box functions<sup>[1]</sup>. In essence, it enables the identification of input parameter combinations that yield an optimal output while making minimal assumptions about the objective function. Crucially, BO does not require the function to be differentiable. This is a significant advantage in synthetic biology, where response landscapes are frequently rugged, discontinuous, or stochastic due to complex molecular interactions, making gradient-based optimisation methods inapplicable<sup>[2]</sup>. By assuming only continuity<sup>[1]</sup>, BO is well-suited to navigate these complex, unpredictable biological systems where the underlying mechanisms are often intractable.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      In biological research, the experimental landscape is often complex and high-dimensional. Traditional methods like grid search become intractable due to the "curse of dimensionality," where the number of experiments required grows exponentially with the number of parameters. Simpler algorithms, such as one-factor-at-a-time searches (a form of gradient descent), can easily get trapped in local optima when the system does not behave as expected, thus requiring an arbitrary number of restarts to discover the global optimum. BO is engineered to navigate these challenges, performing effectively in scenarios with up to 20 input dimensions, and can easily handle more with some tuning<sup>[4]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The power of BO stems from three core principles<sup>[1],[3]</sup>:
+    </p>
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+      <li><strong>Bayesian Inference</strong> to update beliefs based on evidence.</li>
+      <li>A <strong>Gaussian Process (GP)</strong> to create a probabilistic model of the function.</li>
+      <li>An <strong>Acquisition Function</strong> to intelligently balance the exploration–exploitation trade-off.</li>
+    </ul>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      For a comprehensive mathematical treatment of the subject, see Roman Garnett’s book, <em>Bayesian Optimization</em>.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">The Bayesian Approach: Learning from Data</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      True to its name, BO is founded on Bayesian statistics. Unlike frequentist methods that provide single-point estimates, the Bayesian approach models the entire probability distribution of possible outcomes. This method preserves information by propagating the complete underlying distributions through calculations, which is critical when dealing with costly and often noisy biological data. A key feature is the ability to incorporate prior knowledge (a "prior") into the model, which is then updated with new experimental data to form a more informed distribution (a "posterior"). This iterative updating is ideal for lab-in-a-loop biological research, where each data point is expensive to acquire and system noise can be unpredictable (heteroscedastic)<sup>[1],[3]</sup>.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">The Gaussian Process: A Probabilistic Map of the Landscape</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The second component, the Gaussian Process (GP), serves as a probabilistic surrogate model for the black-box function. A GP defines a distribution over functions; for any set of input parameters, it returns a Gaussian distribution of the expected output, characterised by a mean and a variance. This provides not just a prediction but also a measure of uncertainty for that prediction. Central to the GP is the <strong>covariance function</strong>, or kernel, which encodes assumptions about the function's smoothness and shape. The kernel defines how related the outputs are for different inputs, allowing the GP to generalise from observed data to unexplored regions of the parameter space. A well-chosen kernel is crucial for balancing the risks of overfitting (mistaking noise for a real trend) and underfitting (missing a genuine trend in the data), a common challenge with inherently noisy biological datasets<sup>[1],[3]</sup>.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">The Acquisition Function: Balancing Exploration and Exploitation</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The GP model, with its predictions of mean and variance, guides the search for the next set of parameters to test experimentally. This guidance is formalised by the <strong>acquisition function</strong>. This function calculates the expected "utility" of evaluating each point in the parameter space, effectively balancing the trade-off between exploring uncertain regions and exploiting areas known to yield good results.
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+      <li><strong>Exploitation</strong> involves sampling in regions where the GP predicts a high mean value, refining our knowledge around known optima.</li>
+      <li><strong>Exploration</strong> involves sampling in regions where the GP predicts high variance, reducing uncertainty in poorly understood areas of the landscape.</li>
+    </ul>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The next experimental point is chosen by finding the parameters that maximise the acquisition function. This dynamic approach ensures that the search efficiently converges toward the global optimum by focusing resources on promising regions while avoiding wasteful experiments in poorly performing ones. Common acquisition functions include Probability of Improvement (PI), Expected Improvement (EI), and Upper Confidence Bound (UCB)<sup>[1],[3]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      This trade-off can be further tuned by adopting a risk-averse or risk-seeking policy, often by adjusting a parameter within the acquisition function. A risk-averse strategy prioritises regions promising a certain but possibly lower improvement, which is useful when the cost of a failed experiment is high. Conversely, a risk-seeking strategy favours more uncertain regions that might result in higher overall improvement. This often results in the policy shifting towards exploitation or exploration.
+    </p>
+
+    <h3 style="text-align: left; margin-top: 2rem;">The Optimisation Workflow</h3>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      By integrating these concepts, BO can identify an optimal set of parameters with a minimal number of experimental iterations. The typical workflow is as follows:
+    </p>
+
+    <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+      <li><strong>Initialisation</strong>: Begin with a small set of initial data points, either from prior knowledge or quasi-random sampling (e.g. SOBOL algorithm).</li>
+      <li><strong>Model Fitting</strong>: Fit a Gaussian Process surrogate model to the existing data.</li>
+      <li><strong>Acquisition</strong>: Use an acquisition function to determine the next most promising point or points to evaluate.</li>
+      <li><strong>Experimentation</strong>: Perform the wet-lab experiment using the chosen parameters and record the output.</li>
+      <li><strong>Update</strong>: Add the new data point to the dataset and repeat from step 2 until an optimal solution is found or the experimental budget is exhausted.</li>
+    </ol>
+
+    <p style="text-align: left;">
+      This process can also be adapted for <strong>batch optimisation</strong>, where multiple points are suggested for parallel evaluation in each cycle. While this can slightly reduce sample efficiency, it significantly accelerates the discovery process when multiple experiments can be run concurrently<sup>[3]</sup>.
+    </p>
+  </details>
+</div>
+
+<div class="spacer"></div>
+<!-- WHY IS BAYESIAN OPTIMISATION UNDER-EMPLOYED -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="why-underemployed">
+  <details open class="dropdown-section">
+    <summary>
+      <h2 style="text-align: left;">
+        <span class="highlight-green animate-text-scramble">Why is Bayesian Optimisation Under-Employed in Biology?</span>
+      </h2>
+    </summary>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      In the past decade BO has received a significant boost in attention. This can be attributed to a massive leap in popularity of machine learning (ML) and the need for computationally expensive hyperparameter tuning<sup>[9]</sup>. Almost all conventional ML algorithms (linear regression, decision trees, random forests, etc.) have hyper-parameters that control how the model is built. For example, the number of unique leaves and branches has a significant impact on how well a decision tree generalises data<sup>[10]</sup>. Although rules of thumb for such situations exist, they often provide non-ideal model performance. The cost of retraining multiple models with varied parameters and choosing the best performer is oftentimes much lower than the unrealised gains from deploying a subpar model for real-life scenarios<sup>[3]</sup>. Consequently, multiple BO libraries have been developed for Python (it being the de facto language for ML). These range from simple BO models implemented within the Sci-Kit package, general plug-and-play ML BO (e.g. Optuna)<sup>[11]</sup>, or researcher-aimed low-level packages such as BoTorch (part of the popular PyTorch package)<sup>[12]</sup> and Ax<sup>[13]</sup>. However, since all of these were developed with ML scientists and software developers in mind, they require strong programming knowledge to use effectively. Unfortunately, such a skillset is quite often neglected within the biological sciences apart from bioinformatics and PhD-level researchers.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      <em>[Picture of SingleTask GP fitted to single instance data]</em>
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      An issue arising from ML-focussed BO is the processes being tailored towards investigating an exact and completely replicable parameter space<sup>[10]</sup>. ML algorithms are completely deterministic: the only variance arises from using a random seed within an algorithm, which can be regenerated exactly. Although the numbers outputted appear random, the same seed will always produce the same sequence of random numbers. Given test-train-validate data is used, BO application is streamlined—each observation represents the ground truth, thus eliminating the need for technical replicates. This situation is entirely unrepresentative for most empirical sciences, where replicability is perceived within a statistically relevant confidence interval.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      <em>[Image of SingleTask GP fitted to technical replicates - absolute confidence at mean is visible]</em>
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Nevertheless, significantly modified BO has been repeatedly and successfully applied in the context of natural sciences. Various BO implementations (often using a kernel assuming some level of white noise) have been used in academia and in the corporate sector, with Ax and BoTorch both being co-developed by large companies like Meta<sup>[13]</sup>. These applications are more prominent for situations where the signal-to-noise ratio can be sufficiently maximised by use of technical replicates, for instance Material Science<sup>[14],[15]</sup> or Chemistry research<sup>[16],[17]</sup>. There are even some claims within the research community that technical replicates are not needed for BO workflows since custom models are able to accommodate some level of noise<sup>[7]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We postulate that it is due to the following reasons that BO has been under-appreciated by the biological sciences outside of media optimisation and research-level exploration of large genetic combinatorial libraries<sup>[18],[20]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      One reason is that by itself BO is unintuitive and could be assumed to be similar to a random search. This is a misconception though, since non-Thompson sampling implementations are completely deterministic and random search algorithms actually outperform the more conventional grid search<sup>[3]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Consequently, the burden of proof for adopting BO is relatively high, and since no interactive “playground” tools exist (the closest alternative being an interactive MCP teaching tool with limited modularity called Honegumi)<sup>[19]</sup>, the only viable alternative is the relatively high time investment required of familiarising oneself with one of the libraries. Considering the split between dry-lab and wet-lab researchers, this causes a significant barrier to adoption in favour of more conventional exploration techniques like DOE or adaptations of grid search<sup>[3]</sup>. However, most of these break down in high dimensionality scenarios, for which Bayesian optimisation is a more optimal solution<sup>[1]</sup>.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      The second issue pertains to the high, often heteroscedastic (not-constant along the prediction variable), noise levels that come with wet-lab experimentation. Technical replicates are an inherent part of the field and provide information not just through discovering the mean but the variance associated with replication. This is a significant limitation for the simplest BO models, since they treat the mean of technical replicates as a noiseless observation (the ground truth)<sup>[1]</sup>. Consequently, the researcher is required to familiarise themselves with research-level implementations that were often designed for solving a specific issue and cannot be described as beginner friendly.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Our dry lab software project aims to address two main points of the issue. First, it acts as an interactive playground that would allow an individual to convince themselves of the merits provided by BO. This acts as a first stepping stone for anyone who would then go out and implement their own BO workflow to tackle a specific real-world problem. Second, it has all the necessary functions to run BO as part of an experiment without having to write code. Once deployed, the applet can support rapid access and result analysis while in the lab. This is enhanced by a core modular functionality, meaning that more engaged users can upload custom acquisition functions and kernels to suit their specific needs.
+    </p>
+  </details>
+</div>
+
+<div class="spacer"></div>
+<!-- OUTLOOK -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="outlook">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">Outlook</h1>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+        Beyond what we managed to add ahead of the freeze, we are actively engaged in enhancing this package by adding greater functionality. Currently, we plan to add the following elements:
+    </p>
+
+    <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>A larger set of kernels, also suitable to exploring mixed-integer spaces (i.e. with continuous and discrete input features).</li>
+        <li>A flowchart guiding less technically apt users to the correct choices of acquisition functions and kernels based on simulations and real-world data.</li>
+        <li>Optimising for ‘just-in-time’ induction: some literature<sup>[21]</sup> indicates that there may be unrealised gains in offsetting the induction of some elements of a metabolic pathway, thus we are presently testing ways to jointly optimise this.</li>
+        <li>In its current iteration, the package does not possess any surrogate models like kinetic models to further reduce iterations with a mechanistically informed prior, since this still lacks straightforward heuristics for implementation.</li>
+    </ul>
+
+    <p style="text-align: left;">
+        <strong>We are open to collaborating with future iGEMers to make this a robust and usable package for the community at large.</strong>
+    </p>
+</div>
+
+<div class="spacer"></div>
+<!-- REFERENCES -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="references">
+    <div class="section-title">
+        <h1 style="text-align: left;" class="animate-text-scramble">References</h1>
+    </div>
+
+    <ol style="text-align: left; padding-left: 1.5rem;">
+        <li>R. Garnett, <em>Bayesian Optimization</em>. Cambridge University Press, 2023.</li>
+        <li>C. Merzbacher, O. Mac Aodha, and D. A. Oyarzún, “Bayesian Optimization for Design of Multiscale Biological Circuits,” <em>ACS Synthetic Biology</em>, vol. 12, no. 7, pp. 2073–2082, Jun. 2023, doi: https://doi.org/10.1021/acssynbio.3c00120.</li>
+        <li>Q. Nguyen, <em>Bayesian Optimization in Action</em>. Simon and Schuster, 2024.</li>
+        <li>C. Hvarfner, E. O. Hellsten, and L. Nardi, “Vanilla Bayesian Optimization Performs Great in High Dimensions,” <em>arXiv (Cornell University)</em>, Feb. 2024, doi: https://doi.org/10.48550/arxiv.2402.02229.</li>
+        <li>A. J. Meyer, T. H. Segall-Shapiro, E. Glassey, J. Zhang, and C. A. Voigt, “Escherichia coli ‘Marionette’ strains with 12 highly optimized small-molecule sensors,” <em>Nature Chemical Biology</em>, vol. 15, no. 2, pp. 196–204, Feb. 2019, doi: https://doi.org/10.1038/s41589-018-0168-3.</li>
+        <li>A. Ghodasara and C. A. Voigt, “Balancing gene expression without library construction via a reusable sRNA pool,” <em>Nucleic Acids Research</em>, vol. 45, no. 13, pp. 8116–8127, Jun. 2017, doi: https://doi.org/10.1093/nar/gkx530.</li>
+        <li>M. Siska, E. Pajak, K. Rosenthal, A. del Rio Chanona, von Lieres, and L. M. Helleckes, “A Guide to Bayesian Optimization in Bioprocess Engineering,” <em>arXiv.org</em>, 2025. https://arxiv.org/abs/2508.10642 (accessed Oct. 08, 2025).</li>
+        <li>Jong Hyun Park <em>et al.</em>, “Design of Four Small-Molecule-Inducible Systems in the Yeast Chromosome, Applied to Optimize Terpene Biosynthesis,” <em>ACS Synthetic Biology</em>, vol. 12, no. 4, pp. 1119–1132, Mar. 2023, doi: https://doi.org/10.1021/acssynbio.2c00607.</li>
+        <li>A. H. Victoria and G. Maragatham, “Automatic tuning of hyperparameters using Bayesian optimization,” <em>Evolving Systems</em>, vol. 12, May 2020, doi: https://doi.org/10.1007/s12530-020-09345-2.</li>
+        <li>J. Wu, X.-Y. Chen, H. Zhang, L.-D. Xiong, H. Lei, and S.-H. Deng, “Hyperparameter Optimization for Machine Learning Models Based on Bayesian Optimization,” <em>Journal of Electronic Science and Technology</em>, vol. 17, no. 1, pp. 26–40, Mar. 2019, doi: https://doi.org/10.11989/JEST.1674-862X.80904120.</li>
+        <li>T. Akiba, S. Sano, T. Yanase, T. Ohta, and M. Koyama, “Optuna: A Next-generation Hyperparameter Optimization Framework,” <em>Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining</em>, Jul. 2019, doi: https://doi.org/10.1145/3292500.3330701.</li>
+        <li>Maximilian Balandat <em>et al.</em>, “BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization,” <em>Neural Information Processing Systems</em>, vol. 33, pp. 21524–21538, Jan. 2020.</li>
+        <li>M. Olson <em>et al.</em>, “Ax: A Platform for Adaptive Experimentation,” <em>Openreview.net</em>, 2025. https://openreview.net/forum?id=U1f6wHtG1g (accessed Oct. 08, 2025).</li>
+        <li>C. Li <em>et al.</em>, “Rapid Bayesian optimisation for synthesis of short polymer fiber materials,” <em>Scientific Reports</em>, vol. 7, no. 1, Jul. 2017, doi: https://doi.org/10.1038/s41598-017-05723-0.</li>
+        <li>P. I. Frazier and J. Wang, “Bayesian Optimization for Materials Design,” <em>Springer series in materials science</em>, vol. 225, pp. 45–75, Dec. 2015, doi: https://doi.org/10.1007/978-3-319-23871-5_3.</li>
+        <li>B. J. Shields <em>et al.</em>, “Bayesian reaction optimization as a tool for chemical synthesis,” <em>Nature</em>, vol. 590, no. 7844, pp. 89–96, Feb. 2021, doi: https://doi.org/10.1038/s41586-021-03213-y.</li>
+        <li>J. Guo, Bojana Ranković, and P. Schwaller, “Bayesian Optimization for Chemical Reactions,” <em>CHIMIA International Journal for Chemistry</em>, vol. 77, no. 1/2, pp. 31–31, Feb. 2023, doi: https://doi.org/10.2533/chimia.2023.31.</li>
+        <li>H. Narayanan <em>et al.</em>, “Accelerating cell culture media development using Bayesian optimization-based iterative experimental design,” <em>Nature Communications</em>, vol. 16, no. 1, p. 6055, Jan. 2025, doi: https://doi.org/10.1038/s41467-025-61113-5.</li>
+        <li>S. G. Baird, A. R. Falkowski, and T. D. Sparks, “Honegumi: An Interface for Accelerating the Adoption of Bayesian Optimization in the Experimental Sciences,” <em>arXiv (Cornell University)</em>, Feb. 2025, doi: https://doi.org/10.48550/arxiv.2502.06815.</li>
+        <li>M. HamediRad, R. Chao, S. Weisberg, J. Lian, S. Sinha, and H. Zhao, “Towards a fully automated algorithm driven platform for biosystems design,” <em>Nature Communications</em>, vol. 10, no. 1, Nov. 2019, doi: https://doi.org/10.1038/s41467-019-13189-z.</li>
+        <li>J. Shin, E. J. South, and M. J. Dunlop, “Transcriptional Tuning of Mevalonate Pathway Enzymes to Identify the Impact on Limonene Production in <em>Escherichia coli</em>,” <em>ACS Omega</em>, vol. 7, no. 22, pp. 18331–18338, May 2022, doi: https://doi.org/10.1021/acsomega.2c00483.</li>
+        <li>Y. Ma <em>et al.</em>, “Flux optimization using multiple promoters in Halomonas bluephagenesis as a model chassis of the next generation industrial biotechnology,” <em>Metabolic Engineering</em>, vol. 81, pp. 249–261, Dec. 2023, doi: https://doi.org/10.1016/j.ymben.2023.12.011.</li>
+        <li>P. Casella, A. Iovine, S. Mehariya, T. Marino, D. Musmarra, and A. Molino, “Smart Method for Carotenoids Characterization in <em>Haematococcus pluvialis</em> Red Phase and Evaluation of Astaxanthin Thermal Stability,” <em>Antioxidants</em>, vol. 9, no. 5, p. 422, May 2020, doi: https://doi.org/10.3390/antiox9050422.</li>
+    </ol>
 </div>
 
 {% endblock %}
