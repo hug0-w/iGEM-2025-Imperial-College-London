@@ -16,24 +16,10 @@
 {% endblock %}
 
 {% block page_content %}
-<div class="education-hero dsp-banner"
-     style="background-image: url('https://static.igem.wiki/teams/5916/assets/drylab-banner.avif');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 10%;
-            color: white;
-            text-align: left;
-            box-sizing: border-box;">
-  
-    <div class="education-hero-content-container">
-        <h1 class="text-glitch">BioKernel</h1>
-    </div>
+<div class="education-hero hp-banner">
+  <div class="education-hero-content-container">
+    <h1 class="text-glitch">BioKernel</h1>
+  </div>
 </div>
 
 <div class="spacer5"></div>
@@ -132,6 +118,15 @@
     <p style="text-align: left; margin-bottom: 1.5rem;">
       The plot above shows the extrapolated surface from 83 unique observations, each having six technical repeats.
     </p>
+
+    <!-- Signal plot (moved here) -->
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/drylab/dry-signal.avif"
+           alt="Gaussian process signal fit (Signal plot)"
+           style="max-width: 80%; border-radius: 0.5rem;"
+           class="tilt-effect">
+      <p style="text-align: center; margin-top: 0.5rem; color: #aaa;">Signal fit: Gaussian process posterior (dry-signal)</p>
+    </div>
 
     <p style="text-align: left; margin-bottom: 1.5rem;">
       The same procedure was applied, however instead of using the means calculated from experimental data, we estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic noise meshgrid, then supplied as a parameter for the standard deviation for random sampling from a normal distribution.
@@ -298,6 +293,12 @@
     <p><strong>[ INSERT LINK TO DOWNLOAD PACKAGE HERE ]</strong></p>
     <p>The GitLab repository for the project is available at: <a href="https://gitlab.igem.org/2025/software-tools/imperial" target="_blank" rel="noopener">https://gitlab.igem.org/2025/software-tools/imperial</a></p>
 
+  <h4>Run BioKernel (Docker)</h4>
+  <p>You can build and run the BioKernel software locally using Docker with the following commands:</p>
+  <pre style="background:#f8f9fa; padding:0.75rem; border-radius:6px;"><code>git clone https://gitlab.igem.org/2025/software-tools/imperial
+cd imperial
+docker build -t BioKernel:v11 .</code></pre>
+
     <h3>Introduction</h3>
     <p>Synthetic biology projects consistently face a fundamental challenge: <strong>how to achieve optimal system performance when experimental resources are severely constrained</strong>. During our project development, we confronted this reality directly. Our goal was to metabolically engineer our chassis into a high-performance production system, yet cloning complexity, protracted growth cycles, and limited lab infrastructure meant we could conduct only a handful of DBTL cycles before the project freeze. With access to just a few large shake flasks and a single bioreactor, yet dozens of strain modifications and culture conditions to explore, we needed a rigorous approach to extract maximum information from minimal experiments.</p>
 
@@ -329,16 +330,12 @@
 
     <p>As the dataset of this paper is relatively sparse, we fitted a Gaussian process with a scaled RBF kernel and additional white noise kernel to their data, creating a surface approximating the actual optimisation landscape of the four-dimensional input space. The procedure is outlined below.</p>
 
-  <p>[ NOISE PLOT ]</p>
-  <p><img src="https://static.igem.wiki/teams/5916/drylab/bayes-empirical.avif" alt="Bayes empirical" style="max-width:100%; height:auto; border-radius:6px;"/></p>
-
     <p>The plot above shows the extrapolated surface from 83 unique observations, each having six technical repeats.</p>
 
-    <p>[ SIGNAL PLOT GP FIT ]</p>
-    <p><img src="https://static.igem.wiki/teams/5916/drylab/dry-signal.avif" alt="Dry signal" style="max-width:100%; height:auto; border-radius:6px;"/></p>
+  <!-- Noise plot (moved here) inserted after noise discussion -->
 
     <!-- Image gallery for GP progression and models -->
-    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
+  <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem;">
       <div style="flex:1 1 48%;">
         <img src="https://static.igem.wiki/teams/5916/drylab/gaussian-process-after-4-observations.webp" alt="GP after 4 observations" style="width:100%; height:auto; border-radius:6px;" />
       </div>
@@ -360,6 +357,15 @@
       <div style="flex:1 1 48%;">
         <img src="https://static.igem.wiki/teams/5916/drylab/noise-signal.avif" alt="Noise signal" style="width:100%; height:auto; border-radius:6px;" />
       </div>
+    </div>
+
+    <!-- Noise image moved here -->
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/drylab/bayes-empirical.avif"
+           alt="Empirical noise surface"
+           style="max-width: 80%; border-radius: 0.5rem;"
+           class="tilt-effect">
+      <p style="text-align: center; margin-top: 0.5rem; color: #aaa;">Empirical noise surface used to construct the heteroscedastic meshgrid.</p>
     </div>
 
     <p>The same procedure was applied, however instead of using the means calculated from experimental data, we estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic noise meshgrid, then supplied as a parameter for the standard deviation for random sampling from a normal distribution.</p>
@@ -415,51 +421,7 @@
 
     <p><strong>We are open to collaborating with future iGEMers to make this a robust and usable package for the community at large.</strong></p>
 
-    <h3>References</h3>
-    <p>The full bibliography is included below:</p>
-    <pre style="white-space:pre-wrap; background:#f8f9fa; padding:1rem; border-radius:6px;">
-[1] R. Garnett, *Bayesian Optimization*. Cambridge University Press, 2023.
-
-[2] C. Merzbacher, O. Mac Aodha, and D. A. Oyarzún, “Bayesian Optimization for Design of Multiscale Biological Circuits,” *ACS Synthetic Biology*, vol. 12, no. 7, pp. 2073–2082, Jun. 2023, doi: https://doi.org/10.1021/acssynbio.3c00120.
-
-[3] Q. Nguyen, *Bayesian Optimization in Action*. Simon and Schuster, 2024.
-
-[4] C. Hvarfner, E. O. Hellsten, and L. Nardi, “Vanilla Bayesian Optimization Performs Great in High Dimensions,” *arXiv (Cornell University)*, Feb. 2024, doi: https://doi.org/10.48550/arxiv.2402.02229.
-
-[5] A. J. Meyer, T. H. Segall-Shapiro, E. Glassey, J. Zhang, and C. A. Voigt, “Escherichia coli ‘Marionette’ strains with 12 highly optimized small-molecule sensors,” *Nature Chemical Biology*, vol. 15, no. 2, pp. 196–204, Feb. 2019, doi: https://doi.org/10.1038/s41589-018-0168-3.
-
-[6] A. Ghodasara and C. A. Voigt, “Balancing gene expression without library construction via a reusable sRNA pool,” *Nucleic Acids Research*, vol. 45, no. 13, pp. 8116–8127, Jun. 2017, doi: https://doi.org/10.1093/nar/gkx530.
-
-[7] M. Siska, E. Pajak, K. Rosenthal, A. del Rio Chanona, von Lieres, and L. M. Helleckes, “A Guide to Bayesian Optimization in Bioprocess Engineering,” *arXiv.org*, 2025. https://arxiv.org/abs/2508.10642 (accessed Oct. 08, 2025).
-
-[8] Jong Hyun Park *et al.*, “Design of Four Small-Molecule-Inducible Systems in the Yeast Chromosome, Applied to Optimize Terpene Biosynthesis,” *ACS Synthetic Biology*, vol. 12, no. 4, pp. 1119–1132, Mar. 2023, doi: https://doi.org/10.1021/acssynbio.2c00607.
-
-[9] A. H. Victoria and G. Maragatham, “Automatic tuning of hyperparameters using Bayesian optimization,” *Evolving Systems*, vol. 12, May 2020, doi: https://doi.org/10.1007/s12530-020-09345-2.
-
-[10] J. Wu, X.-Y. Chen, H. Zhang, L.-D. Xiong, H. Lei, and S.-H. Deng, “Hyperparameter Optimization for Machine Learning Models Based on Bayesian Optimization,” *Journal of Electronic Science and Technology*, vol. 17, no. 1, pp. 26–40, Mar. 2019, doi: https://doi.org/10.11989/JEST.1674-862X.80904120.
-
-[11] T. Akiba, S. Sano, T. Yanase, T. Ohta, and M. Koyama, “Optuna: A Next-generation Hyperparameter Optimization Framework,” *Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining*, Jul. 2019, doi: https://doi.org/10.1145/3292500.3330701.
-
-[12] Maximilian Balandat *et al.*, “BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization,” *Neural Information Processing Systems*, vol. 33, pp. 21524–21538, Jan. 2020.
-
-    </pre>
   </div>
-  <div class="col-lg-4">
-    <h2>Inspirations</h2>
-    <hr />
-    <ul>
-      <li><a href="https://2024.igem.wiki/utoronto/model">2024 UToronto</a></li>
-      <li><a href="https://2024.igem.wiki/heidelberg/model">2024 Heidelberg</a></li>
-      <li><a href="https://2024.igem.wiki/waseda-tokyo/model">2024 Waseda-Tokyo</a></li>
-      <li><a href="https://2024.igem.wiki/bnuzh-china/model">2024 BNUZH-China</a></li>
-      <li><a href="https://2024.igem.wiki/cjuh-jlu-china/model">2024 CJUH-JLU-China</a></li>
-      <li><a href="https://2024.igem.wiki/tsinghua/model">2024 Tsinghua</a></li>
-    </ul>
-
-    <p style="text-align: left;">
-        <strong>We are open to collaborating with future iGEMers to make this a robust and usable package for the community at large.</strong>
-    </p>
-</div>
 
 <div class="spacer"></div>
 <!-- REFERENCES -->
