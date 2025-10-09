@@ -6,14 +6,12 @@
 {% block scroll_nav %}
 <nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
   <span class="side-scroll-nav-label">On This Page</span>
-  <a href="#intro"><span class="highlight-green">Introduction</span></a>
-  <a href="#crispr"><span class="highlight-green">CRISPR</span></a>
-  <a href="#growth-factors"><span class="highlight-green">Growth Factors</span></a>
-  <a href="#bioreactor"><span class="highlight-green">Bioreactor</span></a>
-  <a href="#biokernel"><span class="highlight-green">BioKernel Validation Experiment</span></a>
+  <a href="#crispr"><span class="span-yellow"><span>CRISPR</span></a>
+  <a href="#growth-factors"><span class="span-yellow"><span>Growth Factors</span></a>
+  <a href="#bioreactor"><span class="span-yellow"><span>Bioreactor</span></a>
+  <a href="#biokernel"><span class="span-yellow"><span>BioKernel Validation Experiment</span></a>
 </nav>
 {% endblock %}
-
 {% block page_content %}
 <!-- HERO BANNER -->
 <div class="education-hero dsp-banner"
@@ -35,11 +33,10 @@
 </div>
 
 <div class="spacer5"></div>
-
-<!-- INTRODUCTION (no dropdown) -->
+<!-- INTRODUCTION -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="intro">
   <div class="section-title">
-    <h1 style="text-align: left;" class="highlight-green animate-text-scramble">Introduction</h1>
+    <h1 style="text-align: left;" class="animate-text-scramble">Introduction</h1>
   </div>
 
   <p style="text-align: left; margin-bottom: 1.5rem;">
@@ -56,231 +53,223 @@
 </div>
 
 <div class="spacer"></div>
-
-<!-- CRISPR (dropdown) -->
+<!-- CRISPR -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="crispr">
-
   <div class="section-title">
     <h1 style="text-align: left;" class="collapsible-trigger">
-      <span class="highlight-green animate-text-scramble">CRISPR</span>
+      <span class="span-yellow" class="animate-text-scramble"><span>CRISPR</span>
     </h1>
   </div>
+
   <div class="collapsible-content">
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We successfully demonstrated the transformation of electrocompetent <em>K. phaffii</em> with sgRNA plasmids quite early in our experiments.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We successfully demonstrated the transformation of electrocompetent <em>K. phaffii</em> with sgRNA plasmids quite early in our experiments.
+    </p>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We successfully assembled our sgRNA constructs as verified by gel electrophoresis. We expected a single band around 250 bp from the assembled construct, which we saw on all lanes with DNA added on the gel. We consequently gel purified this and were able to isolate a substantial amount of sgRNA for use in assembly.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We successfully assembled our sgRNA constructs as verified by gel electrophoresis. We expected a single band around 250 bp from the assembled construct, which we saw on all lanes with DNA added on the gel. We consequently gel purified this and were able to isolate a substantial amount of sgRNA for use in assembly.
+    </p>
 
-  <div class="image-aligner-center">
-    <img src="https://static.igem.wiki/teams/5916/wetlab/results1.avif"
-         alt="Gel electrophoresis of sgRNA constructs"
-         style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
-    <p style="text-align: center; font-style: italic;">Gel electrophoresis showing assembled sgRNA constructs (~250 bp).</p>
-  </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        We successfully transformed <em>E. coli</em> with sgRNA plasmids to verify sequence fidelity via sequencing.
-        Below: PMI 2324 sgRNA transformed into BB3cH backbone and amplified using TOP10 <em>E. coli</em>.
-      </p>
-
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/results2.avif"
-             alt="PMI 2324 sgRNA transformation"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 2. Transformed <em>E. coli</em> colonies containing PMI 2324 sgRNA.</em>
-        </div>
-      </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Six out of ten sgRNA plasmids sequenced returned as 100% correct clones, confirming successful assembly.
-      </p>
-
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/results3.avif"
-             alt="Test digest verification of sgRNA plasmids"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 3. Test digest verification of sgRNA plasmid assemblies.</em>
-        </div>
-      </div>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We were unfortunately unable to fully confirm the success of our transformation protocol. We were unable to isolate a substantial mass of HR repair templates throughout our time in the lab, even when performing up to nine minipreps of 3 mL overnight cultures per template. 
-  </p>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Each time we increased the number of minipreps and each time we failed to isolate enough plasmid to run a substantial number of transformations, we were reminded of the frustrating variability within synthetic biology and the limitations of yield on our experiments even when using various methods to concentrate our DNA.
-  </p>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Despite these setbacks, we saw some promising signs during our experiments. Our final round of transformation saw colonies grow on YNB–NRS plates — a sign that the HR repair template had been taken up into the <em>K. phaffii</em>. 
-    We were unable to verify whether the templates were integrated or not by colony PCR. 
-    We also experienced some filamentous fungi contamination in this round, but it seems that we were able to isolate uncontaminated colonies successfully, as we saw only one contaminated colony out of 35 that were inoculated.
-  </p>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We are unable to conclude confidently that these colonies are <em>K. phaffii</em> that have taken up the sgRNA–Cas9 plasmid and the HR template, had the template integrate into the genome at the correct locus, and had the Cas9 plasmid drop by removing hygromycin from the selective media. 
-    Going forward, we plan to characterise these strains in shake flasks or deep well plates to gain an understanding of their culture conditions.
-  </p>
-
-  <div class="image-aligner-center">
-    <img src="https://static.igem.wiki/teams/5916/wetlab/results4.avif"
-         alt="Colonies grown on YNB–NRS plates"
-         style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
-    <p style="text-align: center; font-style: italic;">Colonies on YNB–NRS plates showing possible <em>K. phaffii</em> transformants.</p>
-  </div>
-  </div>
-</div>
-
-<div class="spacer"></div>
-
-<!-- GROWTH FACTORS (dropdown) -->
-<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="growth-factors">
-
-  <div class="section-title">
-    <h1 style="text-align: left;" class="collapsible-trigger">
-      <span class="highlight-green animate-text-scramble">Growth Factors</span>
-    </h1>
-  </div>
-  <div class="collapsible-content">
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Our growth factor experiments were characterised by a substantial amount of troubleshooting.
-  </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        After correcting concentrations, we achieved successful assembly as verified by test digest.
-      </p>
-
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/results5.avif"
-             alt="Test digest showing successful Golden Gate assemblies"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 5. Test digest showing successful Golden Gate assemblies.</em>
-        </div>
-      </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Following transformation into <em>K. phaffii</em>, we obtained Zeocin-resistant colonies,
-        though initial plates showed fungal contamination.
-      </p>
-
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/results6.avif"
-             alt="IGF_Rho transformants with contamination"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 6. IGF–Rho transformants showing fungal contamination on YNB–Zeo plates.</em>
-        </div>
-      </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Re-streaking successfully isolated uncontaminated <em>K. phaffii</em> colonies.
-      </p>
-
-  <div class="image-aligner-center">
-    <img src="https://static.igem.wiki/teams/5916/wetlab/results7.avif"
-         alt="Restreaked IGF_Rho transformants"
-         style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
-    <p style="text-align: center; font-style: italic;">Re-streaked IGF–Rho transformants showing successful isolation of <em>K. phaffii</em>.</p>
-  </div>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Though we were unable to verify the correct insertion or assembly of our construct in <em>K. phaffii</em>, we have reason to believe that we have strains capable of expressing recombinant human growth factors when induced with methanol.
-  </p>
-
-      <p style="text-align: left;">
-        Though sequence verification is pending, these strains likely express recombinant human growth factors upon methanol induction.
-      </p>
+    <div class="image-aligner-center">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results1.avif"
+           alt="Gel electrophoresis of sgRNA constructs"
+           style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
+      <p style="text-align: center; font-style: italic;">Gel electrophoresis showing assembled sgRNA constructs (~250 bp).</p>
     </div>
-  </details>  </div> 
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We successfully transformed <em>E. coli</em> with sgRNA plasmids to verify sequence fidelity via sequencing.
+      Below: PMI 2324 sgRNA transformed into BB3cH backbone and amplified using TOP10 <em>E. coli</em>.
+    </p>
+
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results2.avif"
+           alt="PMI 2324 sgRNA transformation"
+           style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
+      <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+        <em>Figure 2. Transformed <em>E. coli</em> colonies containing PMI 2324 sgRNA.</em>
+      </div>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Six out of ten sgRNA plasmids sequenced returned as 100% correct clones, confirming successful assembly.
+    </p>
+
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results3.avif"
+           alt="Test digest verification of sgRNA plasmids"
+           style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
+      <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+        <em>Figure 3. Test digest verification of sgRNA plasmid assemblies.</em>
+      </div>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We were unfortunately unable to fully confirm the success of our transformation protocol. We were unable to isolate a substantial mass of HR repair templates throughout our time in the lab, even when performing up to nine minipreps of 3 mL overnight cultures per template.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Each time we increased the number of minipreps and each time we failed to isolate enough plasmid to run a substantial number of transformations, we were reminded of the frustrating variability within synthetic biology and the limitations of yield on our experiments even when using various methods to concentrate our DNA.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Despite these setbacks, we saw some promising signs during our experiments. Our final round of transformation saw colonies grow on YNB–NRS plates — a sign that the HR repair template had been taken up into the <em>K. phaffii</em>.
+      We were unable to verify whether the templates were integrated or not by colony PCR.
+      We also experienced some filamentous fungi contamination in this round, but it seems that we were able to isolate uncontaminated colonies successfully.
+    </p>
+
+    <div class="image-aligner-center">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results4.avif"
+           alt="Colonies grown on YNB–NRS plates"
+           style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
+      <p style="text-align: center; font-style: italic;">Colonies on YNB–NRS plates showing possible <em>K. phaffii</em> transformants.</p>
+    </div>
+  </div>
 </div>
 
 <div class="spacer"></div>
+<!-- GROWTH FACTORS -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="growth-factors">
+  <div class="section-title">
+    <h1 style="text-align: left;" class="collapsible-trigger">
+      <span class="span-yellow" class=" animate-text-scramble"><span>Growth Factors</span>
+    </h1>
+  </div>
 
-<!-- BIOREACTOR (dropdown) -->
+  <div class="collapsible-content">
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Our growth factor experiments were characterised by a substantial amount of troubleshooting.
+    </p>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      After correcting concentrations, we achieved successful assembly as verified by test digest.
+    </p>
+
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results5.avif"
+           alt="Test digest showing successful Golden Gate assemblies"
+           style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
+      <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+        <em>Figure 5. Test digest showing successful Golden Gate assemblies.</em>
+      </div>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Following transformation into <em>K. phaffii</em>, we obtained Zeocin-resistant colonies,
+      though initial plates showed fungal contamination.
+    </p>
+
+    <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results6.avif"
+           alt="IGF_Rho transformants with contamination"
+           style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
+      <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+        <em>Figure 6. IGF–Rho transformants showing fungal contamination on YNB–Zeo plates.</em>
+      </div>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Re-streaking successfully isolated uncontaminated <em>K. phaffii</em> colonies.
+    </p>
+
+    <div class="image-aligner-center">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results7.avif"
+           alt="Restreaked IGF_Rho transformants"
+           style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
+      <p style="text-align: center; font-style: italic;">Re-streaked IGF–Rho transformants showing successful isolation of <em>K. phaffii</em>.</p>
+    </div>
+
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Though we were unable to verify the correct insertion or assembly of our construct in <em>K. phaffii</em>,
+      we have reason to believe that we have strains capable of expressing recombinant human growth factors
+      when induced with methanol.
+    </p>
+
+    <p style="text-align: left;">
+      Though sequence verification is pending, these strains likely express recombinant human growth factors upon methanol induction.
+    </p>
+  </div>
+</div>
+
+<div class="spacer"></div>
+<!-- BIOREACTOR -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="bioreactor">
-
   <div class="section-title">
     <h1 style="text-align: left;" class="collapsible-trigger">
-      <span class="highlight-green animate-text-scramble">Bioreactor</span>
+      <span class="span-yellow" class=" animate-text-scramble"><span>Bioreactor</span>
     </h1>
   </div>
+
   <div class="collapsible-content">
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Due to the lack of growth of our growth factor transformants, we were unable to isolate a successfully modified strain for characterisation work in a bioreactor. 
-    We were, however, able to characterise a baseline run of the bioreactor with the trHoc1 Type strain PN-2 and record extremely helpful data concerning optimal run conditions and nutrient flow rates for culturing of 
-    <em>K. phaffii</em> at scales larger than the benchtop.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Due to the lack of growth of our growth factor transformants, we were unable to isolate a successfully modified strain for characterisation work in a bioreactor.
+      We were, however, able to characterise a baseline run of the bioreactor with the trHoc1 Type strain PN-2 and record extremely helpful data concerning optimal run conditions and nutrient flow rates for culturing of 
+      <em>K. phaffii</em> at scales larger than the benchtop.
+    </p>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We started with 25 mL of <em>K. phaffii</em> PN-2 culture in approximately 560 mL of buffered basal salts medium. 
-    We observed the bioreactor foam up immediately, likely attributed to the high final cell density of our starting culture, and added some antifoam.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We started with 25 mL of <em>K. phaffii</em> PN-2 culture in approximately 560 mL of buffered basal salts medium.
+      We observed the bioreactor foam up immediately, likely attributed to the high final cell density of our starting culture, and added some antifoam.
+    </p>
 
-  <div class="image-aligner-center">
-    <img src="https://static.igem.wiki/teams/5916/wetlab/results8.avif"
-         alt="Bioreactor foaming during K. phaffii PN-2 run"
-         style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
-    <p style="text-align: center; font-style: italic;">Bioreactor foaming observed during <em>K. phaffii</em> PN-2 baseline run.</p>
-  </div>
+    <div class="image-aligner-center">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results8.avif"
+           alt="Bioreactor foaming during K. phaffii PN-2 run"
+           style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
+      <p style="text-align: center; font-style: italic;">Bioreactor foaming observed during <em>K. phaffii</em> PN-2 baseline run.</p>
+    </div>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    After approximately 55 hours, we were able to harvest roughly 500 mL of liquid culture. 
-    We observed that a non-trivial amount of media had been lost to evaporation.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      After approximately 55 hours, we were able to harvest roughly 500 mL of liquid culture.
+      We observed that a non-trivial amount of media had been lost to evaporation.
+    </p>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We pelleted each tube using a centrifuge at maximum speed for 10 minutes before filtering the supernatant. 
-    We were able to isolate the wet cell pellet and the supernatant, a portion of which was filtered through 0.2 µm filters. 
-    These filters almost immediately clogged, indicating the potential presence of large proteins and/or sugars remaining in the supernatant.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We pelleted each tube using a centrifuge at maximum speed for 10 minutes before filtering the supernatant.
+      We were able to isolate the wet cell pellet and the supernatant, a portion of which was filtered through 0.2 µm filters.
+      These filters almost immediately clogged, indicating the potential presence of large proteins and/or sugars remaining in the supernatant.
+    </p>
 
-  <p style="text-align: left;">
-    We were unfortunately unable to quantify and characterise these large molecules in time for the wiki freeze. 
-    We are presently continuing further investigation of this to present at the jamboree.
-  </p>
+    <p style="text-align: left;">
+      We were unfortunately unable to quantify and characterise these large molecules in time for the wiki freeze.
+      We are presently continuing further investigation of this to present at the jamboree.
+    </p>
   </div>
 </div>
 
 <div class="spacer"></div>
-
-<!-- BIOKERNEL VALIDATION EXPERIMENT (dropdown) -->
+<!-- BIOKERNEL VALIDATION EXPERIMENT -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="biokernel">
-
   <div class="section-title">
     <h1 style="text-align: left;" class="collapsible-trigger">
-      <span class="highlight-green animate-text-scramble">BioKernel Validation Experiment</span>
+      <span class="span-yellow" class=" animate-text-scramble"><span>BioKernel Validation Experiment</span>
     </h1>
   </div>
+
   <div class="collapsible-content">
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    We established an efficient workflow for the assembly and cloning of vectors carrying our enzymes of interest.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      We established an efficient workflow for the assembly and cloning of vectors carrying our enzymes of interest.
+    </p>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    After a successful assembly and transformation of Stage 1 parts, we performed a colony PCR to assess the efficiency of parts insertion with this kit.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      After a successful assembly and transformation of Stage 1 parts, we performed a colony PCR to assess the efficiency of parts insertion with this kit.
+    </p>
 
-  <p style="text-align: left; margin-bottom: 1.5rem;">
-    Of 76 colonies screened, 50 were positive, demonstrating the relatively high efficiency of correct transformation using this kit and its constituent plasmids.
-  </p>
+    <p style="text-align: left; margin-bottom: 1.5rem;">
+      Of 76 colonies screened, 50 were positive, demonstrating the relatively high efficiency of correct transformation using this kit and its constituent plasmids.
+    </p>
 
-  <div class="image-aligner-center">
-    <img src="https://static.igem.wiki/teams/5916/wetlab/results9.avif"
-         alt="Colony PCR of EcoFlex assembly kit"
-         style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
-    <p style="text-align: center; font-style: italic;">Colony PCR of EcoFlex assembly demonstrating 50/76 successful insertions.</p>
-  </div>
+    <div class="image-aligner-center">
+      <img src="https://static.igem.wiki/teams/5916/wetlab/results9.avif"
+           alt="Colony PCR of EcoFlex assembly kit"
+           style="max-width: 70%; margin-top: 1rem; margin-bottom: 0.5rem;" class="tilt-effect">
+      <p style="text-align: center; font-style: italic;">Colony PCR of EcoFlex assembly demonstrating 50/76 successful insertions.</p>
+    </div>
 
-  <p style="text-align: left;">
-    We were unfortunately unable to clone the plasmids into the Stage 3 destination vector in time for the wiki freeze. 
-    Despite this, we are continuing this work and hope to accomplish this soon for the characterisation of the astaxanthin pathway in <em>E. coli</em>.
-  </p>
+    <p style="text-align: left;">
+      We were unfortunately unable to clone the plasmids into the Stage 3 destination vector in time for the wiki freeze.
+      Despite this, we are continuing this work and hope to accomplish this soon for the characterisation of the astaxanthin pathway in <em>E. coli</em>.
+    </p>
   </div>
 </div>
 
