@@ -89,38 +89,34 @@
 <!-- Validation Strategy and Broader Applicability -->
 
 <div class="page-section width-75" style="margin-left: 220px;" id="validation-strategy">
-    <div class="section-title">
-        <h1 style="text-align: left;" class="span-lime-green">Validation Strategy and Broader Applicability</h1>
-    </div>
+  <div class="section-title">
+    <h1 style="text-align: left;" class="span-lime-green">Validation Strategy and Broader Applicability</h1>
+  </div>
 
-    <p style="text-align: left;">To validate our framework, we pursued two complementary approaches. First, we applied
-        our software to optimise published datasets from metabolic engineering studies, demonstrating that our approach
-        successfully identifies optimal conditions with substantially fewer experiments than were originally required.
-    </p>
-    <p style="text-align: left;">Second, we designed a comprehensive experimental proof-of-concept: optimising
-        astaxanthin production via a heterologous 10-step enzymatic pathway integrated into the Marionette-wild<i>E.
-        coli</i>  strain[5]. This strain possesses a genomically integrated array of twelve orthogonal, highly sensitive
-        inducible transcription factors, allowing for a twelve-dimensional optimisation landscape ideal for
-        demonstrating our software's capabilities. By systematically varying inducer concentrations across the pathway,
-        we aim to verify that Bayesian optimisation could guide this complex, multi-step enzymatic process to a strong
-        optimum using far fewer experiments than conventional screening methods.</p>
-        
-    <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified spectrophotometrically[23],
-        reducing the time needed to evaluate each batch. </p>
-    <p style="text-align: left;">It is not economically feasible to utilise inducible promoters for industrial
-        transcriptional control. We thus propose utilising the framework from[6], offering a solution to find a
-        constitutive `match` for the expression levels corresponding to an optimum reached in an experimental campaign.
-        This way, expensive inducers within the Marionette array, such as naringenin[5], are only necessary for initial
-        screening campaigns. </p>
-    <p style="text-align: left;">While parts delivery delays prevented completion of our full experimental validation
-        within the competition timeline, the successful retrospective optimisation of published datasets serves as a
-        compelling proof of concept. These results demonstrate that our framework can effectively optimise cellular
-        "black box" functions, systems where the relationship between inputs and outputs is unknown, using substantially
-        fewer experimental iterations than traditional approaches.</p>
-    <p style="text-align: left;"></p>
-    <p style="text-align: left;"></p>
-    <p style="text-align: left;"></p>
-    <p style="text-align: left;"></p>
+  <p style="text-align: left;">To validate our framework, we pursued two complementary approaches. First, we applied
+    our software to optimise published datasets from metabolic engineering studies, demonstrating that our approach
+    successfully identifies optimal conditions with substantially fewer experiments than were originally required.
+  </p>
+  <p style="text-align: left;">Second, we designed a comprehensive experimental proof-of-concept: optimising
+    astaxanthin production via a heterologous 10-step enzymatic pathway integrated into the Marionette-wild<i>E.
+      coli</i> strain[5]. This strain possesses a genomically integrated array of twelve orthogonal, highly sensitive
+    inducible transcription factors, allowing for a twelve-dimensional optimisation landscape ideal for
+    demonstrating our software's capabilities. By systematically varying inducer concentrations across the pathway,
+    we aim to verify that Bayesian optimisation could guide this complex, multi-step enzymatic process to a strong
+    optimum using far fewer experiments than conventional screening methods.</p>
+
+  <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified spectrophotometrically[23],
+    reducing the time needed to evaluate each batch. </p>
+  <p style="text-align: left;">It is not economically feasible to utilise inducible promoters for industrial
+    transcriptional control. We thus propose utilising the framework from[6], offering a solution to find a
+    constitutive `match` for the expression levels corresponding to an optimum reached in an experimental campaign.
+    This way, expensive inducers within the Marionette array, such as naringenin[5], are only necessary for initial
+    screening campaigns. </p>
+  <p style="text-align: left;">While parts delivery delays prevented completion of our full experimental validation
+    within the competition timeline, the successful retrospective optimisation of published datasets serves as a
+    compelling proof of concept. These results demonstrate that our framework can effectively optimise cellular
+    "black box" functions, systems where the relationship between inputs and outputs is unknown, using substantially
+    fewer experimental iterations than traditional approaches.</p>
 
 </div>
 
@@ -137,76 +133,61 @@
     <div style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Due to unforeseen delays in the arrival of critical parts required to clone the astaxanthin pathway,
-        we could not perform our planned optimisation batches using the <em>Marionette</em> strain.
-        Nevertheless, we proceeded to validate our Bayesian Optimisation framework computationally.
+        hough we could not perform optimisation batches using our marionette strain due to an unforeseen, significant
+        order delay of the parts needed to clone the astaxanthin pathway, we validated our package on empirical data.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        To validate BioKernel’s effectiveness, we used a dataset from a published optimisation experiment
-        applying four-dimensional transcriptional control to limonene production in
-        <em>Marionette-wild Escherichia coli</em><sup>[21]</sup>.
-        Although this dataset represents a simpler optimisation problem than our planned astaxanthin pathway,
-        it effectively demonstrates that BioKernel converges to optimal conditions
-        much faster than exhaustive combinatorial screening.
+        To trial the effectiveness of our package despite this delay, we took a dataset from an optimisation experiment
+        applying four-dimensional transcriptional control to limonene production in Marionette-wild <i>Escherichia
+          coli</i> [21]. Though
+        this represents a significantly more tractable optimisation problem than the astaxanthin pathway we chose for
+        our in-lab validation, it serves as strong validation that BioKernel can find an optimum far faster than the
+        exhaustive combinatorial search.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        As the dataset was relatively sparse, we fitted a Gaussian Process (GP) model with a scaled RBF kernel
-        and additional white-noise kernel to reconstruct a continuous surface
-        approximating the actual optimisation landscape of the four-dimensional input space.
-        The procedure is shown below.
+        As the dataset of this paper is relatively sparse, we fitted a Gaussian process with a scaled RBF kernel and
+        additional white noise kernel to their data, creating a surface approximating the actual optimisation landscape
+        of the four-dimensional input space. The procedure included training a mixed model of Random Forest (RF) and
+        K-Nearest Neighbours (KNN) on 83 unique parameter combinations.
       </p>
+
+      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+        <img src="https://static.igem.wiki/teams/5916/model/dry-signal.avif" alt="Gaussian process noise surface"
+          style="max-width: 80%; border-radius: 0.5rem;" class="tilt-effect">
+        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+          <em>Figure 1. Extrapolated normalised Limonene production surface derived from 83 unique observations with six
+            technical repeats
+            each. Extrapolated using a mixed model of Random Forest and K-Nearest Neighbours</em>
+        </div>
+      </div>
+
+      <p style="text-align: left;">The same procedure was applied, however instead of using the means calculated from experimental data, we
+        estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic
+        noise meshgrid, which was supplied as a standard deviation parameter for random sampling from a normal
+        distribution. </p>
 
       <!-- Figure 1 -->
       <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/drylab/model1.avif" alt="Gaussian process noise surface"
+        <img src="https://static.igem.wiki/teams/5916/model/dry-noise.avif" alt="Gaussian process noise surface"
           style="max-width: 80%; border-radius: 0.5rem;" class="tilt-effect">
         <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 1. Extrapolated noise surface derived from 83 unique observations with six technical repeats
-            each.</em>
+          <em>Figure 2. Extrapolated noise surface derived from 83 unique observations with six technical repeats
+            each. Extrapolated using a mixed model of Random Forest and K-Nearest Neighbours from standard deviation of
+            each group</em>
         </div>
       </div>
 
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        The plot above shows the extrapolated surface from 83 unique observations, each having six technical repeats.
-      </p>
 
-      <!-- Signal fit -->
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/drylab/dry-signal.avif" alt="Gaussian process signal fit"
-          style="max-width: 80%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 2. Gaussian-process posterior signal fit showing predicted mean and uncertainty.</em>
-        </div>
-      </div>
+      <p style="text-align: left;">This surface then became our test set for BioKernel. The following optimisation was performed using our
+        package, with options set to use a Matern kernel with a gamma noise prior. </p>
 
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        We next modelled heteroscedastic noise by estimating the standard deviation across replicates
-        and constructing a noise meshgrid. This was used to simulate a realistic biological variance profile,
-        which was then incorporated into our Gaussian process model.
-      </p>
+      <p style="text-align: left;">BioKernel algorithm converged to the optimum as measured by normalised euclidean distance of [PLACEHOLDER] in
+        four dimensions (maximal distance would be 2) within five sequential batches of six technical replicates. It
+        thus took BioKernel [INSERT] measurements to converge close to the optimum, as opposed to the 648 taken by the
+        adapted grid-search used in the paper[21]. </p>
 
-      <!-- Figure 3 -->
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/drylab/model2.avif" alt="Heteroscedastic noise model surface"
-          style="max-width: 80%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 3. Heteroscedastic noise model surface fitted using BioKernel’s Gaussian-process framework.</em>
-        </div>
-      </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        This synthetic test surface became the benchmark dataset for evaluating BioKernel’s optimisation performance.
-        We executed optimisation runs using a Matern kernel with a gamma noise prior.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        BioKernel converged to the optimum—measured by a normalised Euclidean distance of 0.27 in four dimensions
-        (maximum possible = 2)—within five sequential batches of six technical replicates.
-        This corresponds to 120 total measurements, compared to 648 measurements required
-        by the grid-search method from the original study<sup>[21]</sup>.
-      </p>
 
     </div>
   </details>
