@@ -5,17 +5,53 @@
 
 
 {% block scroll_nav %}
-<nav class="side-scroll-nav scroll-nav" style="top: 300px;">
-    <span class="side-scroll-nav-label">On This Page</span>
-    <a href="#market-analysis">Market Analysis</a>
-    <a href="#business-model">Business Model</a>
-    <a href="#design-c">Ideal Customer Profile</a>
-    <a href="#design-comparison">Pitch Deck</a>
-    <a href="#final-contribution">References</a>
+<nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
+  <span class="side-scroll-nav-label">On This Page</span>
+  <a class="span-sky-blue" href="#market-analysis"><span>Market Analysis</span></a>
+  <a class="span-sky-blue" href="#business-model"><span>Business Model</span></a>
+  <a class="span-sky-blue" href="#ideal-customer-profile"><span>Ideal Customer Profile</span></a>
+  <a class="span-sky-blue" href="#pitch-deck"><span>Pitch Deck</span></a>
 </nav>
 {% endblock %}
 
 {% block page_content %}
+<style>
+  /* Exact spacing to clear the right nav */
+  :root { --side-nav-w: 180px; --side-nav-gap: 28px; }
+
+  @media (min-width: 992px) {
+    /* Center the column; add right padding instead of pushing it left */
+    .with-right-nav .page-section.width-75,
+    .with-right-nav .section-title,
+    .with-right-nav .citation-block,
+    .with-right-nav .education-hero,
+    .with-right-nav .education-hero-content-container {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: calc(var(--side-nav-w) + var(--side-nav-gap)) !important;
+      padding-right: 0 !important;
+      box-sizing: border-box;
+    }
+
+    /* Let images stay centered; no squeeze from margins */
+    .with-right-nav .section-image,
+    .with-right-nav .image-aligner-center img {
+      max-width: 100% !important;
+    }
+  }
+
+  /* Mobile/tablet stacking — no offset needed */
+  @media (max-width: 991px) {
+    .with-right-nav .page-section.width-75,
+    .with-right-nav .section-title,
+    .with-right-nav .citation-block,
+    .with-right-nav .education-hero,
+    .with-right-nav .education-hero-content-container {
+      padding-right: 0 !important;
+    }
+  }
+</style>
+<div class="with-right-nav">
 <div class="education-hero dsp-banner"
      style="background-image: url('https://static.igem.wiki/teams/5916/assets/images/businessbanner.webp');
             background-size: cover;
@@ -55,7 +91,7 @@
         companies, directly supporting the impending FoodTech boom.</p>
 </div>
 <div class="page-section width-75" id="market-analysis">
-    <h2 class="collapsible-trigger" style="text-align: left;">Market Analysis</h2>
+    <h2 class="span-sky-blue collapsible-trigger" style="text-align: left;"><span>Market Analysis</span></h2>
     <div class="collapsible-content">
         <p style="text-align: left;">To validate the financial feasibility of our idea, we answered the following
             questions:</p>
@@ -185,7 +221,7 @@
     </div>
 </div>
 <div class="page-section width-75" id="business-model">
-    <h2 class="collapsible-trigger" style="text-align: left;">Business Model</h2>
+    <h2 class="span-sky-blue collapsible-trigger" style="text-align: left;"><span>Business Model</span></h2>
     <div class="collapsible-content">
         <p style="text-align: left;">To explore <strong>the demand and profitability of our idea</strong>, we
             constructed a <strong>Lean Business Model Canvas</strong> to map our assumptions and guide our strategy. We
@@ -208,7 +244,7 @@
     </div>
 </div>
 <div class="page-section width-75" id="ideal-customer-profile">
-    <h2 class="collapsible-trigger" style="text-align: left;">Ideal Customer Profile</h2>
+    <h2 class="span-sky-blue collapsible-trigger" style="text-align: left;"><span>Ideal Customer Profile</span></h2>
     <div class="collapsible-content">
         <p style="text-align: left;">An <strong>Ideal Customer Profile (ICP) is a detailed description of the type of
                 organization that would gain the most value from our product</strong> and has the resources to pursue
@@ -238,7 +274,7 @@
     </div>
 </div>
 <div class="page-section width-75" id="pitch-deck">
-    <h2 class="collapsible-trigger" style="text-align: left;">Pitch Deck</h2>
+    <h2 class="span-sky-blue collapsible-trigger" style="text-align: left;"><span>Pitch Deck</span></h2>
     <div class="collapsible-content">
         <p style="text-align: left;">Finally, as part of our Human Practices outreach, we put together a Pitch Deck that
             went through multiple rounds of iterations before it reached its final version that we deemed
@@ -276,6 +312,7 @@
         <li>UKRI, Area of Investment and Support: Engineering Biology. (2025), <a href="https://www.ukri.org/what-we-do/browse-our-areas-of-investment-and-support/engineering-biology/" target="_blank">https://www.ukri.org/what-we-do/browse-our-areas-of-investment-and-support/engineering-biology/</a></li>
         <li>Schwartz E., Cost drivers of cultivated meat production. (2024), <a href="https://www.slideshare.net/slideshow/20240312-cost-drivers-of-cultivated-meat-productionpdf/266753601" target="_blank">https://www.slideshare.net/slideshow/20240312-cost-drivers-of-cultivated-meat-productionpdf/266753601</a>.</li>
     </ol>
+    </div> <!-- /.with-right-nav -->
 </div>
 {% endblock %}
 
