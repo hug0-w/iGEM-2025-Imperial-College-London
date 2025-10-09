@@ -6,10 +6,9 @@
 {% block scroll_nav %}
 <nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
   <span class="side-scroll-nav-label">On This Page</span>
-  <a href="#experimental-design">Experimental Design</span></a>
   <a href="#strain-engineering"><span class="highlight-green">Strain Engineering</span></a>
-  <a href="#growth-factors"><span class="highlight-green">Recombinant Growth Factors</span></a>
-  <a href="#biokernel-validation"><span class="highlight-green">Bayesian Optimisation Validation</span></a>
+  <a href="#growth-factors"><span class="highlight-green">Production of Recombinant Growth Factors</span></a>
+  <a href="#biokernel-validation"><span class="highlight-green">Downstream Characterisation</span></a>
   <a href="#references">References</span></a>
 </nav>
 {% endblock %}
@@ -43,24 +42,24 @@
   </h2>
 
   <p style="text-align: left; margin-bottom: 1.5rem;">
-    <strong>We conducted three key experimental lines of work to validate our overall proof of concept:</strong>
+    <strong>We conducted three key experiments for our overall proof of concept:</strong>
   </p>
 
   <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-    <li>CRISPR/Cas9-based engineering of <strong>EPS-related pathways</strong> to minimise exopolysaccharide production and secretion.</li>
-    <li>Production of <strong>recombinant growth factors</strong> in <em>K. phaffii</em> for cultivated meat bioprocessing.</li>
-    <li>Validation of a <strong>no-code Bayesian optimisation workflow</strong> using <em>E. coli</em> for pathway tuning and media optimisation.</li>
+    <li>The <strong>CRISPR/Cas9-based engineering of EPS-related pathways</strong> to minimise exopolysaccharide production and secretion.</li>
+    <li>The production of <strong>recombinant growth factors from <em>K. phaffii</em></strong> for use in the cultivated meat industry.</li>
+    <li><strong>Optimisation of an enzymatic pathway in <em>E. coli</em></strong> as validation for a no-code Bayesian optimisation workflow for future <em>K. phaffii</em> metabolic engineering and media optimisation.</li>
   </ul>
 
   <p style="text-align: left; margin-bottom: 1.5rem;">
-    These experiments represent three scales of our integrated pipeline — from <strong>strain engineering</strong> and
-    <strong>recombinant protein production</strong> to <strong>automation and optimisation</strong>.
+    These experimental lines together span our integrated pipeline — from <strong>strain-level genetic engineering</strong> and
+    <strong>recombinant protein production</strong> to <strong>automation and optimisation of bioprocesses</strong>.
   </p>
 </div>
 <!-- STRAIN ENGINEERING (dropdown) -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="strain-engineering">
   <h2 style="text-align: left;">
-    <span class="highlight-green animate-text-scramble">Strain Engineering of <em>K. phaffii</em></span>
+    <span class="highlight-green animate-text-scramble">Strain Engineering K.phaffii</span>
   </h2>
 
   <details style="margin-top: 1rem; margin-bottom: 2rem;">
@@ -68,135 +67,86 @@
     <div style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        We designed our engineering strategy to target the most mechanistically plausible causes of
-        <strong>exopolysaccharide (EPS) secretion</strong> in <em>K. phaffii</em>, as the exact mechanism remains
-        uncharacterised in literature.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Our hypotheses included: (1) the truncated <strong>Hoc1</strong> enzyme causing under-branched glycans and excess free mannans;
-        (2) a <strong>cell wall stress response</strong> upregulating mannose secretion; and (3) excessive intracellular mannose production
-        driving accumulation of secreted polysaccharides.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        To test these, we selected one protein target for each scenario:
+        We spread our engineering strategy such that it addressed <strong>the most mechanistically plausible causes for EPS secretion</strong>,
+        which to date have not been conclusively identified in literature.
       </p>
 
       <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><strong>Hoc1</strong> — 1,6-mannosyltransferase involved in glycan branching.</li>
-        <li><strong>PMI</strong> — phosphomannose isomerase, linking glycolysis and GDP-mannose synthesis.</li>
-        <li><strong>Rho1</strong> — GTPase in the cell wall integrity pathway, influencing cell rigidity.</li>
+        <li>Our first theory was that the truncated <strong>Hoc1</strong> enzyme results in <strong>less glycan branching</strong> and consequently more free mannans in the extracellular space.</li>
+        <li>Secondly, a <strong>cell wall stress response</strong> due to thinner cell walls may drive excess mannans into the Golgi apparatus.</li>
+        <li>Finally, if neither mechanism proved true, we aimed to <strong>reduce intracellular mannose synthesis</strong> directly by downregulating its metabolic precursor pathways.</li>
+      </ul>
+
+      <h3 style="text-align: left; margin-top: 2rem;">Why We Target Exopolysaccharides</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        Through both our integrated human practices with <strong>Magnify Bio</strong> and <strong>Liberation Bioindustries</strong> and a review of recent literature, we identified
+        <strong>exopolysaccharides (EPS)</strong> as a critical impurity complicating downstream processing in <em>K. phaffii</em>-based production systems.
+      </p>
+
+      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>EPS impurities <strong>co-migrate with recombinant proteins</strong> in size-based purification such as micro- or ultrafiltration, greatly complicating scalable separation<sup>[10–12]</sup>.</li>
+        <li>They can <strong>agglomerate with proteins</strong> and form dense “cake” layers on membranes, leading to fouling and yield loss<sup>[12]</sup>.</li>
+        <li>Even high-effort recovery methods like anion exchange <strong>fail when charge distributions overlap</strong><sup>[12]</sup>.</li>
+        <li>These impurities are increasingly recognised as <strong>major cost drivers</strong> in scaling recombinant protein production<sup>[10]</sup>.</li>
+        <li>Up to <strong>4% of cell dry weight</strong> may consist of these unwanted mannans<sup>[10,12]</sup>, representing both a yield and energy loss.</li>
       </ul>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Our aim was not to restore full cell wall rigidity, but to mitigate EPS impurity formation while
-        maintaining the secretion efficiency that makes <em>K. phaffii</em> a valuable host.
+        To our knowledge, <strong>no previous studies have addressed EPS secretion at the strain-engineering level</strong> — representing a significant opportunity to improve downstream efficiency for multiple protein products.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        To implement these modifications, we used the <strong>CRISPR/Cas9</strong> system due to its reliability and modularity.
-        However, for scalability, we also evaluated <strong>split-marker integration</strong> as an open, license-free alternative.
+        Accordingly, we decided on <strong>one genetic target per mechanistic hypothesis</strong>, resulting in three distinct modification strategies:
+      </p>
+
+      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Hoc1</strong> — a 1,6-mannosyltransferase responsible for branching of glycan arms on glycoproteins.</li>
+        <li><strong>PMI</strong> — phosphomannose isomerase, linking fructose-6-phosphate to mannose-6-phosphate (GDP-mannose synthesis).</li>
+        <li><strong>Rho1</strong> — a GTPase in the cell wall integrity pathway, modulating wall biosynthesis and stress response.</li>
+      </ul>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        Because the <strong>Hoc1 truncation</strong> in industrial strains improves secretion and transformability, we avoided restoring full-length activity.
+        Instead, we aimed to <strong>downregulate Hoc1</strong> to reduce EPS while retaining secretion performance.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Following Gassler et al. (2019)<sup>[1]</sup>, we designed <strong>10 sgRNA devices</strong> flanked by 5′ hammerhead and 3′
-        hepatitis delta virus ribozymes for efficient self-excision. Targets were positioned near start and stop codons to
-        minimise unintended off-target effects.
+        We acknowledged potential trade-offs — such as tighter cell walls reducing secretion efficiency or altered central metabolism slowing growth —
+        and therefore distributed our engineering targets across <strong>metabolic, structural, and regulatory layers</strong> for balanced impact.
+      </p>
+
+      <h3 style="text-align: left; margin-top: 2rem;">Engineering Approach</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To modify <strong>Hoc1</strong> and <strong>PMI</strong>, we adopted the <strong>CRISPR/Cas9 system</strong> as a modular and well-characterised editing tool.
+        However, given <strong>commercial patent constraints</strong> around CRISPR, we evaluated <strong>split-marker homologous recombination</strong> as a
+        viable, license-free alternative that achieves the same edits through native yeast recombination mechanisms.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        For <strong>Rho1</strong>, we planned a mild overexpression using the weak constitutive promoter <strong>pPGK1</strong>,
-        intended to partially restore cell wall integrity without compromising cell growth<sup>[2]</sup>.
+        Following <strong>Gassler et al.</strong><sup>[1]</sup>, we designed <strong>ten sgRNA devices</strong> with flanking 5′ hammerhead (HH) and 3′ hepatitis delta virus (HDV)
+        ribozymes for efficient self-excision and processing. Target regions were selected around the start and stop codons of
+        <em>Hoc1</em> and <em>PMI</em> to minimise unintended modifications.
       </p>
 
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/strainengineering.avif"
-             alt="Schematic of strain engineering targets in K. phaffii"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 1. Overview of genetic engineering strategy targeting <em>Hoc1</em>, <em>PMI</em>, and <em>Rho1</em>.</em>
-        </div>
-      </div>
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        For <strong>Rho1</strong>, we planned a mild overexpression under the weak constitutive promoter <strong>pPGK1</strong> to partially reinforce
+        cell wall integrity without impairing cell proliferation<sup>[2]</sup>.
+      </p>
 
       <p style="text-align: left;">
-        This experimental framework ensured our edits spanned metabolic, structural, and regulatory pathways,
-        maximising the chance of identifying and mitigating the root causes of EPS secretion.
-      </p>
-    </div>
-  </details>
-</div>
-<!-- RECOMBINANT GROWTH FACTORS (dropdown) -->
-<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="growth-factors">
-  <h2 style="text-align: left;">
-    <span class="highlight-green animate-text-scramble">Production of Recombinant Growth Factors in <em>K. phaffii</em></span>
-  </h2>
-
-  <details style="margin-top: 1rem; margin-bottom: 2rem;">
-    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
-    <div style="margin-top: 1rem;">
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Our growth factor experiment aimed to <strong>demonstrate the ability of <em>K. phaffii</em> to express and secrete 
-        mammalian growth factors at high titres</strong>, and to <strong>characterise HGF and IGF-1 expression for the first time in iGEM</strong>.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        We selected <strong>four growth factors</strong> due to their distinct biological properties and relevance to cultivated meat:
-      </p>
-
-      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><strong>Epidermal Growth Factor (EGF)</strong> — induces mammalian cell proliferation<sup>[3]</sup>.</li>
-        <li><strong>Basic Fibroblast Growth Factor (bFGF)</strong> — promotes strong proliferation and migration<sup>[4]</sup>.</li>
-        <li><strong>Hepatocyte Growth Factor (HGF)</strong> — activates muscle satellite cells and promotes regeneration<sup>[5]</sup>.</li>
-        <li><strong>Insulin-like Growth Factor-1 (IGF-1)</strong> — induces cell proliferation in muscle and bone<sup>[6]</sup>.</li>
-      </ul>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Each factor was designed for <strong>secretion</strong> using the <strong>pre-Ost1–pro-α-mating factor hybrid signal</strong>, which 
-        enhances ER translocation efficiency and reduces aggregation during secretion.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        The pre-Ost1 signal sequence from <em>S. cerevisiae</em> was chosen based on the work of Barrero et al. (2018),
-        who demonstrated up to <strong>20-fold higher secretion</strong> compared to the traditional α-mating factor<sup>[7]</sup>.
-      </p>
-
-      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/growthfactors-design.avif"
-             alt="Design of recombinant growth factor constructs in K. phaffii"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 2. Construct design for secretion of recombinant growth factors using the pre-Ost1–pro-α signal.</em>
-        </div>
-      </div>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        To enable purification, a <strong>C-terminal 6×His-tag</strong> was fused to each construct via a flexible G₄S×₃ linker.
-        This facilitates <strong>Ni-NTA affinity chromatography</strong> for downstream purification.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Although His-tags can exhibit immunogenic effects, we justified their use since:
-      </p>
-
-      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li>Our products are intended for <strong>industrial, not therapeutic</strong> use.</li>
-        <li>The His-tag offers a <strong>cost-effective and reliable purification</strong> method requiring minimal labour.</li>
-      </ul>
-
-      <p style="text-align: left;">
-        The final constructs integrate secretion efficiency, structural stability, and downstream compatibility —
-        positioning <em>K. phaffii</em> as a feasible host for growth factor production in animal-free media.
+        By combining these strategies, our engineered strains aim to <strong>reduce EPS secretion at the source</strong>,
+        improve recombinant protein yield, and maintain commercial feasibility by avoiding patent-encumbered technologies.
       </p>
 
     </div>
   </details>
 </div>
-<!-- BAYESIAN OPTIMISATION VALIDATION (dropdown) -->
-<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="biokernel-validation">
+<!-- RECOMBINANT GROWTH FACTORS (dropdown) -->
+  <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="growth-factors">
   <h2 style="text-align: left;">
-    <span class="highlight-green animate-text-scramble">Validating a No-Code Bayesian Optimisation Workflow</span>
+    <span class="highlight-green animate-text-scramble">Production of Recombinant Growth Factors</span>
   </h2>
 
   <details style="margin-top: 1rem; margin-bottom: 2rem;">
@@ -204,82 +154,159 @@
     <div style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        To demonstrate our computational design–wet lab integration, we designed a validation experiment to test the 
-        <strong>BioKernel Bayesian optimisation (BO) workflow</strong> using <em>E. coli</em> as a model system. 
-        This approach would allow us to assess how BO can efficiently tune enzyme expression levels and inducer concentrations 
-        in complex metabolic pathways — paving the way for similar optimisation in <em>K. phaffii</em>.
+        Our growth factor experiment planned to <strong>demonstrate the ability of <em>K. phaffii</em> to produce recombinant mammalian growth factors at high titres</strong>
+        and to <strong>characterise the production of HGF and IGF-1 in <em>K. phaffii</em> for the first time in iGEM</strong>.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        The experiment was designed to be both <strong>in silico and in vitro</strong>, combining machine learning–driven prediction 
-        with experimental readouts to iteratively improve enzyme ratios for astaxanthin biosynthesis.
-      </p>
-
-      <h3 style="text-align: left; margin-top: 1.5rem;">Experimental Setup</h3>
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        We utilised the <strong>Marionette-Wild MG1655</strong> strain of <em>E. coli</em><sup>[8]</sup>, which contains twelve orthogonal, 
-        small-molecule–inducible sensors to fine-tune transcriptional activity. This system allows precise control over enzyme expression 
-        using independent chemical inducers — ideal for an optimisation framework.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        For plasmid construction, we used the <strong>EcoFlex Modular Cloning (MoClo) kit</strong><sup>[9]</sup> developed by the Freemont Lab at Imperial College London. 
-        This system provides a Golden Gate–based assembly workflow with RFP negative selection to confirm successful ligation.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        We planned the assembly in three stages:
+        We chose to target <strong>four growth factors</strong> based on their roles in muscle growth and tissue regeneration:
       </p>
 
       <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li>Stage 1: 10 transcriptional units, each encoding an enzyme under a unique promoter.</li>
-        <li>Stage 2: Two intermediate constructs, each containing five assembled Stage 1 parts.</li>
-        <li>Stage 3: A final plasmid combining both Stage 2 assemblies into a single expression vector.</li>
+        <li><strong>Epidermal Growth Factor (EGF)</strong> — stimulates cell proliferation and differentiation<sup>[3]</sup>.</li>
+        <li><strong>Basic Fibroblast Growth Factor (bFGF)</strong> — promotes strong proliferation and migration of myocytes<sup>[4]</sup>.</li>
+        <li><strong>Hepatocyte Growth Factor (HGF)</strong> — activates muscle satellite cells and supports regeneration<sup>[5]</sup>.</li>
+        <li><strong>Insulin-like Growth Factor 1 (IGF-1)</strong> — promotes cell proliferation in muscle and bone<sup>[6]</sup>.</li>
       </ul>
 
+      <h3 style="text-align: left; margin-top: 2rem;">Secretion Strategy</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        We engineered these growth factors to be secreted using a <strong>pre-Ost1–pro-α mating factor fusion secretion tag</strong>.
+        Traditionally, <em>K. phaffii</em> relies on the full α-mating factor from <em>S. cerevisiae</em> to mediate protein secretion,
+        but this sequence can <strong>slow translocation of large proteins</strong> such as FGF2 or HGF and may cause
+        <strong>aggregation during high-volume expression</strong>.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        Based on Barrero et al. (2018), we employed a <strong>hybrid signal</strong> consisting of the <em>pre-factor</em> of Ost1 fused to the <em>pro-region</em>
+        of the α-mating factor, resulting in <strong>up to 20× higher secretion efficiency</strong> for some proteins<sup>[7]</sup>.
+      </p>
+
+      <h3 style="text-align: left; margin-top: 2rem;">Purification and Tagging</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To facilitate purification, we appended a <strong>C-terminal poly-histidine (6×His) tag</strong> using a flexible <strong>G₄S×₃ linker</strong>.
+        This design enables <strong>nickel spin column affinity chromatography</strong> for efficient recovery of growth factors.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        While His-tags are sometimes immunogenic, our rationale for using them was twofold:
+      </p>
+
+      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>We do <strong>not intend therapeutic use</strong>, so minor immunogenicity poses no risk.</li>
+        <li>His-tag purification is a <strong>low-cost, low-labour</strong> method ideal for lab-scale validation.</li>
+      </ul>
+
+      <p style="text-align: left;">
+        Together, this secretion and purification design ensured our constructs would combine <strong>high yield</strong>,
+        <strong>process scalability</strong>, and <strong>experimental practicality</strong>.
+      </p>
+
+      <h3 style="text-align: left; margin-top: 2rem;">Strain Map</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        The proposed experimental pathway resulted in several distinct <em>K. phaffii</em> strains for characterisation:
+      </p>
+
+      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>CRISPR transformants</strong> — strains with downregulated or repaired <em>Hoc1</em> and <em>PMI</em> genes.</li>
+        <li><strong>Rho1-engineered constructs</strong> — co-expressing <em>Rho1</em> or <em>mCherry</em> (control) alongside growth factor plasmids.</li>
+        <li><strong>Growth factor expression strains</strong> — producing EGF, bFGF, HGF, or IGF-1 under secretion and His-tag constructs.</li>
+      </ul>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        We prioritised <strong>bFGF</strong> for initial validation due to its previously characterised size and secretion profile,
+        with <strong>HGF</strong> as a secondary focus if secretion proved feasible without additional chaperone expression.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To verify biological activity, we planned to assess the <strong>proliferative potential of our recombinant growth factors</strong>
+        in <strong>bovine muscle cells</strong>, comparing their effects against <strong>commercial FBS and recombinant standards</strong>
+        (e.g., from <em>E. coli</em> or CHO systems). Unfortunately, this was not completed due to time limitations.
+      </p>
+
       <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/ecoflex-workflow.avif"
-             alt="EcoFlex MoClo assembly workflow diagram"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 3. EcoFlex MoClo assembly workflow used for BioKernel validation experiments.</em>
-        </div>
+        <img src="https://static.igem.wiki/teams/5916/wetlab/wettypic1.avif"
+             alt="Illustrative strain map of K. phaffii constructs"
+             style="max-width: 50%; border-radius: 0.5rem;" class="tilt-effect">
       </div>
 
+    </div>
+  </details>
+</div>
+<!-- DOWNSTREAM CHARACTERISATION (dropdown) -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="downstream-characterisation">
+  <h2 style="text-align: left;">
+    <span class="highlight-green animate-text-scramble">Downstream Characterisation</span>
+  </h2>
+
+  <details style="margin-top: 1rem; margin-bottom: 2rem;">
+    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+    <div style="margin-top: 1rem;">
+
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        The assembly’s success can be visually verified using colorimetric RFP negative selection — colonies that lose the red phenotype 
-        indicate successful Golden Gate assembly.
+        Following the production of recombinant growth factors in <em>K. phaffii</em>, we designed a downstream workflow to
+        <strong>quantify and compare the production of both recombinant proteins (desired products) and exopolysaccharides (side products)</strong>
+        across our engineered strains.
       </p>
 
-      <h3 style="text-align: left; margin-top: 1.5rem;">Astaxanthin Production Assay</h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        The <strong>astaxanthin pathway</strong> was selected as the model biosynthetic circuit, since its product can be quantified colorimetrically 
-        at 490 nm without cell lysis — allowing rapid, high-throughput screening in microplates.
+        Our goal was to correlate <strong>EPS reduction</strong> with <strong>improved protein purity and yield</strong> —
+        providing measurable confirmation that our strain-level engineering translated to bioprocessing advantages.
       </p>
 
       <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
-        <img src="https://static.igem.wiki/teams/5916/wetlab/astaxanthin-diagram.avif"
-             alt="Astaxanthin biosynthetic pathway diagram"
-             style="max-width: 45%; border-radius: 0.5rem;" class="tilt-effect">
-        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
-          <em>Figure 4. Astaxanthin biosynthetic pathway selected for Bayesian optimisation validation.</em>
-        </div>
+        <img src="https://static.igem.wiki/teams/5916/wetlab/wettypic2.avif"
+             alt="Overview of downstream characterisation workflow"
+             style="max-width: 55%; border-radius: 0.5rem;" class="tilt-effect">
       </div>
 
+      <h3 style="text-align: left; margin-top: 2rem;">EPS Quantification</h3>
+
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        The experimental workflow involved growing the transformed <em>E. coli</em> cultures in 96-well plates overnight, followed by 
-        direct measurement of pigment intensity via absorbance. This setup provides the BO algorithm with measurable fitness feedback.
+        We developed a <strong>colorimetric dual-assay workflow</strong> to estimate the concentration of extracellular polysaccharides,
+        most of which are mannans<sup>[11]</sup>. Our approach involved quantifying both total sugars and reducing sugars, where the
+        <strong>difference between the two</strong> represents the polysaccharide fraction.
+      </p>
+
+      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Phenol–Sulfuric Acid (PSA) Assay</strong><sup>[13]</sup> — quantifies total carbohydrate concentration by acid hydrolysis of all saccharides.</li>
+        <li><strong>Dinitrosalicylic Acid (DNS) Assay</strong><sup>[14]</sup> — quantifies reducing sugars through a redox reaction with 3,5-dinitrosalicylic acid.</li>
+      </ul>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        By running these assays in parallel, we could determine the approximate proportion of EPS within each supernatant sample,
+        allowing comparison between engineered and control strains under identical conditions.
+      </p>
+
+      <h3 style="text-align: left; margin-top: 2rem;">Protein Purification and Quantification</h3>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To isolate recombinant growth factors, we employed <strong>His-tag Ni–NTA affinity chromatography</strong>, leveraging the C-terminal 6×His tags
+        fused to each construct via the G₄S(x3) flexible linker domain.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Although time constraints prevented the physical execution of this experiment, our design establishes a foundation for 
-        <strong>data-driven bioprocess optimisation</strong> and demonstrates the feasibility of integrating BioKernel with 
-        synthetic biology workflows.
+        We planned to use <strong>HisPur Ni–NTA resin (Thermo)</strong> to capture His-tagged proteins directly from the supernatant, followed by elution and quantification.
+        Protein concentration was to be measured using the <strong>Bradford assay</strong>, enabling total growth factor quantification across samples.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To ensure assay reliability, we planned to include controls using unmodified <em>K. phaffii</em> (PN-2 strain) cultures — both purified and unpurified —
+        to identify background interference from native His-rich proteins.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        For advanced compositional analysis, we also prepared to send samples for <strong>HPLC characterisation</strong> to confirm the molecular weight and identity of produced proteins and polysaccharides.
+        However, due to time constraints, this analysis was not completed during the project timeline.
       </p>
 
       <p style="text-align: left;">
-        Future iGEM teams can extend this framework to optimise enzyme balance, growth media, and induction strategies for any 
-        recombinant system — bridging computational design and experimental realisation.
+        Despite limited experimental execution, this pipeline provides a <strong>complete validation framework</strong> for future teams:
+        one that couples <strong>strain-level EPS mitigation</strong> with <strong>protein yield enhancement</strong> through direct quantification of both
+        intended and unintended outputs in recombinant protein production.
       </p>
 
     </div>
