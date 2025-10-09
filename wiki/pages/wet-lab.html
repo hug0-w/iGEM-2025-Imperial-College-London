@@ -334,4 +334,102 @@
   </details>
 </div>
 
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="biokernel-validation">
+  <h2 style="text-align: left;">
+    <span class="span-lime-green animate-text-scramble">Validating a no-code Bayesian optimisation workflow</span>
+  </h2>
+
+  <details style="margin-top: 1rem; margin-bottom: 2rem;">
+    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
+    <div style="margin-top: 1rem;">
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        We designed an <strong>experiment that would be conducted both in silico and in vitro</strong> to determine the usefulness of
+        <strong>BioKernel</strong> batch Bayesian optimisation (BO) workflow for optimising inducer concentrations to fine‑tune
+        enzyme expression in a metabolic pathway.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        To validate this experiment, we designed a framework that would <strong>utilise the Marionette‑Wild MG1655 strain of <em>E. coli</em>[8]
+        and the EcoFlex MoClo kit[9]</strong> to assemble a plasmid containing <strong>ten distinct promoters, each regulating the expression
+        of one enzyme in the astaxanthin bioproduction pathway</strong>.
+      </p>
+
+      <h3 style="text-align: left; margin-top: 1rem;">EcoFlex Kit</h3>
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        The <strong>EcoFlex MoClo kit</strong> is a well‑characterised plasmid kit for the assembly of expression vectors for <em>E. coli</em>,
+        developed at Imperial College London by the Paul Freemont lab. We chose this kit because it was immediately available on campus and
+        uses negative selection markers (lacZ and RFP) to provide quick, colourimetric confirmation of correct assembly.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        The kit uses two distinct negative selection strategies: <strong>blue/white selection (lacZ)</strong> and <strong>RFP loss</strong>.
+        We used RFP negative-selection vectors at Stage 1, 2, and 3 for this experiment. Cloning was planned so that we would make
+        <strong>10 transcriptional units (one per Stage 1 plasmid)</strong>, assemble five into each of two Stage 2 plasmids, and
+        then combine those into a single Stage 3 plasmid.
+      </p>
+
+      <div class="image-aligner-center" style="text-align: center; margin: 2rem 0;">
+        <!-- replace src with actual image path if available -->
+        <img src="https://static.igem.wiki/teams/5916/drylab/IMG_2691.jpeg" alt="EcoFlex MoClo Assembly Workflow"
+             style="max-width: 55%; border-radius: 0.5rem;" class="tilt-effect">
+        <div style="text-align: center; margin-top: 0.5rem; color: #aaa;">
+          <em>Figure 1. EcoFlex MoClo Assembly Workflow. Figure created in Biorender.com</em>
+        </div>
+      </div>
+
+      <h3 style="text-align: left; margin-top: 1rem;">Astaxanthin</h3>
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        We chose astaxanthin as the target because its synthesis is well characterised downstream of the β‑carotene pathway,
+        and its concentration can be colourimetrically determined without cell lysis, offering a practical readout for high‑throughput screening.
+      </p>
+
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        The planned protocol used 96‑well plates: transformed Marionette‑Wild <em>E. coli</em> would be incubated overnight and astaxanthin
+        quantified directly by absorbance at 490 nm. We were unfortunately unable to complete this experiment in time due to DNA order delays,
+        but the workflow remains suitable for future validation of BioKernel.
+      </p>
+
+    </div>
+  </details>
+</div>
+
+
+<!-- REFERENCES -->
+<div class="page-section width-75" style="margin-left: 200px;" id="references">
+    <h2 style="text-align: left;">
+        <span class="animate-text-scramble">References</span>
+    </h2>
+    <ol style="text-align: left; margin-left: 1.5rem; line-height: 1.6;">
+        <li id="ref-1">Gassler, T., Heistinger, L., Mattanovich, D., Gasser, B., Prielhofer, R. (2019). CRISPR/Cas9-Mediated Homology-Directed Genome Editing in <em>Pichia pastoris</em>. In: Gasser, B., Mattanovich, D. (eds) Recombinant Protein Production in Yeast. Methods in Molecular Biology, vol 1923. Humana Press, New York, NY. https://doi.org/10.1007/978-1-4939-9024-5_9</li>
+
+        <li id="ref-2">Xu S, Zhang GY, Zhang H, Kitajima T, Nakanishi H, Gao XD. Effects of Rho1, a small GTPase on the production of recombinant glycoproteins in <em>Saccharomyces cerevisiae</em>. <em>Microb. Cell Fact.</em> 2016 Oct 21;15(1):179. doi: 10.1186/s12934-016-0575-7. PMID: 27769287; PMCID: PMC5073930.</li>
+
+        <li id="ref-3">Alexander, P., Yuan, L., Yang, P. <em>et al.</em> EGF promotes mammalian cell growth by suppressing cellular senescence. <em>Cell Res</em> 25, 135–138 (2015). https://doi.org/10.1038/cr.2014.141</li>
+
+        <li id="ref-4">Yun YR, Won JE, Jeon E, Lee S, Kang W, Jo H, Jang JH, Shin US, Kim HW. Fibroblast growth factors: biology, function, and application for tissue regeneration. <em>J Tissue Eng.</em> 2010 Nov 7;2010:218142. doi: 10.4061/2010/218142. PMID: 21350642; PMCID: PMC3042641.</li>
+
+        <li id="ref-5">Miller KJ, Thaloor D, Matteson S, Pavlath GK. Hepatocyte growth factor affects satellite cell activation and differentiation in regenerating skeletal muscle. <em>Am J Physiol Cell Physiol.</em> 2000 Jan;278(1):C174-81. doi: 10.1152/ajpcell.2000.278.1.C174. PMID: 10644525.</li>
+
+        <li id="ref-6">Yoshida T, Delafontaine P. Mechanisms of IGF-1-Mediated Regulation of Skeletal Muscle Hypertrophy and Atrophy. <em>Cells.</em> 2020 Aug 26;9(9):1970. doi: 10.3390/cells9091970. PMID: 32858949; PMCID: PMC7564605.</li>
+
+        <li id="ref-7">Barrero JJ, Casler JC, Valero F, Ferrer P, Glick BS. An improved secretion signal enhances the secretion of model proteins from <em>Pichia pastoris</em>. <em>Microb Cell Fact.</em> 2018 Oct 12;17(1):161. doi: 10.1186/s12934-018-1009-5.</li>
+
+        <li id="ref-8">Meyer, A. J., Segall-Shapiro, T. H., Glassey, E. <em>et al.</em> <em>Escherichia coli</em> “Marionette” strains with 12 highly optimized small-molecule sensors. <em>Nat Chem Biol</em> <strong>15</strong>, 196–204 (2019). https://doi.org/10.1038/s41589-018-0168-3</li>
+
+        <li id="ref-9">Moore SJ, Lai HE, Kelwick RJ, Chee SM, Bell DJ, Polizzi KM, Freemont PS. EcoFlex: A Multifunctional MoClo Kit for <em>E. coli</em> Synthetic Biology. <em>ACS Synth Biol.</em> 2016 Oct 21;5(10):1059-1069. doi: 10.1021/acssynbio.6b00031.</li>
+
+        <li id="ref-10">Steimann T, <em>et al.</em> Understanding exopolysaccharide byproduct formation in <em>Komagataella phaffii</em> fermentation processes for recombinant protein production. <em>Microbial Cell Factories</em>, vol. 23, no. 1, May 2024. doi: https://doi.org/10.1186/s12934-024-02403-3.</li>
+
+        <li id="ref-11">Fischer A, <em>et al.</em> Characterization of the exopolysaccharides produced by the industrial yeast <em>Komagataella phaffii</em>. <em>Journal of Industrial Microbiology & Biotechnology</em>, vol. 51, Jan. 2024. doi: https://doi.org/10.1093/jimb/kuae046.</li>
+
+        <li id="ref-12">A. D. Nugroho <em>et al.</em> Mannan interference and purification efficiency in downstream processing of precision-fermented milk proteins from <em>Komagataella phaffii</em>. <em>Future Foods</em>, vol. 12, pp. 100735–100735, Aug. 2025. doi: https://doi.org/10.1016/j.fufo.2025.100735.</li>
+
+        <li id="ref-13">Masuko T, Minami A, Iwasaki N, Majima T, Nishimura S, Lee YC. Carbohydrate analysis by a phenol-sulfuric acid method in microplate format. <em>Anal Biochem.</em> 2005 Apr 1;339(1):69-72. doi: 10.1016/j.ab.2004.12.001. PMID: 15766712.</li>
+
+        <li id="ref-14">Deshavath NN, Mukherjee G, Goud VV, Veeranki VD, Sastri CV. Pitfalls in the 3,5-dinitrosalicylic acid (DNS) assay for the reducing sugars: Interference of furfural and 5-hydroxymethylfurfural. <em>Int J Biol Macromol.</em> 2020 Aug 1;156:180-185. doi: 10.1016/j.ijbiomac.2020.04.045. PMID: 32289426.</li>
+    </ol>
+</div>
+
 {% endblock %}
