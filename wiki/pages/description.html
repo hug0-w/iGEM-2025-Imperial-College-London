@@ -6,21 +6,21 @@
 {% block scroll_nav %}
 <nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
   <span class="side-scroll-nav-label">On This Page</span>
-  <a href="#abstract">Abstract</span></a>
-  <a href="#introduction">Introduction</span></a>
+  <a href="#abstract">Abstract</a>
+  <a href="#introduction">Introduction</a>
   <a class="span-yellow" href="#mannoless"><span>MANNOLess</span></a>
   <a class="span-lime-green" href="#biokernel"><span>BioKernel</span></a>
   <a class="span-orange" href="#education"><span>Education</span></a>
   <a class="span-sky-blue" href="#human-practices"><span>Integrated Human Practices</span></a>
-  <a href="#summary">Summary</span></a>
-  <a href="#references">References</span></a>
+  <a href="#summary">Summary</a>
+  <a href="#references">References</a>
 </nav>
 {% endblock %}
 
 {% block page_content %}
 <!-- HERO / BANNER -->
 <div class="education-hero dsp-banner" style="
-     background-image: url('https://static.igem.wiki/teams/5916/assets/bioreactor-cc.avif');
+     background-image: url('https://static.igem.wiki/teams/5916/assets/descriptionbanner.avif');
      background-size: cover; background-position: center;">
   <div class="education-hero-content-container">
     <h1 class="text-glitch" colour="white">PROJECT DESCRIPTION</h1>
@@ -37,29 +37,28 @@
 
   <p style="text-align: left;">
     The current model of meat production is <strong>environmentally unsustainable</strong>, driving deforestation, biodiversity loss,
-    and global greenhouse gas emissions. <strong>Cultivated meat</strong> offers a promising alternative, but <strong>remains hindered by high production costs</strong>,
-    particularly the <strong>price of recombinant growth factors</strong> that constitute <strong>up to 70% of total expenses</strong>.
+    and global greenhouse gas emissions. <strong>Cultivated meat</strong> offers a promising alternative, yet <strong>remains hindered by high production costs</strong>,
+    particularly the <strong>price of recombinant growth factors</strong> that constitute <strong>up to 70% of total media expenses</strong>.
     Our project, <strong>Growf</strong>, tackles this challenge by engineering a <em>Komagataella phaffii</em> chassis,
-    <span class="highlight-green">Mannoless</span>, designed to <strong>reduce secretion of carbohydrate impurities and improve recombinant protein yield</strong>
+    <span class="highlight-green">Mannoless</span>, designed to <strong>reduce exopolysaccharide (EPS) secretion and improve recombinant protein yield</strong>
     through targeted genetic modifications in <em>Hoc1</em>, <em>Rho1</em>, and <em>PMI</em>. In parallel, we developed
     <strong>BioKernel</strong>, <strong>an open-access, no-code Bayesian optimisation framework</strong> that accelerates experimental design and strain engineering,
     enabling researchers to identify optimal conditions with minimal experiments.
   </p>
 
-  <p style="text-align: left; font-size: 1.1rem;">
+  <p style="text-align: left;">
     Guided by <strong>Integrated Human Practices</strong>, we engaged <strong>world-leading experts across academia and industry</strong>
     to explore unspoken pitfalls of scaling in yeast chassis. Our <strong>Education</strong> efforts addressed public skepticism toward
     cultivated meat and synthetic biology, recognising that <strong>innovation cannot scale without public trust and investor confidence</strong>.
   </p>
 
-  <p style="text-align: left; font-size: 1.1rem;">
+  <p style="text-align: left;">
     We were on a mission to make all of our outputs, including genetic constructs, engineered strains, and software
-    <strong>fully open-access</strong> reaffirming our belief that <strong>science cannot scale without non-proprietary technology</strong>.
+    <strong>fully open-access</strong>, reaffirming our belief that <strong>science cannot scale without non-proprietary technology</strong>.
     We aimed to remove cost, accessibility, and licensing barriers in biomanufacturing, accelerating the scalability of cultivated meat
     and paving the way for a more sustainable, ethical, and open future for food.
   </p>
 </div>
-
 <div class="spacer"></div>
 <!-- INTRODUCTION -->
 <div class="page-section width-75" style="margin-left: 220px;" id="introduction">
@@ -68,225 +67,206 @@
   </h2>
 
   <!-- DROPDOWN START -->
-    <div class="collapsible-content" style="margin-top: 1rem;">
-      <p style="text-align: left;">
-        The way we produce meat today is <strong>destroying our planet</strong>, and without a sustainable alternative, the cost will be existential.
-        The livestock farming industry is a <strong>major contributor to environmental degradation</strong>, responsible for 
-        <strong>approximately 14.5% of all greenhouse gas emissions</strong><sup>[1]</sup>.
-        It drives biodiversity loss through deforestation and land-use conversion, while the extensive use of antibiotics in animal agriculture 
-        accelerates the spread of antimicrobial resistance<sup>[2]</sup>.
-      </p>
+  <div class="collapsible-content" style="margin-top: 1rem;">
+    <p style="text-align: left;">
+      The way we produce meat today is <strong>destroying our planet</strong>, and without a sustainable alternative, the cost will be existential.
+      The livestock farming industry is <strong>a major contributor to environmental degradation</strong>, responsible for
+      <strong>approximately 14.5% of all greenhouse gas</strong> emissions<sup>[1]</sup>.
+      It drives biodiversity loss through deforestation and land-use conversion, while the extensive use of antibiotics in animal agriculture 
+      accelerates the spread of antimicrobial resistance<sup>[2]</sup>.
+      As the global population grows, <strong>the demand for protein will rise correspondingly</strong>, intensifying these pressures,
+      forcing us to <strong>confront the urgent need for sustainable and nutritionally complete alternatives</strong> to conventional meat.
+    </p>
 
-      <p style="text-align: left;">
-        As the global population grows, <strong>the demand for protein will rise correspondingly</strong>, intensifying these pressures
-        and forcing us to <strong>confront the urgent need for sustainable and nutritionally complete alternatives</strong> to conventional meat.
-      </p>
+    <p style="text-align: left;">
+      <strong>Cultivated meat has been presented as a promising solution</strong> due to its structural and nutritional similarity to traditional meat,
+      providing a more natural alternative over plant-based substitutes. However, <strong>large-scale adoption remains limited by higher production costs</strong>,
+      primarily associated with cell culture media and bioreactor scale-up<sup>[3]</sup>.
+      <strong>Cell culture media,</strong> which supplies the nutrients and signalling molecules required for cellular growth, 
+      <strong>includes expensive recombinant components such as growth factors.</strong> Scaling cultivated meat requires bioreactors of 200 to 20,000 L and 
+      <strong>demands substantial quantities of these expensive media,</strong> preventing cost parity with conventional meat<sup>[3]</sup>.
+    </p>
 
-      <p style="text-align: left;">
-        <strong>Cultivated meat</strong> has been presented as a promising solution due to its structural and nutritional similarity to traditional meat,
-        providing a more natural alternative than plant-based substitutes. However, <strong>large-scale adoption remains limited by higher production costs</strong>,
-        primarily associated with <strong>cell culture media</strong> and bioreactor scale-up<sup>[3]</sup>.
-      </p>
+    <p style="text-align: left;">
+      Techno-economic analyses consistently <strong>identify growth factors as the primary cost-drivers of cultivated meat production,</strong>
+      contributing up to 70% of the total production costs<sup>[4]</sup>. To make cultivated meat economically viable, it is 
+      <strong>essential to develop alternative, low-cost recombinant growth factor production systems.</strong> 
+      Our project addresses this challenge by <strong>engineering <em>Komagataella phaffii (K. phaffii)</em>,</strong> also commonly referred to as 
+      <em>Pichia pastoris</em>, to <strong>produce growth factors more efficiently</strong>, increasing yields and simplifying downstream purification — 
+      a core determinant of production economics.
+    </p>
 
-      <p style="text-align: left;">
-        <strong>Cell culture media</strong> supplies the nutrients and signalling molecules required for cellular growth and includes expensive recombinant components 
-        such as growth factors. Scaling cultivated meat requires bioreactors of 200 to 20,000 L and demands substantial quantities of these expensive media, 
-        preventing cost parity with conventional meat<sup>[3]</sup>.
-      </p>
+    <p style="text-align: left;">
+      <em>K. phaffii</em> is a widely used strain in both academia and industry for recombinant protein production due to its 
+      <strong>well-characterised promoters, eukaryotic post-translational machinery, and high secretion efficiency.</strong> 
+      However, <strong>production inefficiencies arise from the secretion of exopolysaccharides (EPS), which co-purify with target proteins</strong>
+      and increase purification costs<sup>[5],[6],[7]</sup>. 
+      To mitigate this, we engineered <strong>a novel <em>K. phaffii</em> strain, <span class="highlight-green">Mannoless</span>, designed to reduce EPS secretion</strong> 
+      by modulating key enzymes involved in mannose biosynthesis and cell wall formation. 
+      By aiming to alleviate EPS-associated downstream burdens and carbon waste, <span class="highlight-green">Mannoless</span> improves growth factor yields and production prices.
+    </p>
 
-      <p style="text-align: left;">
-        Techno-economic analyses consistently <strong>identify growth factors as the primary cost-drivers of cultivated meat production</strong>, 
-        contributing up to 70% of total production costs<sup>[4]</sup>. To make cultivated meat economically viable, it is <strong>essential to develop alternative, 
-        low-cost recombinant growth factor production systems</strong>.
-      </p>
-
-      <p style="text-align: left;">
-        Our project addresses this challenge by <strong>engineering <em>Komagataella phaffii (K. phaffii)</em></strong>, also known as 
-        <em>Pichia pastoris</em>, to <strong>produce growth factors more efficiently</strong>, increasing yields and simplifying downstream purification, 
-        a core determinant of production economics.
-      </p>
-
-      <p style="text-align: left;">
-        <em>K. phaffii</em> is a widely used strain for recombinant protein production due to its <strong>well-characterised promoters, eukaryotic post-translational 
-        machinery, and high secretion efficiency</strong>. However, <strong>production inefficiencies arise from the secretion of exopolysaccharides (EPS), 
-        which co-purify with target proteins and increase purification costs</strong><sup>[5–7]</sup>. 
-      </p>
-
-      <p style="text-align: left;">
-        To mitigate this, we engineered a novel <em>K. phaffii</em> strain, <span class="highlight-green">Mannoless</span>, designed to <strong>reduce EPS secretion</strong>
-        by modulating key enzymes involved in mannose biosynthesis and cell wall formation. By alleviating EPS-associated downstream burdens and carbon waste, 
-        <span class="highlight-green">Mannoless</span> improves growth factor yields and production costs.
-      </p>
-
-      <p style="text-align: left;">
-        Through this work, our goal is to <strong>accelerate the scalability of the cultivated meat industry</strong> by producing cost-effective recombinant growth factors, 
-        and advocating for sustainable, ethical food production.
-      </p>
-    </div>
+    <p style="text-align: left;">
+      Through this work, our goal is to <strong>accelerate the scalability of the cultivated meat industry</strong> by producing cost-effective recombinant growth factors, 
+      and advocating for sustainable, ethical food production.
+    </p>
+  </div>
   <!-- DROPDOWN END -->
 </div>
-
 <div class="spacer"></div>
 <!-- MANNOLess -->
 <div class="page-section width-75" style="margin-left: 220px;" id="mannoless">
   <h2 class="collapsible-trigger" style="text-align: left;">
-    <span class="span-yellow" class="animate-text-scramble"><span>Mannoless</span>
+    <span class="span-yellow animate-text-scramble"><span>Mannoless</span></span>
   </h2>
 
   <!-- DROPDOWN START -->
-    <div class="collapsible-content" style="margin-top: 1rem;">
-      <p style="text-align: left;">
-        <span class="highlight-green">Mannoless</span> is our <em>K. phaffii</em> strain engineered to minimise
-        <strong>exopolysaccharide (EPS) secretion</strong>, freeing up more cellular energy for recombinant protein production and increasing yields.
-        Specifically, we used a <strong>three-pronged strategy</strong> targeting cell wall integrity and protein glycosylation pathways<sup>[5]</sup>.
-      </p>
+  <div class="collapsible-content" style="margin-top: 1rem;">
+    <p style="text-align: left;">
+      <span class="highlight-green">Mannoless</span> is our <em>K. phaffii</em> strain engineered to minimise 
+      <strong>exopolysaccharide (EPS) secretion</strong>, with the goal of freeing up more cellular energy for recombinant protein production 
+      and thereby increasing the yields of our proteins of interest. Specifically, we used 
+      <strong>a three-pronged strategy to target cell wall integrity and protein glycosylation pathways</strong><sup>[5]</sup>.
+    </p>
 
-      <!-- Hoc1 -->
-      <h4 style="text-align: left;"><strong>Hoc1</strong></h4>
-      <p style="text-align: left;">
-        The <em>Hoc1</em> gene encodes a mannosyltransferase required for cell wall construction.
-        Most industrial <em>K. phaffii</em> strains contain a <strong>single-base-pair deletion in Hoc1</strong>, causing a frameshift and premature stop codon,
-        resulting in a thinner cell wall. While this improves secretion and transformation efficiency, it also disrupts mannose polymer linkage and causes
-        <strong>free mannans to be secreted</strong> instead — a highly likely source of EPS impurities.
-      </p>
-      <p style="text-align: left;">
-        Our goal is to <strong>restore and downregulate the original Hoc1 sequence</strong> to enhance active-site specificity and reduce EPS formation.
-      </p>
+    <!-- Hoc1 -->
+    <h4 style="text-align: left;"><strong>Hoc1</strong></h4>
+    <p style="text-align: left;">
+      The <em>Hoc1</em> gene encodes a mannosyltransferase required for cell wall construction. 
+      Almost all industrial <em>K. phaffii</em> strains contain <strong>a single-base-pair deletion in <em>Hoc1</em></strong>, resulting in a frameshift introducing a premature stop codon, 
+      presenting as a thinner cell wall. While this improves secretion and transformation efficiency, the disrupted linkage of cell wall mannose polymers 
+      causes <strong>free mannan polymers to be secreted instead</strong>, leading to EPS being detected alongside the recombinant protein.
+    </p>
+    <p style="text-align: left;">
+      Our goal is to <strong>restore and downregulate the original <em>Hoc1</em> sequence</strong> to increase active site specificity and prevent EPS formation.
+    </p>
 
-      <!-- Rho1 -->
-      <h4 style="text-align: left;"><strong>Rho1</strong></h4>
-      <p style="text-align: left;">
-        <em>Rho1</em> is a global regulator of the yeast cell-wall-integrity pathway.
-        <strong>Overexpressing Rho1</strong> activates production of β-1,6-glucan, which strengthens the cell wall and promotes proper mannoprotein attachment,
-        potentially lowering EPS secretion<sup>[8]</sup>.
-        We introduce <strong>Rho1 overexpression</strong> into our strain as an additional mechanism for controlling impurity formation.
-      </p>
+    <!-- Rho1 -->
+    <h4 style="text-align: left;"><strong>Rho1</strong></h4>
+    <p style="text-align: left;">
+      <em>Rho1</em> is a global regulator of the cell wall integrity pathway in yeast. 
+      Overexpressing <em>Rho1</em> introduces an additional layer of regulation by <strong>activating the production of β-1,6-glucan, which facilitates mannoprotein attachment</strong> 
+      and may lower EPS secretion<sup>[8]</sup>. We introduce <strong><em>Rho1</em> overexpression</strong> into our strain as an 
+      <strong>additional way to control cell wall integrity and impurity formation.</strong>
+    </p>
 
-      <!-- PMI -->
-      <h4 style="text-align: left;"><strong>PMI</strong></h4>
-      <p style="text-align: left;">
-        <em>Phosphomannose isomerase (PMI)</em> links energy metabolism with GDP-mannose and cell-wall biosynthesis in yeast,
-        catalysing the conversion of fructose-6-phosphate to mannose-6-phosphate.
-        We plan to <strong>downregulate the PMI pathway</strong> to free more glucose for respiration and lower intracellular mannose levels<sup>[9]</sup>.
-      </p>
-      <p style="text-align: left;">
-        Collectively, these three edits are expected to yield <strong>higher energy availability, reduced EPS secretion, and simplified downstream purification</strong>
-        for recombinant proteins. Experimental validation will be key to confirming these trade-offs.
-      </p>
+    <!-- PMI -->
+    <h4 style="text-align: left;"><strong>PMI</strong></h4>
+    <p style="text-align: left;">
+      <em>Phosphomannose isomerase (PMI)</em> <strong>links energy production with GDP-mannose and cell wall biosynthesis</strong> in yeast. 
+      It catalyses the conversion of fructose 6-phosphate in glycolysis to mannose 6-phosphate. 
+      We will <strong>downregulate the PMI pathway to free up more glucose for cellular respiration</strong> and reduce the intracellular mannose concentration<sup>[9]</sup>.
+    </p>
 
-      <!-- Licensing restrictions -->
-      <h4 style="text-align: left;"><strong>Licensing Restrictions in <em>K. phaffii</em> Engineering</strong></h4>
-      <p style="text-align: left;">
-        This genetic-engineering effort faces an additional challenge: the <strong>commercial licensing restrictions</strong> surrounding most industrial
-        <em>K. phaffii</em> strains. Even open variants like <strong>OpenPichia</strong><sup>[10]</sup> impose limitations that hinder scale-up and commercialisation.
-      </p>
-      <p style="text-align: left;">
-        To address this, we are <strong>collaborating with ChangeBio to develop and characterise non-proprietary K. phaffii strains</strong> for open academic and iGEM use.
-        These new strains, based on the Type strain YB-4290, employ split-marker integration with a Cre-Lox system, avoiding CRISPR patents while enabling
-        industrially relevant genotypes and phenotypes.
-      </p>
+    <p style="text-align: left;">
+      Together, these three modifications are projected to provide three key advantages: 
+      <strong>increased cellular energy availability, reduced EPS secretion through improved cell wall integrity, and a simplified downstream purification process</strong> 
+      for the recombinant protein. However, since these modifications will result in some trade-offs, experimental validation is key.
+    </p>
 
-      <p style="text-align: left;">
-        We selected <strong>growth factors</strong> as our proof-of-concept proteins because they are the most expensive components of cell-culture media
-        and thus the main cost barrier to cultivated-meat production.
-        Beyond this application, our platform can produce <strong>dietary proteins, hormones, therapeutic proteins and more</strong>,
-        making <span class="highlight-green">Mannoless</span> a versatile chassis for sustainable recombinant production.
-      </p>
-    </div>
+    <!-- Licensing restrictions -->
+    <h4 style="text-align: left;"><strong>Licensing Restrictions in <em>K. phaffii</em> Engineering</strong></h4>
+    <p style="text-align: left;">
+      This genetic engineering effort encounters a secondary challenge: the 
+      <strong>commercial licensing restrictions surrounding most industrial <em>K. phaffii</em> strains.</strong> 
+      Even the most open variants, such as <strong>OpenPichia</strong><sup>[10]</sup>, still impose significant commercial limitations that complicate large-scale applications.
+    </p>
+    <p style="text-align: left;">
+      To address this, we are <strong>assisting ChangeBio to develop and characterise more non-proprietary strains of <em>K. phaffii</em></strong> 
+      for future use by iGEM teams, academic researchers, and beyond. These new strains, based on the Type strain YB-4290, 
+      will employ split-marker integration edits with a Cre-Lox system to avoid the patent issues with CRISPR while 
+      <strong>enabling genotypes and phenotypes comparable to those of established industrial strains.</strong>
+    </p>
+
+    <p style="text-align: left;">
+      We selected <strong>growth factors</strong> as our proof-of-concept proteins because they represent the most expensive and limiting components 
+      of cell culture media, and therefore, of cultivated meat production. 
+      Beyond this application, our platform can be adapted to produce other recombinant proteins, such as enzymes, hormones, or therapeutic factors, 
+      making it <strong>a versatile chassis for sustainable recombinant production.</strong>
+    </p>
+  </div>
   <!-- DROPDOWN END -->
 </div>
-
 <div class="spacer"></div>
 <!-- BIOKERNEL -->
 <div class="page-section width-75" style="margin-left: 220px;" id="biokernel">
   <h2 class="collapsible-trigger" style="text-align: left;">
-    <span class="span-lime-green" class="animate-text-scramble"><span>BioKernel</span>
+    <span class="span-lime-green animate-text-scramble"><span>BioKernel</span></span>
   </h2>
 
   <!-- DROPDOWN START -->
-    <div class="collapsible-content" style="margin-top: 1rem;">
-      <p style="text-align: left;">
-        <strong>BioKernel</strong> is our <strong>dry-lab software platform</strong> designed to optimise experimental design and strain engineering in synthetic biology. 
-        It applies <strong>Bayesian optimisation</strong> to guide experiments toward optimal outcomes with minimal resources. 
-        This framework addresses one of biology’s greatest challenges, the <strong>high cost and low throughput of experimental testing</strong>, 
-        by allowing researchers to explore complex biological parameter spaces without coding expertise<sup>[11],[12]</sup>.
-      </p>
+  <div class="collapsible-content" style="margin-top: 1rem;">
+    <p style="text-align: left;">
+      <strong>BioKernel</strong> is our <strong>dry lab software platform designed to optimise experimental design and strain engineering</strong> 
+      in synthetic biology. It applies <strong>Bayesian optimisation</strong> to guide biological experiments toward optimal outcomes using minimal resources. 
+      The framework was developed to address a key challenge of biological research, the <strong>high cost and limited throughput of experimental testing</strong>, 
+      by allowing researchers to systematically explore complex parameter spaces arising in biological experimentation without requiring coding expertise<sup>[11],[12]</sup>.
+    </p>
 
-      <p style="text-align: left;">
-        <strong>Bayesian optimisation (BO)</strong> is a machine-learning strategy that <strong>identifies optimal experimental conditions by learning from prior results</strong>. 
-        It constructs probabilistic models balancing <strong>exploration</strong> and <strong>exploitation</strong>, enabling efficient optimisation even in noisy, high-dimensional systems typical of biological research<sup>[12],[13]</sup>.
-      </p>
+    <p style="text-align: left;">
+      <strong>Bayesian optimisation (BO)</strong> is a machine learning strategy that <strong>identifies optimal experimental conditions by iteratively learning from prior results</strong>. 
+      It constructs probabilistic models balancing <strong>exploration</strong> and <strong>exploitation</strong>, enabling efficient optimisation even in high-dimensional, noisy systems 
+      typical of biological research<sup>[12],[13]</sup>.
+    </p>
 
-      <p style="text-align: left;">
-        We developed <strong>BioKernel</strong> as a <strong>no-code, modular Bayesian optimisation framework</strong> tailored to synthetic-biology experimentation.
-        Its architecture includes:
-      </p>
+    <p style="text-align: left;">
+      We developed <strong>BioKernel</strong> as a <strong>no-code, modular Bayesian optimisation framework tailored to biological experimentation</strong>. 
+      Its key features include:
+    </p>
 
-      <ul style="text-align: left; margin-left: 2rem; line-height: 1.6;">
-        <li><strong>Modular kernel system</strong> adaptable to diverse biological data types.</li>
-        <li><strong>Heteroscedastic noise modelling</strong> to handle variable experimental uncertainty.</li>
-        <li><strong>Flexible acquisition functions</strong> allowing exploration–exploitation trade-offs.</li>
-        <li><strong>Batch optimisation support</strong> for parallel experiment design.</li>
-      </ul>
+    <ul style="text-align: left; margin-left: 2rem; line-height: 1.6;">
+      <li><strong>Modular kernel architecture</strong> adaptable to diverse biological datasets.</li>
+      <li><strong>Heteroscedastic noise modelling</strong> to handle variable experimental uncertainty.</li>
+      <li><strong>Flexible acquisition functions</strong> balancing exploration–exploitation trade-offs.</li>
+      <li><strong>Batch optimisation support</strong> for parallel experimental design.</li>
+    </ul>
 
-      <p style="text-align: left;">
-        To validate our framework, we ran two complementary tests:
-      </p>
+    <p style="text-align: left;">
+      Additionally, to validate our framework, we conducted two complementary tests. 
+      <strong>Retrospective analysis on published metabolic datasets</strong> demonstrated that BioKernel can reproduce known optima using significantly fewer 
+      experimental iterations than the original studies. 
+      For prospective validation, we will apply our algorithm to <strong>optimise astaxanthin biosynthesis in <em>E. coli</em> Marionette strains</strong><sup>[14]</sup>, 
+      which contain twelve orthogonal, genomically integrated sensors enabling precise multi-dimensional induction control.
+    </p>
 
-      <ol style="text-align: left; margin-left: 2rem; line-height: 1.6;">
-        <li>
-          <strong>Retrospective analysis</strong> on published metabolic datasets demonstrated that BioKernel reproduces known optima using significantly fewer <strong>(less than 18%)</strong> iterations than in the original study.
-        </li>
-        <li>
-          <strong>Ongoing validation</strong> applying our algorithm to optimise <em>astaxanthin</em> biosynthesis in the <em>E. coli</em> <strong>Marionette-Wild strain</strong><sup>[14]</sup> — 
-          a system containing twelve orthogonal genomic sensors enabling multi-dimensional induction control. 
-          Using spectrophotometric quantification<sup>[15]</sup>, BioKernel will identify optimal inducer combinations that maximise pigment yield faster than traditional grid-search or one-factor-at-a-time methods.
-        </li>
-      </ol>
-
-      <p style="text-align: left;">
-        <strong>BioKernel</strong> is the first iGEM software capable of performing advanced optimisation <strong>without requiring programming knowledge</strong>, 
-        bridging the gap between computational modelling and experimental design. 
-        By releasing it as an <strong>open-source, no-code platform</strong>, we aim to make rigorous, data-driven optimisation accessible to all experimental biologists, 
-        accelerating discovery and empowering the next generation of synthetic biologists worldwide.
-      </p>
-    </div>
+    <p style="text-align: left;">
+      <strong>BioKernel</strong> is the first iGEM software <strong>capable of performing advanced optimisation without requiring programming knowledge</strong>, 
+      bridging the gap between computational modelling and experimental design. 
+      By releasing BioKernel as an <strong>open-source tool</strong>, we aim to make rigorous, data-driven optimisation accessible to all experimental biologists, 
+      accelerating the path from design to discovery and enabling <strong>more efficient synthetic biology research worldwide</strong>.
+    </p>
+  </div>
   <!-- DROPDOWN END -->
 </div>
-
 <div class="spacer"></div>
 <!-- EDUCATION -->
 <div class="page-section width-75" style="margin-left: 220px;" id="education">
   <h2 class="collapsible-trigger" style="text-align: left;">
-    <span class="span-orange" class=" animate-text-scramble"><span>Education</span>
+    <span class="span-orange animate-text-scramble"><span>Education</span></span>
   </h2>
 
   <!-- DROPDOWN START -->
-    <div class="collapsible-content" style="margin-top: 1rem;">
-      <p style="text-align: left;">
-        Public understanding and trust in cultivated meat are still developing, often shaped by <strong>confusion or skepticism toward synthetic biology</strong>.
-        Our educational work aimed to strengthen <strong>trust in science</strong>, particularly synthetic biology, 
-        by <strong>demystifying innovation</strong> and encouraging <strong>open, nuanced discussion</strong> rather than simple promotion.
-      </p>
+  <div class="collapsible-content" style="margin-top: 1rem;">
+    <p style="text-align: left;">
+      Public understanding and trust in cultivated meat are still developing, and often shaped by <strong>confusion or skepticism toward synthetic biology</strong>.
+      Our educational efforts aimed to strengthen <strong>trust in science, specifically synthetic biology within the public sphere</strong>, 
+      by demystifying the process behind innovation and encouraging <strong>open, nuanced discussions</strong> rather than simple promotion.
+    </p>
 
-      <p style="text-align: left;">
-        We explored public perception of scientific innovation through <strong>surveys on cultivated meat and trust in science</strong>, 
-        using these insights to guide the design of every outreach resource and event. 
-        Our goal was to <strong>bring synthetic biology and alternative proteins into everyday conversation</strong> through curiosity, dialogue, and reflection,
-        engaging participants across all age groups.
-      </p>
+    <p style="text-align: left;">
+      We explored how people perceive scientific innovation through <strong>public surveys on cultivated meat and trust in science</strong>, 
+      using these insights to guide every outreach material and event we designed. 
+      Our goal was to <strong>bring synthetic biology and alternative proteins into everyday conversation</strong> naturally through curiosity, dialogue, and reflection, 
+      while engaging all age categories.
+    </p>
 
-      <p style="text-align: left;">
-        We also sought to address growing <strong>skepticism</strong> surrounding biotechnology by combining 
-        <strong>clear, accessible, and empathetic science communication</strong> with <strong>bioethical reflection</strong>. 
-        This dual approach allowed us to promote critical and constructive engagement with the technologies shaping the future of food and medicine.
-      </p>
-
-      <p style="text-align: left;">
-        Through creative events, educational materials, and collaborations, we encouraged audiences to think about synthetic biology not as a distant science, 
-        but as a <strong>shared human endeavour</strong> that requires dialogue, reflection, and trust.
-      </p>
-    </div>
+    <p style="text-align: left;">
+      We addressed the growing “<strong>techno-phobia</strong>” surrounding biotechnology by combining 
+      <strong>clear science communication with bioethical reflection</strong>. 
+      This approach encouraged <strong>critical and constructive engagement</strong> with the future of food and synthetic biology, 
+      promoting awareness of and trust in innovation.
+    </p>
+  </div>
   <!-- DROPDOWN END -->
 </div>
 
@@ -294,100 +274,95 @@
 <!-- INTEGRATED HUMAN PRACTICES -->
 <div class="page-section width-75" style="margin-left: 220px;" id="human-practices">
   <h2 class="collapsible-trigger" style="text-align: left;">
-    <span class="span-sky-blue" class=" animate-text-scramble"><span>Integrated Human Practices</span>
+    <span class="span-sky-blue animate-text-scramble"><span>Integrated Human Practices</span></span>
   </h2>
 
   <!-- DROPDOWN START -->
-    <div class="collapsible-content" style="margin-top: 1rem; margin-bottom: 2rem;">
-      <p style="text-align: left;">
-        Our Human Practices work guided the project’s direction at every stage, ensuring that our science was 
-        <strong>socially aware, ethically grounded, and practically relevant</strong>.
-        We carried out a broad investigation of the <strong>precision fermentation and cultivated meat ecosystem</strong>, 
-        encompassing academic progress, industrial bottlenecks, and the evolving market landscape.
-      </p>
+  <div class="collapsible-content" style="margin-top: 1rem;">
+    <p style="text-align: left;">
+      Our Human Practices work guided the project’s direction at every stage, ensuring our science was 
+      <strong>socially aware, ethically grounded, and practically relevant</strong>. 
+      We conducted a broad investigation of the <strong>precision fermentation and cultivated meat ecosystem</strong>, 
+      covering academic progress, industrial bottlenecks, and the evolving market landscape.
+    </p>
 
-      <p style="text-align: left;">
-        Through <strong>expert consultations</strong> across academia, entrepreneurship, intellectual property, and industry, 
-        we gained insight into both the <strong>technical feasibility</strong> and <strong>societal impact</strong> of animal-free growth factors. 
-        These discussions informed our <strong>experimental design, strain engineering, and process optimisation</strong>,
-        making our work more attuned to real-world biomanufacturing challenges.
-      </p>
+    <p style="text-align: left;">
+      Through <strong>expert consultations</strong> across academia, entrepreneurship, intellectual property, and industry, 
+      we gained insight into both the <strong>technical feasibility</strong> and <strong>societal impact</strong> of animal-free growth factors. 
+      This process not only informed our <strong>experimental design and process optimisation</strong>, 
+      but also made our team uniquely aware of industry-level precision fermentation, strain engineering, and protein manufacturing in yeast — 
+      as well as the <strong>regulatory and investment realities</strong> shaping the alternative protein field.
+    </p>
 
-      <p style="text-align: left;">
-        Engaging with a wide range of stakeholders, from startup founders and IP lawyers to researchers in protein expression, 
-        helped us understand the <strong>industrial realities shaping the future of cultivated meat</strong>. 
-        We learned that many bottlenecks lie not only in technical barriers but also in regulatory, investment, and communication challenges.
-      </p>
-
-      <p style="text-align: left;">
-        These conversations also made us deeply aware of the <strong>ethical dimensions of innovation</strong>, including 
-        transparency, open access, and equitable technology distribution. 
-        Our approach was shaped by these values — seeking to advance synthetic biology not as proprietary competition, 
-        but as an <strong>open, collaborative, and globally beneficial field</strong>.
-      </p>
-
-      <p style="text-align: left;">
-        Ultimately, our Human Practices helped us bridge the gap between <strong>scientific innovation</strong> and 
-        <strong>societal responsibility</strong>, showing that impactful synthetic biology must be both 
-        technically sound and socially conscious.
-      </p>
-    </div>
+    <p style="text-align: left;">
+      By engaging with diverse stakeholders, we built a project that not only addresses scientific and economic challenges 
+      but also reflects on the <strong>social responsibility and future implications</strong> of cultivated meat technology. 
+      These discussions helped us integrate <strong>ethical reflection and practical insight</strong> into every design decision.
+    </p>
+  </div>
   <!-- DROPDOWN END -->
 </div>
-
 <div class="spacer"></div>
 <!-- SUMMARY (no dropdown) -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 2rem;" id="summary">
   <div class="section-title">
-    <h1 style="text-align: left;" class="animate-text-scramble">Summary</span></h1>
+    <h1 style="text-align: left;" class="animate-text-scramble">Summary</h1>
   </div>
 
   <p style="text-align: left; font-size: 1.1rem;">
     With <strong>Growf</strong>, we aimed to create <strong>multi-layered impact</strong>: scientific, industrial, and societal.
-    At the scientific and industrial level, our work directly addresses long-standing bottlenecks in recombinant protein manufacturing.
-    Through extensive stakeholder interviews and literature analysis, we identified core issues within the most commonly used yeast chassis,
-    <em>K. phaffii</em>. We then introduced <strong>novel genetic modifications</strong>, including targets like <em>PMI</em>,
-    which has not yet been characterised in the research literature.
   </p>
 
   <p style="text-align: left; font-size: 1.1rem;">
-    If our hypotheses are confirmed experimentally, these modifications could significantly reduce the cost of recombinant protein production
-    and simplify downstream purification, saving both <strong>researchers time</strong> and <strong>industry resources</strong>.
-    Our <strong>BioKernel</strong> framework further strengthens this impact by dramatically shortening the experimental planning period.
-    By providing a <strong>no-code, user-friendly Bayesian optimisation tool</strong>, we made advanced computational design accessible to all biologists,
-    improving both efficiency and reproducibility in the lab.
+    At the scientific and industrial level, our work directly addresses long-standing bottlenecks in recombinant protein manufacturing. 
+    Through extensive stakeholder interviews and literature analysis, we identified core issues within the most commonly used yeast chassis, 
+    <em>K. phaffii</em>. We then introduced <strong>novel genetic modifications</strong>, including targets like <em>PMI</em>, 
+    which has not yet been discussed in the research literature. If our hypotheses are confirmed experimentally, 
+    these modifications could significantly reduce the cost of recombinant protein production and simplify downstream purification, 
+    saving both <strong>researchers time</strong> and <strong>industry resources</strong>.
   </p>
 
   <p style="text-align: left; font-size: 1.1rem;">
-    All our innovations are <strong>entirely open-access</strong>. Every output of our project is intentionally made free for use by the global research and industrial community,
-    allowing anyone to build upon our findings without restriction.
-    The motivation behind our <strong>Change Bio collaboration</strong> stems from this same philosophy.
-    With our future goal to develop fully <strong>non-proprietary yeast strains</strong>, we are proving that open-access technology is essential to accelerate innovation.
+    Our <strong>BioKernel</strong> framework further strengthens this impact by dramatically shortening the experimental planning period. 
+    By providing a <strong>no-code, user-friendly Bayesian optimisation tool</strong>, we made advanced computational design accessible to all biologists, 
+    eliminating the barrier of programming knowledge while improving efficiency and reproducibility in the lab.
   </p>
 
   <p style="text-align: left; font-size: 1.1rem;">
-    Our target industry, the <strong>cultivated meat sector</strong>, stands to benefit immensely.
-    By lowering the costs tied to growth factor production, scale-up, and downstream processing, our project tackles the industry’s largest economic and technical constraints.
-    The urgency of these improvements was repeatedly emphasised in our <strong>Human Practices interviews</strong> with world-leading figures from the bioprocessing industry.
-    These discussions highlighted why our project represents an <strong>unexplored necessity</strong> within both research and industry.
+    All our innovations are <strong>entirely open-access</strong>. Every output of our project is intentionally made free for use by the global research 
+    and industrial community, allowing anyone to build upon our findings without restriction. The motivation behind our 
+    <strong>Change Bio collaboration</strong> stems from the same reason. With our future goal to develop fully 
+    <strong>non-proprietary yeast strains</strong>, we are proving that such open-access technology is <strong>necessary</strong> to accelerate innovation.
   </p>
 
   <p style="text-align: left; font-size: 1.1rem;">
-    Through these conversations, we also recognised that the future of this industry depends heavily on <strong>venture funding</strong>,
-    and that such funding is shaped by <strong>public perception</strong>.
-    If the public does not believe in cultivated meat, investors will not either, and without their support, innovation cannot thrive.
-    That’s why we placed equal emphasis on <strong>educational outreach</strong>, fostering trust in synthetic biology and cultivated meat alike.
+    Our target industry, the <strong>cultivated meat sector</strong>, stands to benefit immensely. By <strong>lowering the costs</strong> tied to growth factor 
+    production, scale-up, and downstream processing, our project tackles the industry’s largest economic and technical constraints. 
+    The urgency of these improvements was repeatedly emphasised in our <strong>Human Practices interviews</strong> with world-leading figures from the bioprocessing industry. 
+    Through these discussions, we explored the technical and economic <strong>bottlenecks</strong> of large-scale biomanufacturing in greater <strong>depth</strong> 
+    than is typically addressed in academic settings. These insights highlighted why our project represents an <strong>unexplored necessity</strong> 
+    within both research and industry. The depth of industrial knowledge we gained through this process has fundamentally shaped how we envision real-world implementation.
   </p>
 
-  <p style="text-align: left; font-size: 1.1rem; margin-bottom: 0.5rem;">
-    Together, the elements behind <strong>Growf</strong> unite under one mission: <strong>to enable a better future for humanity</strong>.
-    Whether through accessible, sustainable protein production or by reshaping how science is shared,
-    our work strives to redefine what it means for biotechnology to serve the world.
+  <p style="text-align: left; font-size: 1.1rem;">
+    Through our conversations, we understood how the future of this industry depends heavily on <strong>venture funding</strong>, 
+    and that venture funding itself is shaped by <strong>public perception</strong>. 
+    If the public does not believe in cultivated meat, investors will not either, and without their support, there can be no market to sustain innovation. 
+    That’s why we took particular care to address this through our <strong>educational outreach</strong>, focusing not only on cultivated meat 
+    but also on the broader acceptance of synthetic biology. We believe we reached a large number of people through our events and materials, 
+    and even more indirectly through word-of-mouth.
   </p>
-  <p class="span-yellow" style="text-align: left; font-size: 1.5rem;"><span><strong>It is time for innovations from iGEM to bring a sustainable bioeconomy to the world.</strong></span>
+
+  <p style="text-align: left; font-size: 1.1rem;">
+    Together, the projects behind <strong>Growf</strong> unite under one mission: <strong>to enable a better future for humanity</strong>. 
+    Whether through accessible, sustainable protein production or by disrupting the path to innovation, 
+    our work strives to redefine what it means for science to serve the world.
+  </p>
+
+  <p class="span-yellow" style="text-align: left; font-size: 1.5rem;">
+    <span><strong>It is time for innovations from iGEM to bring a sustainable bioeconomy to the world.</strong></span>
   </p>
 </div>
-
 <div class="spacer"></div>
 <!-- REFERENCES (no dropdown) -->
 <div class="page-section width-75" style="margin-left: 220px;" id="references">
@@ -409,7 +384,7 @@
       <em>Journal of Agriculture and Food Research</em>, vol. 10, p. 100358, Dec. 2022, doi: 10.1016/j.jafr.2022.100358.
     </li>
     <li>
-      M. Battle, C. Bomkamp, and M. Carter, “2024 State of the Industry: Cultivated Meat, Seafood, and Ingredients,”
+      M. Battle, C. Bomkamp, and M. Carter, “2024 State of the Industry: Cultivated Meat, Seafood and Ingredients,”
       <em>Good Food Institute</em>, Apr. 2025. Available online: 
       <a href="https://gfi-apac.org/state-of-the-industry-2024/" target="_blank">https://gfi-apac.org/state-of-the-industry-2024/</a>.
     </li>
@@ -462,5 +437,4 @@
 </div>
 
 <div class="spacer5"></div>
-
 {% endblock %}
