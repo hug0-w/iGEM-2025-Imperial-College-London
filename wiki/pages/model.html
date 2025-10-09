@@ -432,14 +432,71 @@
 
 
   <p style="text-align: left; margin-bottom: 1.5rem;">
-    We are open to collaborating with future iGEMers to make this a robust and usable package for the community at large. 
-  </p>
-
-    <strong>We actively welcome collaboration with future iGEM teams</strong> to turn BioKernel into a robust,
-    accessible tool
-    that empowers experimentalists to use principled optimisation methods without coding expertise.
+    We are open to collaborating with future iGEMers to make this a robust and usable package for the community at
+    large.
   </p>
 </div>
+
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="best-model-award">
+  <h2 style="text-align: left;">
+    <span class="animate-text-scramble">Best model award consideration</span>
+  </h2>
+  <p>We think that our modelling contribution, BioKernel, aligns strongly with the Best Model Award criteria. Here's a
+    couple reasons.</p>
+  <p><strong>How impressive is the modelling?</strong></p>
+  <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+    <li><strong>No implementation of bayesian optimisation</strong>: Makes a mathematically advanced framework
+      accessible to all
+      experimental biologists, a novel contribution for iGEM and the community at large.</li>
+    <li><strong>Built for real lab conditions</strong>: Explicitly handles heteroscedastic noise, technical replicates,
+      and parallel
+      batches; necessary for modelling real biological data
+      accurately.</li>
+    <li><strong>Modular & extensible</strong>: Users can swap kernels and acquisition functions to tailor the model to
+      diverse biological
+      problems, ensuring broad applicability. </li>
+  </ol>
+  <p><strong>Did the model help the team understand a part, device, or system?</strong></p>
+  <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+    <li><strong>Visualised performance landscape</strong>: Transformed sparse data points into a predictive landscape
+      using active
+      subspace visualisation, revealing important interactions.</li>
+    <li><strong>Quantified system properties:</strong> Modelled the specific noise profile and sensitivities of the
+      real-world
+      limonene production system, showing quantitative understanding.</li>
+    <li><strong>Proven understanding via prediction:</strong> Successfully found the known optimum (within PLACEHOLDER %
+      difference) in a
+      parameter space interpolated from a real dataset, definitively proving its ability to understand the system's
+      behaviour.</li>
+  </ol>
+  <p><strong>Did the team use measurements of a part, device, or system to develop the model?</strong></p>
+  
+  <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+      <li><strong>Validated on real experimental data</strong>: The model was tested and proven effective using
+      measurements
+      from a published
+      microbial limonene production study in addition to simulated data.</li>
+    <li><strong>Demonstrated high data efficiency<strong>: Reached the known optimum using (within PLACEHOLDER %
+          difference) of
+          the original study's experiments, showing it learns effectively from a small number of real measurements.</li>
+  </ol>
+
+  <p><strong>Does the modelling approach provide a good example for others?</strong></p>
+  <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+
+    <li><strong>Solves a universal iGEM problem:</strong> Addresses the critical need for resource-efficient
+      experimentation that
+      nearly every team faces.</li>
+    <li><strong>Accessible & reusable tool:</strong> Provides a framework that can be easily adapted and reused by other
+      teams,
+    <li><strong>Accessible & reusable tool:</strong> As a documented, no-code software, it is a ready-to-use solution
+      that future teams can immediately apply and contribute to, accelerating their own DBTL cycles. Users can add their
+      own kernels and acquisition functions in a plug-and-play manner. </li>
+  </ol>
+
+</div>
+
+
 <!-- REFERENCES -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="references">
   <h2 style="text-align: left;">
@@ -447,55 +504,94 @@
   </h2>
 
   <ol style="text-align: left; padding-left: 1.5rem; line-height: 1.6;">
-    <li>
-      Brochu, E., Cora, V. M., & De Freitas, N. (2010). <em>A Tutorial on Bayesian Optimization of Expensive Cost
-        Functions,
-        with Application to Active User Modeling and Hierarchical Reinforcement Learning.</em> arXiv preprint
-      arXiv:1012.2599.
+    <li>R. Garnett, <em>Bayesian Optimization</em>. Cambridge University Press, 2023.</li>
+
+    <li>C. Merzbacher, O. Mac Aodha, and D. A. Oyarzún, “Bayesian Optimization for Design of Multiscale Biological
+      Circuits,” <em>ACS Synthetic Biology</em>, vol. 12, no. 7, pp. 2073–2082, Jun. 2023, doi: <a
+        href="https://doi.org/10.1021/acssynbio.3c00120">10.1021/acssynbio.3c00120</a>.</li>
+
+    <li>Q. Nguyen, <em>Bayesian Optimization in Action</em>. Simon and Schuster, 2024.</li>
+
+    <li>C. Hvarfner, E. O. Hellsten, and L. Nardi, “Vanilla Bayesian Optimization Performs Great in High Dimensions,”
+      <em>arXiv</em>, Feb. 2024, doi: <a href="https://doi.org/10.48550/arxiv.2402.02229">10.48550/arxiv.2402.02229</a>.
     </li>
-    <li>
-      Garnett, R. (2023). <em>Bayesian Optimization.</em> Cambridge University Press.
-    </li>
-    <li>
-      Shahriari, B., Swersky, K., Wang, Z., Adams, R. P., & De Freitas, N. (2016).
-      <em>Taking the Human Out of the Loop: A Review of Bayesian Optimization.</em>
-      Proceedings of the IEEE, 104(1), 148–175.
-    </li>
-    <li>
-      Snoek, J., Larochelle, H., & Adams, R. P. (2012).
-      <em>Practical Bayesian Optimization of Machine Learning Algorithms.</em>
-      Advances in Neural Information Processing Systems, 25.
-    </li>
-    <li>
-      Meyer, A. J., Segall-Shapiro, T. H., Glassey, E., Zhang, J., & Voigt, C. A. (2019).
-      <em>Escherichia coli “Marionette” strains with 12 highly optimized small-molecule sensors.</em>
-      Nature Chemical Biology, 15(2), 196–204.
-    </li>
-    <li>
-      Morshed, N., & Siedlecki, M. (2021).
-      <em>Bayesian Optimization for Bioprocess Parameter Estimation.</em>
-      Biotechnology and Bioengineering, 118(10), 3820–3831.
-    </li>
-    <li>
-      Angermueller, C., et al. (2020).
-      <em>Population-based black-box optimisation for biological design.</em>
-      Nature Communications, 11, 5280.
-    </li>
-    <li>
-      Lappalainen, J., & Rousu, J. (2022).
-      <em>Gaussian Processes for Synthetic Biology Design.</em>
-      Synthetic Biology Journal, 7(4), ysac018.
-    </li>
-    <li>
-      Gómez-Bombarelli, R., et al. (2018).
-      <em>Automatic Chemical Design Using a Data-Driven Continuous Representation of Molecules.</em>
-      ACS Central Science, 4(2), 268–276.
-    </li>
-    <li>
-      Reuel, N. F., & Jensen, K. F. (2022).
-      <em>Bringing Statistical Optimisation into Experimental Biology.</em>
-      Trends in Biotechnology, 40(3), 258–269.
-    </li>
+
+    <li>A. J. Meyer, T. H. Segall-Shapiro, E. Glassey, J. Zhang, and C. A. Voigt, “Escherichia coli ‘Marionette’ strains
+      with 12 highly optimized small-molecule sensors,” <em>Nature Chemical Biology</em>, vol. 15, no. 2, pp. 196–204,
+      Feb. 2019, doi: <a href="https://doi.org/10.1038/s41589-018-0168-3">10.1038/s41589-018-0168-3</a>.</li>
+
+    <li>A. Ghodasara and C. A. Voigt, “Balancing gene expression without library construction via a reusable sRNA pool,”
+      <em>Nucleic Acids Research</em>, vol. 45, no. 13, pp. 8116–8127, Jun. 2017, doi: <a
+        href="https://doi.org/10.1093/nar/gkx530">10.1093/nar/gkx530</a>.</li>
+
+    <li>M. Siska, E. Pajak, K. Rosenthal, A. del Rio Chanona, von Lieres, and L. M. Helleckes, “A Guide to Bayesian
+      Optimization in Bioprocess Engineering,” <em>arXiv.org</em>, 2025. <a
+        href="https://arxiv.org/abs/2508.10642">https://arxiv.org/abs/2508.10642</a> (accessed Oct. 08, 2025).</li>
+
+    <li>Jong Hyun Park et al., “Design of Four Small-Molecule-Inducible Systems in the Yeast Chromosome, Applied to
+      Optimize Terpene Biosynthesis,” <em>ACS Synthetic Biology</em>, vol. 12, no. 4, pp. 1119–1132, Mar. 2023, doi: <a
+        href="https://doi.org/10.1021/acssynbio.2c00607">10.1021/acssynbio.2c00607</a>.</li>
+
+    <li>A. H. Victoria and G. Maragatham, “Automatic tuning of hyperparameters using Bayesian optimization,”
+      <em>Evolving Systems</em>, vol. 12, May 2020, doi: <a
+        href="https://doi.org/10.1007/s12530-020-09345-2">10.1007/s12530-020-09345-2</a>.</li>
+
+    <li>J. Wu, X.-Y. Chen, H. Zhang, L.-D. Xiong, H. Lei, and S.-H. Deng, “Hyperparameter Optimization for Machine
+      Learning Models Based on Bayesian Optimization,” <em>Journal of Electronic Science and Technology</em>, vol. 17,
+      no. 1, pp. 26–40, Mar. 2019, doi: <a
+        href="https://doi.org/10.11989/JEST.1674-862X.80904120">10.11989/JEST.1674-862X.80904120</a>.</li>
+
+    <li>T. Akiba, S. Sano, T. Yanase, T. Ohta, and M. Koyama, “Optuna: A Next-generation Hyperparameter Optimization
+      Framework,” <em>Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data
+        Mining</em>, Jul. 2019, doi: <a href="https://doi.org/10.1145/3292500.3330701">10.1145/3292500.3330701</a>.</li>
+
+    <li>Maximilian Balandat et al., “BoTorch: A Framework for Efficient Monte-Carlo Bayesian Optimization,” <em>Neural
+        Information Processing Systems</em>, vol. 33, pp. 21524–21538, Jan. 2020.</li>
+
+    <li>M. Olson et al., “Ax: A Platform for Adaptive Experimentation,” <em>Openreview.net</em>, 2025. <a
+        href="https://openreview.net/forum?id=U1f6wHtG1g">https://openreview.net/forum?id=U1f6wHtG1g</a> (accessed Oct.
+      08, 2025).</li>
+
+    <li>C. Li et al., “Rapid Bayesian optimisation for synthesis of short polymer fiber materials,” <em>Scientific
+        Reports</em>, vol. 7, no. 1, Jul. 2017, doi: <a
+        href="https://doi.org/10.1038/s41598-017-05723-0">10.1038/s41598-017-05723-0</a>.</li>
+
+    <li>P. I. Frazier and J. Wang, “Bayesian Optimization for Materials Design,” <em>Springer series in materials
+        science</em>, vol. 225, pp. 45–75, Dec. 2015, doi: <a
+        href="https://doi.org/10.1007/978-3-319-23871-5_3">10.1007/978-3-319-23871-5_3</a>.</li>
+
+    <li>B. J. Shields et al., “Bayesian reaction optimization as a tool for chemical synthesis,” <em>Nature</em>, vol.
+      590, no. 7844, pp. 89–96, Feb. 2021, doi: <a
+        href="https://doi.org/10.1038/s41586-021-03213-y">10.1038/s41586-021-03213-y</a>.</li>
+
+    <li>J. Guo, Bojana Ranković, and P. Schwaller, “Bayesian Optimization for Chemical Reactions,” <em>CHIMIA
+        International Journal for Chemistry</em>, vol. 77, no. 1/2, pp. 31–31, Feb. 2023, doi: <a
+        href="https://doi.org/10.2533/chimia.2023.31">10.2533/chimia.2023.31</a>.</li>
+
+    <li>H. Narayanan et al., “Accelerating cell culture media development using Bayesian optimization-based iterative
+      experimental design,” <em>Nature Communications</em>, vol. 16, no. 1, p. 6055, Jan. 2025, doi: <a
+        href="https://doi.org/10.1038/s41467-025-61113-5">10.1038/s41467-025-61113-5</a>.</li>
+
+    <li>S. G. Baird, A. R. Falkowski, and T. D. Sparks, “Honegumi: An Interface for Accelerating the Adoption of
+      Bayesian Optimization in the Experimental Sciences,” <em>arXiv</em>, Feb. 2025, doi: <a
+        href="https://doi.org/10.48550/arxiv.2502.06815">10.48550/arxiv.2502.06815</a>.</li>
+
+    <li>M. HamediRad, R. Chao, S. Weisberg, J. Lian, S. Sinha, and H. Zhao, “Towards a fully automated algorithm driven
+      platform for biosystems design,” <em>Nature Communications</em>, vol. 10, no. 1, Nov. 2019, doi: <a
+        href="https://doi.org/10.1038/s41467-019-13189-z">10.1038/s41467-019-13189-z</a>.</li>
+
+    <li>J. Shin, E. J. South, and M. J. Dunlop, “Transcriptional Tuning of Mevalonate Pathway Enzymes to Identify the
+      Impact on Limonene Production in <em>Escherichia coli</em>,” <em>ACS omega</em>, vol. 7, no. 22, pp. 18331–18338,
+      May 2022, doi: <a href="https://doi.org/10.1021/acsomega.2c00483">10.1021/acsomega.2c00483</a>.</li>
+
+    <li>Y. Ma et al., “Flux optimization using multiple promoters in Halomonas bluephagenesis as a model chassis of the
+      next generation industrial biotechnology,” <em>Metabolic Engineering</em>, vol. 81, pp. 249–261, Dec. 2023, doi:
+      <a href="https://doi.org/10.1016/j.ymben.2023.12.011">10.1016/j.ymben.2023.12.011</a>.</li>
+
+    <li>P. Casella, A. Iovine, S. Mehariya, T. Marino, D. Musmarra, and A. Molino, “Smart Method for Carotenoids
+      Characterization in <em>Haematococcus pluvialis</em> Red Phase and Evaluation of Astaxanthin Thermal Stability,”
+      <em>Antioxidants</em>, vol. 9, no. 5, p. 422, May 2020, doi: <a
+        href="https://doi.org/10.3390/antiox9050422">10.3390/antiox9050422</a>.</li>
   </ol>
 </div>
 
