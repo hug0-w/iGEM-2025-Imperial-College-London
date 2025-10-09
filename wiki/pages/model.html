@@ -412,38 +412,29 @@
   </h2>
 
   <p style="text-align: left; margin-bottom: 1.5rem;">
-    Beyond what we managed to implement ahead of the project freeze, we are continuing to expand BioKernel’s
-    functionality.
-    Our goal is to evolve it into a fully featured, community-driven optimisation suite for experimental biology.
+    Beyond what we managed to add ahead of the freeze, we are actively engaged in enhancing this package by adding
+    greater functionality. Currently, we plan to add the following elements:
   </p>
 
+
+  <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+    <li>A larger set of kernels, also suitable to exploring mixed-integer spaces (i.e. with continuous and discrete
+      input features).</li>
+    <li>A flowchart guiding less technically apt users to the correct choices of acquisition functions and kernels based
+      on simulations and real-world data. </li>
+    <li>Optimising for ‘just-in-time’ induction: some literature[21] indicates that there may be unrealised gains in
+      offsetting the induction of some elements of a metabolic pathway, thus we are presently testing ways to jointly
+      optimise this</li>
+    <li>In its current iteration, the package does not possess any surrogate models like kinetic models to further
+      reduce iterations with a mechanistically informed prior, since this still lacks straightforward heuristics for
+      implementation. </li>
+  </ol>
+
+
   <p style="text-align: left; margin-bottom: 1.5rem;">
-    We are currently developing several major additions:
+    We are open to collaborating with future iGEMers to make this a robust and usable package for the community at large. 
   </p>
 
-  <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-    <li>
-      <strong>Expanded kernel library</strong> — including support for mixed-integer parameter spaces that contain both
-      continuous
-      and discrete inputs.
-    </li>
-    <li>
-      <strong>Decision-flow interface</strong> — a guided chart to help non-technical users select acquisition functions
-      and kernels based on empirical data and simulated performance.
-    </li>
-    <li>
-      <strong>“Just-in-time” induction optimisation</strong> — building on literature suggesting efficiency gains from
-      staggering
-      inductions across metabolic pathways<sup>[21]</sup>.
-    </li>
-    <li>
-      <strong>Integration with surrogate kinetic models</strong> — to combine mechanistic priors with statistical
-      inference
-      for even greater sample efficiency.
-    </li>
-  </ul>
-
-  <p style="text-align: left; margin-bottom: 1.5rem;">
     <strong>We actively welcome collaboration with future iGEM teams</strong> to turn BioKernel into a robust,
     accessible tool
     that empowers experimentalists to use principled optimisation methods without coding expertise.
