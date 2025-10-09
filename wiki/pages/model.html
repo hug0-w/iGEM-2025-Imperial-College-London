@@ -163,7 +163,8 @@
         </div>
       </div>
 
-      <p style="text-align: left;">The same procedure was applied, however instead of using the means calculated from experimental data, we
+      <p style="text-align: left;">The same procedure was applied, however instead of using the means calculated from
+        experimental data, we
         estimated the noise by calculating the standard deviation. This noise was then used to build a heteroscedastic
         noise meshgrid, which was supplied as a standard deviation parameter for random sampling from a normal
         distribution. </p>
@@ -180,10 +181,12 @@
       </div>
 
 
-      <p style="text-align: left;">This surface then became our test set for BioKernel. The following optimisation was performed using our
+      <p style="text-align: left;">This surface then became our test set for BioKernel. The following optimisation was
+        performed using our
         package, with options set to use a Matern kernel with a gamma noise prior. </p>
 
-      <p style="text-align: left;">BioKernel algorithm converged to the optimum as measured by normalised euclidean distance of [PLACEHOLDER] in
+      <p style="text-align: left;">BioKernel algorithm converged to the optimum as measured by normalised euclidean
+        distance of [PLACEHOLDER] in
         four dimensions (maximal distance would be 2) within five sequential batches of six technical replicates. It
         thus took BioKernel [INSERT] measurements to converge close to the optimum, as opposed to the 648 taken by the
         adapted grid-search used in the paper[21]. </p>
@@ -206,17 +209,23 @@
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
         Bayesian Optimisation (BO) is a sample-efficient, sequential strategy for global optimisation of black-box
-        functions<sup>[1]</sup>. It enables identification of input parameter combinations that yield optimal outputs
-        while making minimal assumptions about the objective function. Importantly, BO does not require the function to
-        be differentiable — a key advantage for synthetic-biology applications, where response landscapes are often
-        rugged or stochastic due to complex molecular interactions<sup>[2]</sup>.
+        functions[1]. In essence, it enables the identification of input parameter combinations that yield an optimal
+        output while making minimal assumptions about the objective function. Crucially, BO does not require the
+        function to be differentiable. This is a significant advantage in synthetic biology, where response landscapes
+        are frequently rugged, discontinuous, or stochastic due to complex molecular interactions, making gradient-based
+        optimisation methods inapplicable<sup>[2]</sup>. By assuming only continuity<sup>[1]</sup>, BO is well-suited to
+        navigate these
+        complex, unpredictable biological systems where the underlying mechanisms are often intractable.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Traditional methods like grid search quickly become infeasible as dimensionality increases (“curse of
-        dimensionality”),
-        while one-factor-at-a-time approaches can get trapped in local optima. BO overcomes these challenges by
-        intelligently selecting the most informative experiments to perform next.
+        In biological research, the experimental landscape is often complex and high-dimensional. Traditional methods
+        like grid search become intractable due to the "curse of dimensionality," where the number of experiments
+        required grows exponentially with the number of parameters. Simpler algorithms, such as one-factor-at-a-time
+        searches (a form of gradient descent), can easily get trapped in local optima when the system does not behave as
+        expected, thus requiring an arbitrary number of restarts to discover the global optimum. BO is engineered to
+        navigate these challenges, performing effectively in scenarios with up to 20 input dimensions, and can easily
+        handle more with some tuning<sup>[4]</sup>.
       </p>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
@@ -224,79 +233,96 @@
       </p>
 
       <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><strong>Bayesian inference</strong> – updates model beliefs after each experiment.</li>
-        <li><strong>Gaussian Process (GP)</strong> – serves as a probabilistic surrogate model for the unknown function.
+        <li><strong>Bayesian inference</strong> to update beliefs based on evidence.</li>
+        <li>A <strong>Gaussian Process (GP)</strong> to create a probabilistic model of the function.
         </li>
-        <li><strong>Acquisition function</strong> – selects where to sample next, balancing exploration and
-          exploitation.</li>
+        <li>An <strong>Acquisition function</strong> to intelligently balance the exploration-exploitation trade-off.
+        </li>
       </ul>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        For comprehensive mathematical background, see Roman Garnett’s <em>Bayesian Optimization</em> (2023).
+        For comprehensive mathematical background, see Roman Garnett's <em>Bayesian Optimization</em> (2023).
+        <sup>[1]</sup>
       </p>
 
       <!-- SUBSECTION: The Bayesian Approach -->
-      <h3 style="text-align: left; margin-top: 2rem;">The Bayesian Approach – Learning from Data</h3>
+      <h3 style="text-align: left; margin-top: 2rem;">The Bayesian Approach: Learning from Data</h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        BO relies on Bayesian statistics. Instead of producing single-point estimates like frequentist methods,
-        it models the full probability distribution of possible outcomes. Prior knowledge (the “prior”) is
-        updated with new data to produce an informed “posterior,” providing a rigorous way to incorporate uncertainty
-        and propagate it through each iteration — ideal for lab-in-the-loop optimisation where data acquisition is
-        costly
-        and noise is non-uniform (heteroscedastic)<sup>[1],[3]</sup>.
+        True to its name, BO is founded on Bayesian statistics. Unlike frequentist methods that provide single-point
+        estimates, the Bayesian approach models the entire probability distribution of possible outcomes. This method
+        preserves information by propagating the complete underlying distributions through calculations, which is
+        critical when dealing with costly and often noisy biological data. A key feature is the ability to incorporate
+        prior knowledge (a "prior") into the model, which is then updated with new experimental data to form a more
+        informed distribution (a "posterior"). This iterative updating is ideal for lab-in-a-loop biological research,
+        where each data point is expensive to acquire and system noise can be unpredictable
+        (heteroscedastic)<sup>[1],[3]</sup>.
       </p>
 
       <!-- SUBSECTION: The Gaussian Process -->
-      <h3 style="text-align: left; margin-top: 2rem;">The Gaussian Process – A Probabilistic Map of the Landscape</h3>
+      <h3 style="text-align: left; margin-top: 2rem;">The Gaussian Process: A Probabilistic Map of the Landscape</h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        The Gaussian Process (GP) defines a distribution over functions. For any set of inputs, it predicts a mean
-        (expected value) and variance (uncertainty). The GP’s kernel or covariance function determines how outputs at
-        nearby points are correlated, controlling smoothness and flexibility. Proper kernel choice prevents both
-        overfitting (treating noise as signal) and underfitting (missing real structure) — crucial for noisy biological
-        datasets<sup>[1],[3]</sup>.
+        The second component, the Gaussian Process (GP), serves as a probabilistic surrogate model for the black-box
+        function. A GP defines a distribution over functions; for any set of input parameters, it returns a Gaussian
+        distribution of the expected output, characterised by a mean and a variance. This provides not just a prediction
+        but also a measure of uncertainty for that prediction. Central to the GP is the covariance function, or kernel,
+        which encodes assumptions about the function's smoothness and shape. The kernel defines how related the outputs
+        are for different inputs, allowing the GP to generalise from observed data to unexplored regions of the
+        parameter space. A well-chosen kernel is crucial for balancing the risks of overfitting (mistaking noise for a
+        real trend) and underfitting (missing a genuine trend in the data), a common challenge with inherently noisy
+        biological datasets[1],[3]</sup>.
       </p>
 
       <!-- SUBSECTION: The Acquisition Function -->
-      <h3 style="text-align: left; margin-top: 2rem;">The Acquisition Function – Balancing Exploration and Exploitation
+      <h3 style="text-align: left; margin-top: 2rem;">The Acquisition Function: Balancing Exploration and Exploitation
       </h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Using the GP’s predicted mean and variance, the acquisition function estimates which point in parameter space
-        has the highest expected utility for the next experiment.
-        <strong>Exploration</strong> targets uncertain regions to gather new information, while
-        <strong>exploitation</strong> focuses on areas predicted to perform well.
-      </p>
-
+        The GP model, with its predictions of mean and variance, guides the search for the next set of parameters to
+        test experimentally. This guidance is formalised by the acquisition function. This function calculates the
+        expected "utility" of evaluating each point in the parameter space, effectively balancing the trade-off between
+        exploring uncertain regions and exploiting areas known to yield good results.
       <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><strong>Probability of Improvement (PI)</strong> – samples points likely to exceed the current best.</li>
-        <li><strong>Expected Improvement (EI)</strong> – samples based on expected magnitude of gain.</li>
-        <li><strong>Upper Confidence Bound (UCB)</strong> – balances mean and variance through a tunable risk parameter.
+        <li><strong>Exploitation</strong> involves sampling in regions where the GP predicts a high mean value, refining
+          our knowledge around known optima..</li>
+        </li><strong>Exploration</strong> involves sampling in regions where the GP predicts high variance,
         </li>
       </ul>
-
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        By maximising the acquisition function, BO dynamically alternates between searching uncertain regions
-        and refining near-optimal zones — converging rapidly to the global optimum.
+        The next experimental point is chosen by finding the parameters that maximise the acquisition function. This
+        dynamic approach ensures that the search efficiently converges toward the global optimum by focusing resources
+        on promising regions while avoiding wasteful experiments in poorly performing ones. Common acquisition functions
+        include Probability of Improvement (PI), Expected Improvement (EI), and Upper Confidence Bound
+        (UCB)<sup>[1][3]</sup>.
+      </p>
+      <p style="text-align: left; margin-bottom: 1.5rem;">
+        This trade-off can be further tuned by adopting a risk-averse or risk-seeking policy, often by adjusting a
+        parameter within the acquisition function. A risk-averse strategy prioritises regions promising a certain but
+        possibly lower improvement, which is useful when the cost of a failed experiment is high. Conversely, a
+        risk-seeking strategy favours more uncertain regions that might result in higher overall improvement. This often
+        results in the policy shifting towards exploitation or exploration.
       </p>
 
       <!-- SUBSECTION: The Optimisation Workflow -->
       <h3 style="text-align: left; margin-top: 2rem;">The Optimisation Workflow</h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        BO iteratively refines predictions after each experimental batch. A typical workflow involves:
+        By integrating these concepts, BO can identify an optimal set of parameters with a minimal number of
+        experimental iterations. The typical workflow is as follows:
       </p>
 
       <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li><strong>Initialisation:</strong> collect a small set of initial data points (e.g. SOBOL sampling).</li>
-        <li><strong>Model Fitting:</strong> train the GP on existing results.</li>
+        <li><strong>Initialisation:</strong> Begin with a small set of initial data points, either from prior knowledge
+          or quasi-random sampling (e.g. SOBOL algorithm).</li>
+        <li><strong>Model Fitting:</strong> Fit a Gaussian Process surrogate model to the existing data.</li>
         <li><strong>Acquisition:</strong> use the acquisition function to choose the next experiment.</li>
         <li><strong>Experimentation:</strong> run the experiment and record outputs.</li>
-        <li><strong>Update:</strong> add new data to the model and repeat until convergence or resource limits are met.
+        <li><strong>Update:</strong> Add the new data point to the dataset and repeat from step 2 until an
+          optimal solution is found or the experimental budget is exhausted.
         </li>
       </ol>
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        This process can also operate in <strong>batch mode</strong>, where multiple points are tested simultaneously.
-        Although slightly less sample-efficient, batch optimisation significantly accelerates discovery when parallel
-        experiments are feasible<sup>[3]</sup>.
+        This process can also be adapted for batch optimisation, where multiple points are suggested for parallel
+        evaluation in each cycle. While this can slightly reduce sample efficiency, it significantly accelerates the
+        discovery process when multiple experiments can be run concurrently<sup>[3]</sup>.
       </p>
 
     </div>
@@ -316,91 +342,63 @@
     <div style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Although Bayesian Optimisation has become the default for hyperparameter tuning in machine learning and
-        robotics,
-        it remains sparsely applied in biological research. This under-utilisation is not due to lack of relevance —
-        rather, to practical, computational, and cultural barriers within experimental science.
+        In the past decade BO has received a significant boost in attention. This can be attributed to a massive leap in
+        popularity of machine learning (ML) and the need for computationally expensive hyperparameter
+        tuning<sup>[9]</sup>. Almost
+        all conventional ML algorithms (linear regression, decision trees, random forests, etc.) have hyper-parameters
+        that control how the model is built. For example, the number of unique leaves and branches has a significant
+        impact on how well a decision tree generalises data<sup>[10]</sup>. Although rules of thumb for such situations
+        exist, they
+        often provide non-ideal model performance. The cost of retraining multiple models with varied parameters and
+        choosing the best performer is oftentimes much lower than the unrealised gains from deploying a subpar model for
+        real life scenarios<sup>[3]</sup>. Consequently multiple BO libraries have been developed for Python (it being
+        the de facto
+        language for ML). These range from simple BO models implemented within the Sci-Kit package, general
+        plug-and-play ML BO (e.g. Optuna)<sup>[11]</sup>, or researcher aimed low-level packages, such as BoTorch (part
+        of the
+        popular PyTorch package)<sup>[12]</sup> and Ax<sup>[13]</sup>. However, since all of these were developed with
+        ML scientists and
+        software developers in mind, they require strong programming knowledge to use effectively. Unfortunately, such
+        skillset is quite often neglected within the biological sciences apart from bioinformaticians and PhD level
+        researchers.
       </p>
-
-      <!-- SUBSECTION: 4.1 - Data and Noise -->
-      <h3 style="text-align: left; margin-top: 2rem;">4.1 Data and Noise</h3>
       <p style="text-align: left; margin-bottom: 1.5rem;">
-        Biological datasets are notoriously noisy, and often the variance is heteroscedastic —
-        meaning it changes across experimental conditions.
-        Many BO implementations assume homoscedastic (uniform) noise, leading to poor uncertainty estimation
-        and suboptimal acquisition decisions. Additionally, biological datasets are small due to the high cost of
-        generating data,
-        which limits model learning in the early stages<sup>[1],[2]</sup>.
+        Nevertheless, significantly modified BO has been repeatedly and successfully applied in the context of natural
+        sciences. Various BO implementations (often using a Kernel assuming some level of white noise) have been used in
+        academia and in the corporate sector, with Ax and BoTorch both being co-developed by large companies like
+        Meta<sup>[13]</sup>. These applications are more prominent for situations where the signal to noise ratio can be
+        sufficiently maximised by use of technical replicates, for instance Material Science<sup>[14],[15]</sup> or
+        Chemistry
+        research<sup>[16],[17]</sup>. There are even some claims within the research community that technical replicates
+        are not
+        needed for BO workflows since custom models are able to accommodate some level of noise<sup>[7]</sup>.
       </p>
+      <p>We postulate that it is due to the following reasons that BO has been under-appreciated by the biological
+        sciences outside of media optimisation and research-level exploration of large genetic combinatorial
+        libraries<sup>[18],[20]</sup>. </p>
 
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        To address this, our package implements <strong>heteroscedastic noise modelling</strong> and allows users to
-        explicitly define <strong>technical replicate structure</strong>, letting BioKernel quantify and propagate
-        experimental uncertainty.
-      </p>
+      <p>One reason is that by itself BO is unintuitive and could be assumed to be similar to a random search. This is a
+        misconception though, since non Thompson sampling implementations are completely deterministic and random search
+        algorithms actually outperform the more conventional grid search<sup>[3]</sup>. </p>
 
-      <!-- SUBSECTION: 4.2 - Infrastructure Barriers -->
-      <h3 style="text-align: left; margin-top: 2rem;">4.2 Infrastructure Barriers</h3>
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Many laboratories lack the automation infrastructure needed to run optimisation loops efficiently.
-        Robotics integration or high-throughput setups remain expensive and require advanced technical skills.
-        Moreover, experimental iteration speed in biology is slow compared to computational fields,
-        making “fast” optimisation cycles less feasible.
-      </p>
+      <p>The second issue pertains to the high, often heteroscedastic (not-constant along the prediction variable),
+        noise levels that come with wet-lab experimentation. Technical replicates are an inherent part of the field and
+        provide information not just through discovering the mean but the variance associated with replication. This is
+        a significant limitation for the simplest BO models, since they treat the mean of technical replicates as a
+        noiseless observation (the ground truth)<sup>[1]</sup>. Consequently, the researcher is required to familiarise
+        themselves with research-level implementations that were often designed for solving a specific issue and cannot
+        be described as beginner friendly.</p>
 
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        To make BO accessible to small labs, we designed BioKernel as a <strong>no-code, low-infrastructure
-          tool</strong>
-        that can be run locally on standard machines and adapted to slower, asynchronous experiment schedules.
-      </p>
+      <p>Our dry lab software project aims to address two main points of the issue. First, it acts as an interactive
+        playground that would allow an individual to convince themselves of the merits provided by BO. This acts as a
+        first stepping stone for anyone who would then go out and implement their own BO workflow to tackle a specific
+        real world problem. Second, it has all the necessary functions to run BO as part of an experiment without having
+        to write code. Once deployed, the applet can support rapid access and result analysis while in the lab. This is
+        enhanced by a core modular functionality, meaning that more engaged users can upload custom acquisition
+        functions and kernels to suit their specific needs. </p>
 
-      <!-- SUBSECTION: 4.3 - Software Accessibility -->
-      <h3 style="text-align: left; margin-top: 2rem;">4.3 Software Accessibility</h3>
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Existing Bayesian Optimisation libraries — such as <em>BoTorch</em> or <em>Scikit-Optimize</em> —
-        were developed for data scientists and require programming fluency.
-        This limits their adoption by wet-lab researchers who might not have experience in Python or statistical
-        modelling.
-      </p>
 
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        BioKernel removes this barrier by providing an intuitive interface with pre-configured kernel and acquisition
-        options,
-        accessible through a single command-line or GUI-based workflow.
-        All mathematical details are abstracted away while retaining analytical flexibility for advanced users.
-      </p>
 
-      <!-- SUBSECTION: 4.4 - Cultural Gap -->
-      <h3 style="text-align: left; margin-top: 2rem;">4.4 Cultural and Educational Gap</h3>
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        There is a cultural divide between computational and experimental disciplines.
-        Biologists often rely on intuition-driven design rather than statistically guided decision-making,
-        while data-driven optimisation methods are rarely part of standard wet-lab curricula.
-        As a result, even when tools exist, researchers may not perceive them as relevant or approachable.
-      </p>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        Our project actively addresses this by embedding Bayesian Optimisation concepts into educational materials,
-        bridging the conceptual gap between mathematical abstraction and experimental intuition.
-        We aim to normalise optimisation-guided design as an everyday practice in synthetic biology.
-      </p>
-
-      <!-- SUBSECTION: 4.5 - Toward Wider Adoption -->
-      <h3 style="text-align: left; margin-top: 2rem;">4.5 Toward Wider Adoption</h3>
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        To broaden adoption, BioKernel is built with open-science principles:
-      </p>
-
-      <ul style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li>Fully open-source and documented for transparency.</li>
-        <li>Compatible with both low-throughput (manual) and high-throughput (robotic) workflows.</li>
-        <li>Integrates directly with CSV-based lab outputs to lower the technical entry barrier.</li>
-        <li>Designed for educational outreach and integration into bioengineering teaching modules.</li>
-      </ul>
-
-      <p style="text-align: left; margin-bottom: 1.5rem;">
-        In this way, our framework acts not just as a computational tool but as an enabler of cultural transition
-        toward statistically principled experimentation in biology.
       </p>
 
     </div>
