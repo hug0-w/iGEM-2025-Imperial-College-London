@@ -876,20 +876,25 @@
 
         <div class="collapsible-content">
 
-          <p style="text-align: left;">
-            To validate the method, he recommended creating a synthetic dataset with simple ODE outputs and Gaussian
-            noise
-            inputs before moving to more complex equations. Heteroscedastic noise should only be introduced and tested
-            after sufficient model accuracy is confirmed with homoscedastic noise.
-            <br><br>
-            Regarding new tools, Ruben highlighted the PyMC library for Bayesian interference, which could be used to
-            isolate the experimentally derived variables and reinsert them back into the model. This was tested as part
-            of
-            the optimisation stack.
-            <br><br>
-            As a response to our proposed experimental design, he stressed ensuring that cell cultures remain in the log
-            growth phase, since overcrowding inherently changes the metabolic state of a cell. Finally, he provided key
-            literature references, which all helped us to build our dry lab components.
+          <p style="text-align: left;"> Our consultation with <strong>Dr. Perez-Carrasco</strong> focused on adapting Bayesian optimisation for use in
+          biological systems — specifically, the challenges of fitting noisy wet-lab data to dynamic models.
+          He recommended that we first create a <strong>synthetic dataset</strong> using simplified ODE systems with
+          Gaussian noise before introducing heteroscedastic variation, ensuring that our optimisation function behaved
+          as expected under controlled noise.
+          <br><br>
+          He highlighted the use of <strong>PyMC</strong> as a powerful tool for Bayesian inference, allowing us to
+          extract experimentally derived parameters and feed them back into the model iteratively.  
+          This approach, he explained, would strengthen the connection between simulation and experiment — an essential
+          step for data-driven model refinement.
+          <br><br>
+          Additionally, he reminded us that **biological noise must be contextualised**: fluctuations can arise not only
+          from measurement error but also from population heterogeneity or metabolic state changes.  
+          To ensure biological validity, he advised maintaining cultures strictly within the log-growth phase and
+          avoiding over-crowding, since that would shift metabolic profiles and confound results.
+          <br><br>
+          Finally, Dr. Perez-Carrasco provided key literature references on noise modelling and suggested using
+          small-scale test cases to benchmark our pipeline before applying it to real data — an approach that later
+          defined the early validation stage of our dry-lab workflow.
           </p>
           <div class="collapsible-close collapsible-close-grey">Close</div>
         </div>
