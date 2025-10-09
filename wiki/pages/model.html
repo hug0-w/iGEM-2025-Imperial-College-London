@@ -99,22 +99,29 @@
   </p>
   <p style="text-align: left;">Second, we designed a comprehensive experimental proof-of-concept: optimising
     astaxanthin production via a heterologous 10-step enzymatic pathway integrated into the Marionette-wild<i>E.
-      coli</i> strain[5]. This strain possesses a genomically integrated array of twelve orthogonal, highly sensitive
+      coli</i> strain<sup>[5]</sup>. This strain possesses a genomically integrated array of twelve orthogonal, highly
+    sensitive
     inducible transcription factors, allowing for a twelve-dimensional optimisation landscape ideal for
     demonstrating our software's capabilities. By systematically varying inducer concentrations across the pathway,
     we aim to verify that Bayesian optimisation could guide this complex, multi-step enzymatic process to a strong
     optimum using far fewer experiments than conventional screening methods.</p>
 
-  <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified spectrophotometrically[23],
+  <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified
+    spectrophotometrically<sup>[23]</sup>,
     reducing the time needed to evaluate each batch. </p>
   <p style="text-align: left;">It is not economically feasible to utilise inducible promoters for industrial
-    transcriptional control. We thus propose utilising the framework from[6], offering a solution to find a
+    transcriptional control. We thus propose utilising the framework from<sup>[6]</sup>, offering a solution to find a
     constitutive `match` for the expression levels corresponding to an optimum reached in an experimental campaign.
-    This way, expensive inducers within the Marionette array, such as naringenin[5], are only necessary for initial
+    This way, expensive inducers within the Marionette array, such as naringenin<sup>[5]</sup>, are only necessary for
+    initial
     screening campaigns. </p>
   <p style="text-align: left;">While parts delivery delays prevented completion of our full experimental validation
     within the competition timeline, the successful retrospective optimisation of published datasets serves as a
-    compelling proof of concept. These results demonstrate that our framework can effectively optimise cellular
+    compelling proof of concept. It took our BO policy an average of 19 unique points investigated to converge close to
+    the optimum (10% of total possible normalised euclidean distance), as opposed to the 83 taken by the grid search
+    employed in the paper<sup>[21]</sup>.
+
+    These results demonstrate that our framework can effectively optimise cellular
     "black box" functions, systems where the relationship between inputs and outputs is unknown, using substantially
     fewer experimental iterations than traditional approaches.</p>
 
@@ -123,14 +130,12 @@
 <div class="spacer"></div>
 <!-- RESULTS -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="results">
-  <h2 style="text-align: left;">
+  <h2 class="collapsible-trigger" style="text-align: left;">
     <span class="span-lime-green" class="animate-text-scramble"><span>Results</span>
   </h2>
 
   <!-- DROPDOWN START -->
-  <details style="margin-top: 1rem; margin-bottom: 2rem;">
-    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
-    <div style="margin-top: 1rem;">
+  <div class="collapsible-content" style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
         hough we could not perform optimisation batches using our marionette strain due to an unforeseen, significant
@@ -186,26 +191,23 @@
         package, with options set to use a Matern kernel with a gamma noise prior. </p>
 
       <p style="text-align: left;">BioKernel algorithm converged to the optimum as measured by normalised euclidean
-        distance of [PLACEHOLDER] in
-        four dimensions (maximal distance would be 2) within five sequential batches of six technical replicates. It
-        thus took BioKernel [INSERT] measurements to converge close to the optimum, as opposed to the 648 taken by the
-        adapted grid-search used in the paper[21]. </p>
+        distance of 10% in just 22% of unique points investigated in the paper<sup>[21]</sup>.
+        thus took BioKernel an average of 18 points investigated to converge close to the optimum (10% of total possible
+        normalised euclidean distance), as opposed to the 83 taken by the
+        adapted grid-search used in the paper<sup>[21]</sup>. </p>
 
 
-    </div>
-  </details>
+  </div>
   <!-- DROPDOWN END -->
 </div>
 <!-- WHAT IS BAYESIAN OPTIMISATION -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="what-is-bo">
-  <h2 style="text-align: left;">
+  <h2 class="collapsible-trigger" style="text-align: left;">
     <span class="span-lime-green" class="animate-text-scramble"><span>What is Bayesian Optimisation?</span>
   </h2>
 
   <!-- DROPDOWN START -->
-  <details style="margin-top: 1rem; margin-bottom: 2rem;">
-    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
-    <div style="margin-top: 1rem;">
+  <div class="collapsible-content" style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
         Bayesian Optimisation (BO) is a sample-efficient, sequential strategy for global optimisation of black-box
@@ -257,6 +259,8 @@
         where each data point is expensive to acquire and system noise can be unpredictable
         (heteroscedastic)<sup>[1],[3]</sup>.
       </p>
+
+
 
       <!-- SUBSECTION: The Gaussian Process -->
       <h3 style="text-align: left; margin-top: 2rem;">The Gaussian Process: A Probabilistic Map of the Landscape</h3>
@@ -325,21 +329,18 @@
         discovery process when multiple experiments can be run concurrently<sup>[3]</sup>.
       </p>
 
-    </div>
-  </details>
+  </div>
   <!-- DROPDOWN END -->
 </div>
 <!-- WHY IS BAYESIAN OPTIMISATION UNDER-EMPLOYED IN BIOLOGY -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="why-underemployed">
-  <h2 style="text-align: left;">
+  <h2 class="collapsible-trigger" style="text-align: left;">
     <span class="span-lime-green" class="animate-text-scramble"><span>Why is Bayesian Optimisation Under-Employed in
         Biology?</span>
   </h2>
 
   <!-- DROPDOWN START -->
-  <details style="margin-top: 1rem; margin-bottom: 2rem;">
-    <summary style="cursor: pointer; font-weight: bold;">Show Details</summary>
-    <div style="margin-top: 1rem;">
+  <div class="collapsible-content" style="margin-top: 1rem;">
 
       <p style="text-align: left; margin-bottom: 1.5rem;">
         In the past decade BO has received a significant boost in attention. This can be attributed to a massive leap in
@@ -373,15 +374,15 @@
         are not
         needed for BO workflows since custom models are able to accommodate some level of noise<sup>[7]</sup>.
       </p>
-      <p>We postulate that it is due to the following reasons that BO has been under-appreciated by the biological
+      <p style="text-align: left; margin-bottom: 1.5rem;">We postulate that it is due to the following reasons that BO has been under-appreciated by the biological
         sciences outside of media optimisation and research-level exploration of large genetic combinatorial
         libraries<sup>[18],[20]</sup>. </p>
 
-      <p>One reason is that by itself BO is unintuitive and could be assumed to be similar to a random search. This is a
+      <p style="text-align: left; margin-bottom: 1.5rem;">One reason is that by itself BO is unintuitive and could be assumed to be similar to a random search. This is a
         misconception though, since non Thompson sampling implementations are completely deterministic and random search
         algorithms actually outperform the more conventional grid search<sup>[3]</sup>. </p>
 
-      <p>The second issue pertains to the high, often heteroscedastic (not-constant along the prediction variable),
+      <p style="text-align: left; margin-bottom: 1.5rem;">The second issue pertains to the high, often heteroscedastic (not-constant along the prediction variable),
         noise levels that come with wet-lab experimentation. Technical replicates are an inherent part of the field and
         provide information not just through discovering the mean but the variance associated with replication. This is
         a significant limitation for the simplest BO models, since they treat the mean of technical replicates as a
@@ -389,7 +390,7 @@
         themselves with research-level implementations that were often designed for solving a specific issue and cannot
         be described as beginner friendly.</p>
 
-      <p>Our dry lab software project aims to address two main points of the issue. First, it acts as an interactive
+      <p style="text-align: left; margin-bottom: 1.5rem;">Our dry lab software project aims to address two main points of the issue. First, it acts as an interactive
         playground that would allow an individual to convince themselves of the merits provided by BO. This acts as a
         first stepping stone for anyone who would then go out and implement their own BO workflow to tackle a specific
         real world problem. Second, it has all the necessary functions to run BO as part of an experiment without having
@@ -401,16 +402,17 @@
 
       </p>
 
-    </div>
-  </details>
+  </div>
   <!-- DROPDOWN END -->
 </div>
 <!-- OUTLOOK -->
+
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="outlook">
   <h2 style="text-align: left;">
     <span class="span-lime-green" class="animate-text-scramble"><span>Outlook</span>
   </h2>
-
+<p><p>The software - BioKernel can be downloaded from: <a href="https://gitlab.igem.org/2025/software-tools/imperial" target="_blank" rel="noopener noreferrer">https://gitlab.igem.org/2025/software-tools/imperial</a></p>
+<p> <br></p>
   <p style="text-align: left; margin-bottom: 1.5rem;">
     Beyond what we managed to add ahead of the freeze, we are actively engaged in enhancing this package by adding
     greater functionality. Currently, we plan to add the following elements:
@@ -441,7 +443,7 @@
   <h2 style="text-align: left;">
     <span class="animate-text-scramble">Best model award consideration</span>
   </h2>
-  <p>We think that our modelling contribution, BioKernel, aligns strongly with the Best Model Award criteria. Here's a
+  <p style="text-align: left; margin-bottom: 1.5rem;">We think that our modelling contribution, BioKernel, aligns strongly with the Best Model Award criteria. Here's a
     couple reasons.</p>
   <p><strong>How impressive is the modelling?</strong></p>
   <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
@@ -464,20 +466,19 @@
     <li><strong>Quantified system properties:</strong> Modelled the specific noise profile and sensitivities of the
       real-world
       limonene production system, showing quantitative understanding.</li>
-    <li><strong>Proven understanding via prediction:</strong> Successfully found the known optimum (within PLACEHOLDER %
+    <li><strong>Proven understanding via prediction:</strong> Successfully found the known optimum (within 10%
       difference) in a
       parameter space interpolated from a real dataset, definitively proving its ability to understand the system's
       behaviour.</li>
   </ol>
   <p><strong>Did the team use measurements of a part, device, or system to develop the model?</strong></p>
-  
+
   <ol style="text-align: left; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-      <li><strong>Validated on real experimental data</strong>: The model was tested and proven effective using
+    <li><strong>Validated on real experimental data</strong>: The model was tested and proven effective using
       measurements
       from a published
       microbial limonene production study in addition to simulated data.</li>
-    <li><strong>Demonstrated high data efficiency<strong>: Reached the known optimum using (within PLACEHOLDER %
-          difference) of
+    <li><strong>Demonstrated high data efficiency<strong>: Reached the known optimum using 22% of
           the original study's experiments, showing it learns effectively from a small number of real measurements.</li>
   </ol>
 
@@ -522,7 +523,8 @@
 
     <li>A. Ghodasara and C. A. Voigt, “Balancing gene expression without library construction via a reusable sRNA pool,”
       <em>Nucleic Acids Research</em>, vol. 45, no. 13, pp. 8116–8127, Jun. 2017, doi: <a
-        href="https://doi.org/10.1093/nar/gkx530">10.1093/nar/gkx530</a>.</li>
+        href="https://doi.org/10.1093/nar/gkx530">10.1093/nar/gkx530</a>.
+    </li>
 
     <li>M. Siska, E. Pajak, K. Rosenthal, A. del Rio Chanona, von Lieres, and L. M. Helleckes, “A Guide to Bayesian
       Optimization in Bioprocess Engineering,” <em>arXiv.org</em>, 2025. <a
@@ -534,7 +536,8 @@
 
     <li>A. H. Victoria and G. Maragatham, “Automatic tuning of hyperparameters using Bayesian optimization,”
       <em>Evolving Systems</em>, vol. 12, May 2020, doi: <a
-        href="https://doi.org/10.1007/s12530-020-09345-2">10.1007/s12530-020-09345-2</a>.</li>
+        href="https://doi.org/10.1007/s12530-020-09345-2">10.1007/s12530-020-09345-2</a>.
+    </li>
 
     <li>J. Wu, X.-Y. Chen, H. Zhang, L.-D. Xiong, H. Lei, and S.-H. Deng, “Hyperparameter Optimization for Machine
       Learning Models Based on Bayesian Optimization,” <em>Journal of Electronic Science and Technology</em>, vol. 17,
@@ -586,12 +589,14 @@
 
     <li>Y. Ma et al., “Flux optimization using multiple promoters in Halomonas bluephagenesis as a model chassis of the
       next generation industrial biotechnology,” <em>Metabolic Engineering</em>, vol. 81, pp. 249–261, Dec. 2023, doi:
-      <a href="https://doi.org/10.1016/j.ymben.2023.12.011">10.1016/j.ymben.2023.12.011</a>.</li>
+      <a href="https://doi.org/10.1016/j.ymben.2023.12.011">10.1016/j.ymben.2023.12.011</a>.
+    </li>
 
     <li>P. Casella, A. Iovine, S. Mehariya, T. Marino, D. Musmarra, and A. Molino, “Smart Method for Carotenoids
       Characterization in <em>Haematococcus pluvialis</em> Red Phase and Evaluation of Astaxanthin Thermal Stability,”
       <em>Antioxidants</em>, vol. 9, no. 5, p. 422, May 2020, doi: <a
-        href="https://doi.org/10.3390/antiox9050422">10.3390/antiox9050422</a>.</li>
+        href="https://doi.org/10.3390/antiox9050422">10.3390/antiox9050422</a>.
+    </li>
   </ol>
 </div>
 
