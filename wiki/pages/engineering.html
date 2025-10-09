@@ -6,9 +6,10 @@
 {% block scroll_nav %}
 <nav class="side-scroll-nav scroll-nav" style="font-size: 0.7rem; width: 180px;">
   <span class="side-scroll-nav-label">On This Page</span>
-  <a href="#engineering">Engineering Cycle</a>
-  <a href="#hoc">Hoc</a>
-  <a href="#dpmi">dPMI</a>
+  <a class="span-yellow" href="#colony-pcr"><span>Colony PCR</span></a>
+  <a class="span-yellow" href="#hoc"><span>Hoc</span></a>
+  <a class="span-yellow" href="#crispr"><span>CRISPR</span></a>
+  <a class="span-yellow" href="#dpmi"><span>dPMI</span></a>
 </nav>
 {% endblock %}
 
@@ -34,110 +35,128 @@
 </div>
 
 <div class="spacer5"></div>
-<!-- ENGINEERING CYCLE SECTION -->
-<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="engineering">
 
+<!-- ENGINEERING CYCLE INTRODUCTION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="engineering-cycle">
   <div class="section-title">
     <h1 style="text-align: left;" class="animate-text-scramble">Engineering Cycle</h1>
   </div>
 
-  <!-- DBTL Cycle 1 -->
+  <p style="text-align: left;">
+    Throughout our design and experimentation phase, we iterated through various DBTL cycles within the different engineering targets. 
+    We compiled a list of the major engineering cycles that influenced our project direction and have listed them below.
+  </p>
+</div>
+<!-- COLONY PCR OF E.COLI GF PLASMIDS -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="colony-pcr">
+
+  <div class="section-title">
+    <h1 style="text-align: left;" class="span-yellow" class="animate-text-scramble"><span>Colony PCR of <em>E. coli</em> GF Plasmids</h1>
+  </div>
+
+  <!-- CYCLE 1 -->
   <details open class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle one</span>
+        <span class="span-yellow animate-text-scramble"><span>Cycle One</span></span>
       </h2>
     </summary>
-
-    <p style="text-align: left;"><strong>Design:</strong> Primers were designed to span across both the backbone and the insert.</p>
-    <p style="text-align: left;"><strong>Build:</strong> Golden Gate assembly of the plasmid constructs was performed using a cycling protocol.</p>
+    <p style="text-align: left;"><strong>Design:</strong> Primers were initially designed to span across both the backbone and the insert.</p>
+    <p style="text-align: left;"><strong>Build:</strong> Golden Gate assembly of the plasmid constructs were performed using a cycling protocol.</p>
     <p style="text-align: left;"><strong>Test:</strong> Ran colony PCR and visualised the results using gel electrophoresis. The gel returned empty.</p>
     <p style="text-align: left;"><strong>Learn:</strong> As successful insertion of the plasmid backbone was required for the colony PCR to produce any band, we were unable to troubleshoot this result very effectively. Specifically, we were unable to conclude whether the negative gel was due to a problem in the colony PCR protocol or a problem with assembly and transformation.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- DBTL Cycle 2 -->
+  <!-- CYCLE 2 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle two</span>
+        <span class="span-yellow animate-text-scramble"><span>Cycle Two</span></span>
       </h2>
     </summary>
-
     <p style="text-align: left;"><strong>Design:</strong> We ordered new primers that bind only to the backbone, where transformation of an empty or correct backbone plasmid would show a smaller band in the gel. As the primers bind the region which flanks the gene insert, successful transformants can be identified through a larger sized amplicon.</p>
-    <p style="text-align: left;"><strong>Build:</strong> We re-ran the Golden Gate assembly of plasmid using the same cycling protocol.</p>
-    <p style="text-align: left;"><strong>Test:</strong> We transformed <em>E. coli</em> and performed colony PCR with the new primers on the transformants to assess correct assembly.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> We were able to identify whether the issue leading to our low number of successful transformants was an assembly or a transformation issue. We found that the CRISPR plasmids had assembled correctly but there was an issue in assembly with the growth factor plasmids.</p>
+    <p style="text-align: left;"><strong>Build:</strong> We repeated the colony PCR protocol from the previous cycle with some modifications. Namely, we increased the initial holding time from 1 minute to 5 minutes in order to facilitate better initial denaturation of plasmid DNA.</p>
+    <p style="text-align: left;"><strong>Test:</strong> We performed gel electrophoresis to visualise the results. We noted the absence of large amplicons in all samples, indicating a failed assembly.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> We were able to identify whether the issue leading to our low number of successful transformants was an assembly or a transformation issue. We found that the plasmid assembly was unsuccessful for our growth factor plasmids.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- DBTL Cycle 3 -->
+  <!-- CYCLE 3 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle three</span>
+        <span class="span-yellow animate-text-scramble"><span>Cycle Three</span></span>
       </h2>
     </summary>
-
-    <p style="text-align: left;"><strong>Design:</strong> We researched new protocols for Golden Gate assemblies with higher efficiencies when using type 2B restriction enzymes. We swapped out to only use NEB restriction enzymes to ensure the buffer used is appropriate for efficient activity of both enzymes.</p>
-    <p style="text-align: left;"><strong>Build:</strong> We re-ran the Golden Gate assembly of plasmid and performed it using the same cycling protocol.</p>
+    <p style="text-align: left;"><strong>Design:</strong> To address a potential issue with enzyme compatibility, we designed a protocol that would use only NEB reagents to ensure the buffer would be compatible with all relevant enzymes. NEB’s BsaI-HFv2 and BbsI-HF were used along with rCutSmart buffer supplemented with 1 mM ATP.</p>
+    <p style="text-align: left;"><strong>Build:</strong> Golden Gate assembly of our growth factor constructs was performed using an overnight isothermal protocol.</p>
     <p style="text-align: left;"><strong>Test:</strong> We transformed <em>E. coli</em> and performed colony PCR on the transformants to assess correct assembly.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> There was increased transformation efficiency and we observed fewer colonies on the control (empty) assembly transformation, indicating the plasmid backbone may have been enzymatically linearised during assembly. However, when we ran colony PCR as described in the previous DBTL cycle, the gel had distinct bands, but all the plasmids were negative for the correct assembly. We concluded that there must be some problem with the assembly, and after checking our cloning plans, realised that we were not accounting for the length of the plasmid backbone the parts were shipped in during our Golden Gate assembly calculations, which affected the fragment volumes required for high efficiency assembly.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> There was increased transformation efficiency and we observed fewer colonies on the control (empty) assembly transformation, indicating the plasmid backbone may have been enzymatically linearised during assembly. However, the colony PCR gel had distinct bands, but all the plasmids were negative for the correct assembly. We concluded that there must be some problem with the assembly, and after checking our experimental plan, realised that we were not accounting for the length of the plasmid backbone the parts were shipped in during our Golden Gate assembly calculations, which affected the fragment volumes required for high-efficiency assembly.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- DBTL Cycle 4 -->
+  <!-- CYCLE 4 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle four</span>
+        <span class="span-yellow animate-text-scramble"><span>Cycle Four</span></span>
       </h2>
     </summary>
-
     <p style="text-align: left;"><strong>Design:</strong> We re-calculated the Golden Gate assembly protocol to account for the plasmid backbone length.</p>
     <p style="text-align: left;"><strong>Build:</strong> We re-ran Golden Gate assembly with the updated reagent volumes.</p>
     <p style="text-align: left;"><strong>Test:</strong> We transformed <em>E. coli</em> and performed colony PCR on the transformants to assess correct assembly.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> We saw bands which indicated distinct larger amplicons on some of the colonies, indicating that some assemblies had worked. Namely, EGF, HGF, and IGF-Rho all showed successful assembly. We theorised that we had run out of usable FGF plasmid by this point, and that the concentration of mCherry plasmid was lower than what we measured by Nanodrop quantification. We chose to inoculate an overnight culture of TOP10 with mCherry plasmid to amplify and obtain a higher concentration.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> We saw bands which indicated distinct larger amplicons on some of the colonies, indicating that some assemblies had worked. Namely, EGF, HGF, and IGF-Rho all showed successful assembly. Regarding the unsuccessful assemblies, we theorised that we had run out of usable FGF plasmid by this point, and that the concentration of mCherry plasmid was lower than what we measured by Nanodrop quantification. We chose to transform TOP10 <em>E. coli</em> with mCherry plasmid and inoculate an overnight to amplify.</p>
   </details>
-
 </div>
-
-<div class="spacer"></div>
 <!-- HOC SECTION -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="hoc">
-
   <div class="section-title">
-    <h1 style="text-align: left;" class="animate-text-scramble">Hoc</h1>
+    <h1 style="text-align: left;" class="span-yellow" class="animate-text-scramble"><span>Hoc</span></h1>
   </div>
 
-  <!-- Hoc Cycle 1 -->
+  <details open class="dropdown-section">
+    <summary><h2 style="text-align: left;">Cycle</h2></summary>
+
+    <p style="text-align: left;"><strong>Design:</strong> During our initial literature review, multiple scholarly articles indicated a truncated <em>Hoc1</em> gene led to a more permeable cell membrane. We investigated the potential biochemical mechanism for this difference.</p>
+    <p style="text-align: left;"><strong>Build:</strong> Protein sequences for the wild-type and truncated Hoc1 were generated and their structures were first predicted <em>in silico</em> using AlphaFold 3.</p>
+    <p style="text-align: left;"><strong>Test:</strong> To assess the potential loss of activity in the truncated enzyme, we performed a structural analysis of the active site pocket in PyMOL. Previous studies identified several conserved residues involved in donor substrate binding (T143, D225, D277, Q300, V336) and in stabilisation (D179, R213). These residues are highly conserved across yeast and mould species and are essential for enzymatic function<sup>[1]</sup>.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> Our analysis revealed that one of the active site pockets is severely affected by truncation, with most of it missing. Among the conserved residues, Q300 is lost due to the frameshift, likely impairing the enzyme’s substrate binding ability and stability, thereby potentially reducing enzyme activity.</p>
+
+    <div class="image-aligner-center" style="margin-top: 1rem; margin-bottom: 0.5rem;">
+      <img src="https://static.igem.wiki/teams/5916/assets/pymoling.avif" alt="Superimposed structures of truncated and original Hoc1" style="max-width: 80%; border-radius: 0.5rem;" class="tilt-effect">
+    </div>
+
+    <p style="text-align: center; font-size: 0.9rem; color: #bfbfbf;">
+      <strong>Figure X.</strong> Superimposed image of truncated and original Hoc1 structure. (A) Surface representation of the enzyme’s active site, illustrating the reduced binding pocket caused by the frameshift-induced truncation. (B) Zoomed view of the active site pocket, highlighting the conserved residues responsible for substrate stabilisation and binding. The residue Q300 is absent in the truncated structure. Structures were predicted using AlphaFold 3.
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #444; width: 60%; margin: 2rem auto;" />
+
+    <p style="text-align: left; font-size: 0.85rem; color: #bfbfbf;">
+      <strong>[1]</strong> E. T. R. Kelly, D. Rodionov, B. Sleno, P. A. Romero, and A. M. Berghuis, ‘Crystal structure of the fungal mannosyltransferase Och1 reveals active site primed for N-glycan binding’, <em>PLoS One</em>, vol. 20, no. 7, p. e0329259, July 2025, doi: 10.1371/journal.pone.0329259.
+    </p>
+  </details>
+</div>
+<div class="spacer"></div>
+<!-- CRISPR SECTION -->
+<div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="crispr">
+  <div class="section-title">
+    <h1 style="text-align: left;" class="span-yellow" class="animate-text-scramble"><span>CRISPR</h1>
+  </div>
+
+  <!-- CYCLE 1 -->
   <details open class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle one</span>
+        <span class="animate-text-scramble"><span>Cycle One</span></span>
       </h2>
     </summary>
 
-    <p style="text-align: left;"><strong>Design:</strong> Articles indicated a truncated Hoc1 led to a more permeable cell membrane. We investigated the biochemical mechanism for this difference.</p>
-    <p style="text-align: left;"><strong>Build:</strong> AlphaFold3 was used to generate structure predictions for both truncated and native Hoc1 in <em>K. phaffii</em>. Generated structure exhibited high confidence level as the structure of Hoc1 homologs in multiple species have been resolved.</p>
-    <p style="text-align: left;"><strong>Test:</strong> We visualised the Hoc1 protein using PyMol to predict the position of the active site. Aligning both structures showed truncation affected the shape of the active site, which would affect enzymatic activity.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> This result validates our initial thought that a truncated Hoc1 has different levels of enzymatic activity compared to native Hoc1.</p>
-  </details>
-
-  <div class="spacer"></div>
-
-  <!-- Hoc Cycle 2 -->
-  <details class="dropdown-section">
-    <summary>
-      <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle two</span>
-      </h2>
-    </summary>
-
-    <p style="text-align: left;"><strong>Design:</strong> Designed corresponding sgRNAs targeting the <em>hoc1</em> locus, using homology arms which flank the upstream and downstream elements of the gene. Gene fragments were designed to have high-fidelity Golden Gate overhangs for assembly.</p>
+    <p style="text-align: left;"><strong>Design:</strong> Designed oligonucleotides that would assemble sgRNAs targeting the <em>Hoc1</em> locus. Gene fragments were designed to have high-fidelity Golden Gate overhangs for assembly.</p>
     <p style="text-align: left;"><strong>Build:</strong> DNA fragments were assembled using overlap extension PCR.</p>
     <p style="text-align: left;"><strong>Test:</strong> Construct sequence length was verified by gel electrophoresis.</p>
     <p style="text-align: left;"><strong>Learn:</strong> Plasmid construction was successful. We moved on to Golden Gate assembly.</p>
@@ -145,11 +164,11 @@
 
   <div class="spacer"></div>
 
-  <!-- Hoc Cycle 3 -->
+  <!-- CYCLE 2 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle three</span>
+        <span class="animate-text-scramble"><span>Cycle Two</span></span>
       </h2>
     </summary>
 
@@ -161,115 +180,112 @@
 
   <div class="spacer"></div>
 
-  <!-- Hoc Cycle 4 -->
+  <!-- CYCLE 3 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle four</span>
+        <span class="animate-text-scramble"><span>Cycle Three</span></span>
       </h2>
     </summary>
 
-    <p style="text-align: left;"><strong>Design:</strong> We designed a protocol and prepared electrocompetent <em>K. phaffii</em> for electroporation.</p>
-    <p style="text-align: left;"><strong>Build:</strong> We transformed <em>K. phaffii</em> with sgRNA plasmid and HR template.</p>
+    <p style="text-align: left;"><strong>Design:</strong> We designed a protocol and prepared electrocompetent <em>K. phaffii</em> for electroporation. We amplified a pair of homologous recombination templates that would allow for the downregulation and/or repair of the <em>Hoc1</em> gene.</p>
+    <p style="text-align: left;"><strong>Build:</strong> We transformed <em>K. phaffii</em> with sgRNA plasmid and HR template, a plasmid containing the downregulated and/or repaired <em>Hoc1</em> gene for <em>K. phaffii</em>.</p>
     <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid. Colonies which survived were then plated onto NRS plates to select for the gene insert.</p>
     <p style="text-align: left;"><strong>Learn:</strong> Colonies grew on Hygromycin plates but were unable to proliferate on Nourseothricin plates. This indicates that while the Cas9–sgRNA plasmids were correctly transformed, we had insufficient concentrations of the HR templates causing the integration of the cassette to fail.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- Hoc Cycle 5 -->
+  <!-- CYCLE 4 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle five</span>
+        <span class="animate-text-scramble"><span>Cycle Four</span></span>
       </h2>
     </summary>
 
     <p style="text-align: left;"><strong>Design:</strong> We adjusted the protocol to increase the concentration of DNA present during <em>K. phaffii</em> electroporation.</p>
-    <p style="text-align: left;"><strong>Build:</strong> We ran <em>K. phaffii</em> electroporation.</p>
-    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid, where there were no colonies that survived.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> As we used a different electroporator model and conducted the protocol without direct supervision, we considered possible issues deriving from the machinery. Upon reviewing the settings of the electroporator, we identified that the time constant varied from our initial run, which likely decreased <em>K. phaffii</em> cell viability.</p>
+    <p style="text-align: left;"><strong>Build:</strong> We repeated <em>K. phaffii</em> electroporation protocol using HR template DNA we gathered and concentrated down from five minipreps.</p>
+    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid. We saw no survival of colonies throughout the plates.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> As we used a different electroporator model and conducted the protocol without direct supervision, we considered possible issues deriving from the machinery. Upon reviewing the settings of the electroporator, we identified that the time constant varied from our initial run, which likely decreased <em>K. phaffii</em> cell viability. This was unfortunately something that could not have been controlled on the electroporator we used for this experiment.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- Hoc Cycle 6 -->
+  <!-- CYCLE 5 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle six</span>
+        <span class="animate-text-scramble"><span>Cycle Five</span></span>
       </h2>
     </summary>
 
     <p style="text-align: left;"><strong>Design:</strong> We continued to use the higher plasmid DNA concentration and conducted the electroporation protocol under the correct settings.</p>
-    <p style="text-align: left;"><strong>Build:</strong> We ran <em>K. phaffii</em> electroporation.</p>
+    <p style="text-align: left;"><strong>Build:</strong> We repeated <em>K. phaffii</em> electroporation under the same conditions as the first attempt.</p>
     <p style="text-align: left;"><strong>Test:</strong> Observed colonies which were able to grow on the combination Hygromycin and Nourseothricin selection plates, indicating potentially successful transformants.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> The modifications we planned (Hoc1 repair + downregulation, PMI downregulation) may be viable in <em>K. phaffii</em>. Further testing is required to confirm these modifications have taken place.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> <em>Hoc1</em> expression being controlled by the PIS1 promoter may be viable in <em>K. phaffii</em>. Further testing is required to confirm these modifications have taken place. If successful, testing of promoter repression using zinc would be useful to characterise this behaviour.</p>
   </details>
-
 </div>
-
-<div class="spacer"></div>
 <!-- dPMI SECTION -->
 <div class="page-section width-75" style="margin-left: 220px; margin-bottom: 3rem;" id="dpmi">
 
   <div class="section-title">
-    <h1 style="text-align: left;" class="animate-text-scramble">dPMI</h1>
+    <h1 style="text-align: left;" class="span-yellow" class="animate-text-scramble"><span>dPMI</h1>
   </div>
 
-  <!-- dPMI Cycle 1 -->
+  <!-- CYCLE 1 -->
   <details open class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle one</span>
+        <span class="animate-text-scramble"><span>Cycle One</span></span>
       </h2>
     </summary>
 
-    <p style="text-align: left;"><strong>Design:</strong> Designed corresponding sgRNAs targeting the PMI locus, using homology arms which flank the upstream and downstream elements of the gene. Gene fragments were designed to have high-fidelity Golden Gate overhangs for assembly. </p>
-    <p style="text-align: left;"><strong>Build:</strong> We re-ran the Golden Gate assembly of plasmid and performed it using the same cycling protocol.</p>
-    <p style="text-align: left;"><strong>Test:</strong> Observed colonies on corresponding antibiotic selection plates and sequence verified assemblies.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> <em>E. coli</em> transformation was successful, and we were able to move on to electrocompetent <em>K. phaffii</em> transformation.</p>
+    <p style="text-align: left;"><strong>Design:</strong> Designed corresponding sgRNAs targeting the <em>PMI</em> locus. Gene fragments were designed to have high-fidelity Golden Gate overhangs for assembly.</p>
+    <p style="text-align: left;"><strong>Build:</strong> sgRNAs were assembled by overlap extension PCR. Plasmids were assembled using Golden Gate assembly and transformed into TOP10 <em>E. coli</em>.</p>
+    <p style="text-align: left;"><strong>Test:</strong> Observed colonies on corresponding antibiotic selection plates and assemblies were sequence verified.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> <em>E. coli</em> transformation was successful and we yielded 4 out of 5 sequence-perfect clones. We determined that we could use these sgRNA plasmids to transform <em>K. phaffii</em>.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- dPMI Cycle 2 -->
+  <!-- CYCLE 2 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle two</span>
+        <span class="animate-text-scramble"><span>Cycle Two</span></span>
       </h2>
     </summary>
 
-    <p style="text-align: left;"><strong>Design:</strong> Designed corresponding sgRNAs targeting the <em>PMI</em> locus, using homology arms which flank the upstream and downstream elements of the gene. Gene fragments were designed to have high-fidelity Golden Gate overhangs for assembly and were amplified simultaneously to <em>Hoc1</em> sgRNAs.</p>
+    <p style="text-align: left;"><strong>Design:</strong> From our previous experiment, we determined that we could transform <em>K. phaffii</em> with PMI-targeting sgRNAs. We designed a template for the homologous recombination of a downregulated copy of PMI in place of the original gene, purifying and linearising it to obtain enough potential DNA for two transformations.</p>
     <p style="text-align: left;"><strong>Build:</strong> We ran <em>K. phaffii</em> electroporation.</p>
-    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid. Colonies which survived were then plated onto NRS plates to select for the gene insert.</p>
-    <p style="text-align: left;"><strong>Learn:</strong> Colonies were able to grow on Hygromycin plates but were unable to proliferate on NRS plates. This indicates that empty dCas9 plasmids were transformed, where insufficient plasmid DNA concentration was the likely cause for the unsuccessful transformants.</p>
+    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid. Colonies that survived on combination plates were re-plated on Nourseothricin plates to remove the burdensome Cas9 plasmid.</p>
+    <p style="text-align: left;"><strong>Learn:</strong> Colonies were able to grow on Hygromycin plates but were unable to proliferate on NRS plates. This indicates that empty Cas9 plasmids were transformed, where insufficient plasmid DNA concentration was the likely cause for the unsuccessful transformants.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- dPMI Cycle 3 -->
+  <!-- CYCLE 3 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle three</span>
+        <span class="animate-text-scramble"><span>Cycle Three</span></span>
       </h2>
     </summary>
 
     <p style="text-align: left;"><strong>Design:</strong> We adjusted the protocol to increase the concentration of DNA present during <em>K. phaffii</em> electroporation.</p>
     <p style="text-align: left;"><strong>Build:</strong> We ran <em>K. phaffii</em> electroporation.</p>
-    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid, where there were no colonies which survived.</p>
+    <p style="text-align: left;"><strong>Test:</strong> Plated transformants onto Hygromycin and Hygromycin + Nourseothricin (NRS) combination plates to select for transformants containing the Cas9 plasmid. There were no colonies which survived.</p>
     <p style="text-align: left;"><strong>Learn:</strong> As we used a different electroporator model and conducted the protocol without direct supervision, we considered possible issues deriving from the machinery. Upon reviewing the settings of the electroporator, we identified that the time constant varied from our initial run, which likely decreased <em>K. phaffii</em> cell viability.</p>
   </details>
 
   <div class="spacer"></div>
 
-  <!-- dPMI Cycle 4 -->
+  <!-- CYCLE 4 -->
   <details class="dropdown-section">
     <summary>
       <h2 style="text-align: left;">
-        <span class="highlight-green animate-text-scramble">Cycle four</span>
+        <span class="animate-text-scramble"><span>Cycle Four</span></span>
       </h2>
     </summary>
 
@@ -278,7 +294,6 @@
     <p style="text-align: left;"><strong>Test:</strong> Observed colonies which were able to grow on the combination Hygromycin and Nourseothricin selection plates, indicating successful transformants.</p>
     <p style="text-align: left;"><strong>Learn:</strong> We need to run colony PCR in the future to confirm our modifications were successful.</p>
   </details>
-
 </div>
 
 {% endblock %}
