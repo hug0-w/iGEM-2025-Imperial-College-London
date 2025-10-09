@@ -99,22 +99,29 @@
   </p>
   <p style="text-align: left;">Second, we designed a comprehensive experimental proof-of-concept: optimising
     astaxanthin production via a heterologous 10-step enzymatic pathway integrated into the Marionette-wild<i>E.
-      coli</i> strain[5]. This strain possesses a genomically integrated array of twelve orthogonal, highly sensitive
+      coli</i> strain<sup>[5]</sup>. This strain possesses a genomically integrated array of twelve orthogonal, highly
+    sensitive
     inducible transcription factors, allowing for a twelve-dimensional optimisation landscape ideal for
     demonstrating our software's capabilities. By systematically varying inducer concentrations across the pathway,
     we aim to verify that Bayesian optimisation could guide this complex, multi-step enzymatic process to a strong
     optimum using far fewer experiments than conventional screening methods.</p>
 
-  <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified spectrophotometrically[23],
+  <p style="text-align: left;">We opted to use astaxanthin as it is readily quantified
+    spectrophotometrically<sup>[23]</sup>,
     reducing the time needed to evaluate each batch. </p>
   <p style="text-align: left;">It is not economically feasible to utilise inducible promoters for industrial
-    transcriptional control. We thus propose utilising the framework from[6], offering a solution to find a
+    transcriptional control. We thus propose utilising the framework from<sup>[6]</sup>, offering a solution to find a
     constitutive `match` for the expression levels corresponding to an optimum reached in an experimental campaign.
-    This way, expensive inducers within the Marionette array, such as naringenin[5], are only necessary for initial
+    This way, expensive inducers within the Marionette array, such as naringenin<sup>[5]</sup>, are only necessary for
+    initial
     screening campaigns. </p>
   <p style="text-align: left;">While parts delivery delays prevented completion of our full experimental validation
     within the competition timeline, the successful retrospective optimisation of published datasets serves as a
-    compelling proof of concept. These results demonstrate that our framework can effectively optimise cellular
+    compelling proof of concept. It took our BO policy an average of 19 unique points investigated to converge close to
+    the optimum (10% of total possible normalised euclidean distance), as opposed to the 83 taken by the grid search
+    employed in the paper<sup>[21]</sup>.
+
+    These results demonstrate that our framework can effectively optimise cellular
     "black box" functions, systems where the relationship between inputs and outputs is unknown, using substantially
     fewer experimental iterations than traditional approaches.</p>
 
@@ -186,11 +193,10 @@
         package, with options set to use a Matern kernel with a gamma noise prior. </p>
 
       <p style="text-align: left;">BioKernel algorithm converged to the optimum as measured by normalised euclidean
-        distance of [PLACEHOLDER] in
-        four dimensions (maximal distance would be 2) within five sequential batches of six technical replicates. It
+        distance of 10% in just 22% of unique points investigated in the paper<sup>[21]</sup>.
         thus took BioKernel an average of 18 points investigated to converge close to the optimum (10% of total possible
         normalised euclidean distance), as opposed to the 83 taken by the
-        adapted grid-search used in the paper[21]. </p>
+        adapted grid-search used in the paper<sup>[21]</sup>. </p>
 
 
     </div>
@@ -465,7 +471,7 @@
     <li><strong>Quantified system properties:</strong> Modelled the specific noise profile and sensitivities of the
       real-world
       limonene production system, showing quantitative understanding.</li>
-    <li><strong>Proven understanding via prediction:</strong> Successfully found the known optimum (within PLACEHOLDER %
+    <li><strong>Proven understanding via prediction:</strong> Successfully found the known optimum (within 10%
       difference) in a
       parameter space interpolated from a real dataset, definitively proving its ability to understand the system's
       behaviour.</li>
@@ -477,8 +483,7 @@
       measurements
       from a published
       microbial limonene production study in addition to simulated data.</li>
-    <li><strong>Demonstrated high data efficiency<strong>: Reached the known optimum using (within PLACEHOLDER %
-          difference) of
+    <li><strong>Demonstrated high data efficiency<strong>: Reached the known optimum using 22% of
           the original study's experiments, showing it learns effectively from a small number of real measurements.</li>
   </ol>
 
