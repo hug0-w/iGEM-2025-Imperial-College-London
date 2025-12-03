@@ -1,66 +1,57 @@
-# Team Imperial 2025 Wiki
+# Growf - iGEM Imperial College London 2025
 
-This repository **MUST** contain all coding assets to generate your team's wiki (HTML, CSS, JavaScript, TypeScript, Python, etc).
+**🏆 Gold Medal Winner at iGEM 2025 🏆**
 
-Images, photos, icons and fonts **MUST** be stored on `static.igem.wiki` using [tools.igem.org](https://tools.igem.org), and Videos **must** be embedded from [iGEM Video Universe](https://video.igem.org).
+This repository contains the source code for the Imperial College London's 2025 iGEM team project, "Growf". You can find our full project wiki at [2025.igem.wiki/imperial/](https://2025.igem.wiki/imperial/).
 
-For up-to-date requirements, resources, help and guidance, visit [competition.igem.org/deliverables/team-wiki](https://competition.igem.org/deliverables/team-wiki).
+## Abstract
 
-## Getting started
+The current model of meat production is environmentally unsustainable, driving deforestation, biodiversity loss, and global greenhouse gas emissions. Cultivated meat offers a promising alternative, yet remains hindered by high production costs, particularly the price of recombinant growth factors that constitute up to 70% of total media expenses. Our project, **Growf**, tackles this challenge by engineering a *Komagataella phaffii* chassis, **Mannoless**, designed to reduce exopolysaccharide (EPS) secretion and improve recombinant protein yield through targeted genetic modifications. In parallel, we developed **BioKernel**, an open-access, no-code Bayesian optimisation framework that accelerates experimental design and strain engineering, enabling researchers to identify optimal conditions with minimal experiments.
 
-You should probably only edit the files inside folders `static`, `wiki` and `wiki > pages`.
-1. Open the Web IDE
-2. Make the changes on the files you wish:
-    * For the menu, change the file [menu.html](wiki/menu.html)
-    * For the layout, change the file [layout.html](wiki/layout.html)
-    * For the pages, change the corresponding file in the foler [pages](wiki/pages)
-3. Review the changes you made
-4. Once you are done, save the changes by **committing** them to the *main branch* of the repository 
-5. An automated script will build, test and deploy your wiki, which should take less than 30 seconds.
+Guided by **Integrated Human Practices**, we engaged world-leading experts across academia and industry to explore unspoken pitfalls of scaling in yeast chassis. Our **Education** efforts addressed public skepticism toward cultivated meat and synthetic biology, recognising that innovation cannot scale without public trust and investor confidence.
 
-## About this Template
+We were on a mission to make all of our outputs, including genetic constructs, engineered strains, and software **fully open-access**, reaffirming our belief that science cannot scale without non-proprietary technology. We aimed to remove cost, accessibility, and licensing barriers in biomanufacturing, accelerating the scalability of cultivated meat and paving the way for a more sustainable, ethical, and open future for food.
 
-### Files
+## Our Solution
 
-The static assets are in the `static` directory. The layout and templates are in the `wiki` directory, and the pages live in the `wiki > pages` directory. Unless you are an experienced and/or adventurous human, you probably shouldn't change other files.
+### MANNOLess
 
-    |__ static/             -> static assets (CSS and JavaScript files only)
-    |__ wiki/               -> Main directory for the pages and layouts
-        |__ footer.html     -> Footer that will appear in all the pages
-        |__ layout.html     -> Main layout of your wiki. All the pages will follow its structure
-        |__ menu.html       -> Menu that will appear in all the pages
-        |__ pages/          -> Directory for all the pages
-            |__ *.html      -> Actual pages of your wiki
-    |__ .gitignore          -> Tells GitLab which files/directories should not be uploaded to the repository
-    |__ .gitlab-ci.yml      -> Automated flow for building, testing and deploying your website.
-    |__ LICENSE             -> License CC-by-4.0, all wikis are required to have this license - DO NOT MODIFY
-    |__ README.md           -> File containing the text you are reading right now
-    |__ app.py              -> Python code managing your wiki
-    |__ dependencies.txt    -> Software dependencies from the Python code
+<span class="highlight-green">Mannoless</span> is our <em>K. phaffii</em> strain engineered to minimise <strong>exopolysaccharide (EPS) secretion</strong>, with the goal of freeing up more cellular energy for recombinant protein production and thereby increasing the yields of our proteins of interest. Specifically, we used a three-pronged strategy to target cell wall integrity and protein glycosylation pathways by modifying *Hoc1*, *Rho1* and *PMI* genes.
 
-### Technologies
+### BioKernel
 
-  * [GitLab Pages](https://docs.gitlab.com/ee/user/project/pages/)
-  * [Python](https://www.python.org): Programming language
-  * [Flask](https://palletsprojects.com/projects/flask): Python framework
-  * [Fronzen-Flask](https://pypi.org/project/Frozen-Flask): Library that builds the wiki to be deployed as a static website
-  * [Bootstrap](https://getbootstrap.com/docs/5.3/components): CSS and JS components used
+**BioKernel** is our dry lab software platform designed to optimise experimental design and strain engineering in synthetic biology. It applies **Bayesian optimisation** to guide biological experiments toward optimal outcomes using minimal resources. The framework was developed to address a key challenge of biological research, the **high cost and limited throughput of experimental testing**, by allowing researchers to systematically explore complex parameter spaces arising in biological experimentation without requiring coding expertise.
 
-### Building locally (advanced users)
+BioKernel can be downloaded from: [https://gitlab.igem.org/2025/software-tools/imperial](https://gitlab.igem.org/2025/software-tools/imperial)
 
-To work locally with this project, follow the steps below:
+## Running the Website
 
-#### Install
+This repository contains the Flask application that serves our iGEM wiki. To run it locally, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
+
+2.  **Install dependencies:**
+    Make sure you have Python and pip installed.
+    ```bash
+    pip install -r dependencies.txt
+    ```
+
+3.  **Run the application:**
+    ```bash
+    flask serve
+    ```
+    The website will be available at `http://localhost:8080`.
+
+## Generating the Static Website
+
+To generate a static version of the website (e.g., for deployment), run the following command:
+
 ```bash
-git clone https://gitlab.igem.org/2025/imperial.git
-cd imperial
-python3 -m venv venv
-. venv/bin/activate # on Linux, MacOS; or
-. venv\Scripts\activate # on Windows
-pip install -r dependencies.txt
+flask freeze
 ```
 
-#### Execute
-```bash
-python app.py
-```
+This will create a `public` directory containing the static files.
